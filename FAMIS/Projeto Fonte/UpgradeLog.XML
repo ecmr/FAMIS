@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="FAMIS_WEB">
+</Property><Property Name="Solution File" Value="C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_WEB.sln">
+</Property><Property Name="User Options File" Value="C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_WEB.suo">
+</Property><Property Name="Date" Value="Tuesday, October 26, 2010">
+</Property><Property Name="Time" Value="7:36 AM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="FAMIS_WEB.sln" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_WEB.sln">
+</Event><Event ErrorLevel="0" Project="" Source="FAMIS_WEB.suo" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_WEB.suo">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\FAMIS_BLL.csproj" Description="Project file successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_BLL\FAMIS_BLL.csproj">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\Agency.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_BLL\Agency.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\Class1.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_BLL\Class1.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\Client.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_BLL\Client.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\Country.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_BLL\Country.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\Department.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_BLL\Department.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\Employee.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_BLL\Employee.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\Geospec.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_BLL\Geospec.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\Group.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_BLL\Group.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\Location.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_BLL\Location.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\Position.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_BLL\Position.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\Product.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_BLL\Product.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\Properties\AssemblyInfo.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_BLL\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\Region.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_BLL\Region.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\Timesheet.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_BLL\Timesheet.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\User.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_BLL\User.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\FAMIS_BLL.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="FAMIS_BLL" Source="FAMIS_BLL\FAMIS_BLL.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\FAMIS_DALL.csproj" Description="Project file successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\FAMIS_DALL.csproj">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\Agency.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\Agency.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\Appointment.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\Appointment.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\Class1.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\Class1.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\Client.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\Client.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\Country.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\Country.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\Department.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\Department.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\Employee.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\Employee.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\Geospec.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\Geospec.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\Group.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\Group.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\Location.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\Location.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\Position.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\Position.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\Product.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\Product.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\Properties\AssemblyInfo.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\Properties\Settings.Designer.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\DB.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\DB.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\Region.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\Region.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\User.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\User.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\Timesheet.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\Timesheet.cs">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\app.config" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\app.config">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\Properties\Settings.settings" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\FAMIS_DALL\FAMIS_DALL\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\FAMIS_DALL.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\FAMIS_DALL.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Model.csproj" Description="Project file successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\Model\Model.csproj">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Agency.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\Model\Agency.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Appointment.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\Model\Appointment.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Client.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\Model\Client.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\ClientProject.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\Model\ClientProject.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Country.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\Model\Country.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Department.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\Model\Department.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Employee.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\Model\Employee.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Geospec.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\Model\Geospec.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Group.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\Model\Group.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Location.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\Model\Location.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Position.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\Model\Position.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Product.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\Model\Product.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Region.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\Model\Region.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\User.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\Model\User.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Properties\AssemblyInfo.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\Model\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Timesheet.cs" Description="File successfully backed up as C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS BKP\Backup\Model\Timesheet.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Model.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Model" Source="Model\Model.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="FAMIS_WEB.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="FAMIS_WEB.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="FAMIS_BLL" Source="FAMIS_BLL\FAMIS_BLL.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="FAMIS_DALL" Source="FAMIS_DALL\FAMIS_DALL\FAMIS_DALL.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Model.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

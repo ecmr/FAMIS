@@ -1,0 +1,1336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <DataSources>
+    <DataSource Name="DataSource1">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=WSERVER_2003_DE\MSSQLSERVER_2008;Initial Catalog=FAMIS;User ID=FAMIS;Password=P@ss@w0rd1;</ConnectString>
+        <IntegratedSecurity>true</IntegratedSecurity>
+      </ConnectionProperties>
+      <rd:DataSourceID>ecbe7854-05c6-41e1-b9c5-39784a81ffec</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSource1">
+      <Fields>
+        <Field Name="user_id">
+          <DataField>user_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="first_name">
+          <DataField>first_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="last_name">
+          <DataField>last_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="email">
+          <DataField>email</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="employee_id">
+          <DataField>employee_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="first_name_1">
+          <DataField>first_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="last_name_1">
+          <DataField>last_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="code">
+          <DataField>code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="starttime">
+          <DataField>starttime</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="endtime">
+          <DataField>endtime</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Hora">
+          <DataField>Hora</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Minute">
+          <DataField>Minute</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Second">
+          <DataField>Second</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="name">
+          <DataField>name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Group_Name">
+          <DataField>Group_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Project_Name">
+          <DataField>Project_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="local_name">
+          <DataField>local_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Country_name">
+          <DataField>Country_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Region_name">
+          <DataField>Region_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Position_name">
+          <DataField>Position_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Department_name">
+          <DataField>Department_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>Select
+	 U.[user_id], U.first_name, U.last_name, U.email
+	,E.employee_id, E.first_name, E.last_name, E.code
+	,T.starttime, T.endtime, 
+	 DateDiff(hour, T.starttime, T.endtime) Hora
+	,DateDiff(minute, T.starttime, T.endtime) Minute
+	,Case 
+		When Convert(int, DateDiff(second, T.starttime, T.endtime)) &gt; 59 Then
+			Convert(int, DateDiff(second, T.starttime, T.endtime)) - 60
+	End Second
+	,A.name
+	,Gp.name   as Group_Name
+	,Pr.name   as Project_Name
+	,Cli.local_name
+--  ,L.*
+	,Cr.name   as Country_name
+	,r.name    as Region_name 
+	,Pos.name  as Position_name
+	,Dep.name  as Department_name	 
+From 
+	[User] U 
+		left  join Employee E on U.[user_id] = E.[user_id]
+			inner join Agency A on A.agency_id = E.agency_id
+				inner join [Group] Gp on A.agency_id = Gp.agency_id
+				inner join Project Pr on A.agency_id = Pr.agency_id
+				inner join Client Cli on Pr.client_id = Cli.client_id
+				inner join Timesheet T on Cli.client_id = T.client_id
+			inner join Position Pos on E.position_id = E.position_id
+			inner join Department Dep on Pos.department_id = Dep.department_id 
+		inner join Location L on A.agency_id = L.agency_id
+		inner join Country Cr on L.country_id = Cr.country_id
+		inner join Region r on Cr.region_id = r.region_id
+--Where
+--	T.timesheet_id=31</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Body>
+    <ReportItems>
+      <Tablix Name="List1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>8in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>2.76in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Rectangle Name="List1_Contents">
+                      <ReportItems>
+                        <Tablix Name="List2">
+                          <TablixBody>
+                            <TablixColumns>
+                              <TablixColumn>
+                                <Width>8in</Width>
+                              </TablixColumn>
+                            </TablixColumns>
+                            <TablixRows>
+                              <TablixRow>
+                                <Height>2.26in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Rectangle Name="List2_Contents">
+                                        <ReportItems>
+                                          <Tablix Name="List3">
+                                            <TablixBody>
+                                              <TablixColumns>
+                                                <TablixColumn>
+                                                  <Width>8in</Width>
+                                                </TablixColumn>
+                                              </TablixColumns>
+                                              <TablixRows>
+                                                <TablixRow>
+                                                  <Height>1.76in</Height>
+                                                  <TablixCells>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Rectangle Name="List3_Contents">
+                                                          <ReportItems>
+                                                            <Tablix Name="matrix1">
+                                                              <TablixCorner>
+                                                                <TablixCornerRows>
+                                                                  <TablixCornerRow>
+                                                                    <TablixCornerCell>
+                                                                      <CellContents>
+                                                                        <Textbox Name="textbox3">
+                                                                          <CanGrow>true</CanGrow>
+                                                                          <KeepTogether>true</KeepTogether>
+                                                                          <Paragraphs>
+                                                                            <Paragraph>
+                                                                              <TextRuns>
+                                                                                <TextRun>
+                                                                                  <Value />
+                                                                                  <Style>
+                                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                                  </Style>
+                                                                                </TextRun>
+                                                                              </TextRuns>
+                                                                              <Style />
+                                                                            </Paragraph>
+                                                                          </Paragraphs>
+                                                                          <rd:DefaultName>textbox3</rd:DefaultName>
+                                                                          <ZIndex>13</ZIndex>
+                                                                          <Style>
+                                                                            <Border>
+                                                                              <Color>LightGrey</Color>
+                                                                              <Style>Solid</Style>
+                                                                            </Border>
+                                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                                            <PaddingRight>2pt</PaddingRight>
+                                                                            <PaddingTop>2pt</PaddingTop>
+                                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                                          </Style>
+                                                                        </Textbox>
+                                                                        <ColSpan>7</ColSpan>
+                                                                        <RowSpan>5</RowSpan>
+                                                                      </CellContents>
+                                                                    </TablixCornerCell>
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                  </TablixCornerRow>
+                                                                  <TablixCornerRow>
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                  </TablixCornerRow>
+                                                                  <TablixCornerRow>
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                  </TablixCornerRow>
+                                                                  <TablixCornerRow>
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                  </TablixCornerRow>
+                                                                  <TablixCornerRow>
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                    <TablixCornerCell />
+                                                                  </TablixCornerRow>
+                                                                </TablixCornerRows>
+                                                              </TablixCorner>
+                                                              <TablixBody>
+                                                                <TablixColumns>
+                                                                  <TablixColumn>
+                                                                    <Width>1in</Width>
+                                                                  </TablixColumn>
+                                                                </TablixColumns>
+                                                                <TablixRows>
+                                                                  <TablixRow>
+                                                                    <Height>0.21in</Height>
+                                                                    <TablixCells>
+                                                                      <TablixCell>
+                                                                        <CellContents>
+                                                                          <Textbox Name="textbox2">
+                                                                            <CanGrow>true</CanGrow>
+                                                                            <KeepTogether>true</KeepTogether>
+                                                                            <Paragraphs>
+                                                                              <Paragraph>
+                                                                                <TextRuns>
+                                                                                  <TextRun>
+                                                                                    <Value>=First(Fields!code.Value)</Value>
+                                                                                    <Style>
+                                                                                      <FontFamily>Tahoma</FontFamily>
+                                                                                    </Style>
+                                                                                  </TextRun>
+                                                                                </TextRuns>
+                                                                                <Style />
+                                                                              </Paragraph>
+                                                                            </Paragraphs>
+                                                                            <rd:DefaultName>textbox2</rd:DefaultName>
+                                                                            <Style>
+                                                                              <Border>
+                                                                                <Color>LightGrey</Color>
+                                                                                <Style>Solid</Style>
+                                                                              </Border>
+                                                                              <PaddingLeft>2pt</PaddingLeft>
+                                                                              <PaddingRight>2pt</PaddingRight>
+                                                                              <PaddingTop>2pt</PaddingTop>
+                                                                              <PaddingBottom>2pt</PaddingBottom>
+                                                                            </Style>
+                                                                          </Textbox>
+                                                                        </CellContents>
+                                                                        <DataElementOutput>Output</DataElementOutput>
+                                                                      </TablixCell>
+                                                                    </TablixCells>
+                                                                  </TablixRow>
+                                                                </TablixRows>
+                                                              </TablixBody>
+                                                              <TablixColumnHierarchy>
+                                                                <TablixMembers>
+                                                                  <TablixMember>
+                                                                    <Group Name="matrix1_Department_name">
+                                                                      <GroupExpressions>
+                                                                        <GroupExpression>=Fields!Department_name.Value</GroupExpression>
+                                                                      </GroupExpressions>
+                                                                    </Group>
+                                                                    <SortExpressions>
+                                                                      <SortExpression>
+                                                                        <Value>=Fields!Department_name.Value</Value>
+                                                                      </SortExpression>
+                                                                    </SortExpressions>
+                                                                    <TablixHeader>
+                                                                      <Size>0.21in</Size>
+                                                                      <CellContents>
+                                                                        <Textbox Name="Department_name">
+                                                                          <CanGrow>true</CanGrow>
+                                                                          <KeepTogether>true</KeepTogether>
+                                                                          <Paragraphs>
+                                                                            <Paragraph>
+                                                                              <TextRuns>
+                                                                                <TextRun>
+                                                                                  <Value>=Fields!Department_name.Value</Value>
+                                                                                  <Style>
+                                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                                    <FontWeight>Bold</FontWeight>
+                                                                                    <Color>White</Color>
+                                                                                  </Style>
+                                                                                </TextRun>
+                                                                              </TextRuns>
+                                                                              <Style />
+                                                                            </Paragraph>
+                                                                          </Paragraphs>
+                                                                          <rd:DefaultName>Department_name</rd:DefaultName>
+                                                                          <ZIndex>12</ZIndex>
+                                                                          <Style>
+                                                                            <Border>
+                                                                              <Color>LightGrey</Color>
+                                                                              <Style>Solid</Style>
+                                                                            </Border>
+                                                                            <BackgroundColor>#6e9eca</BackgroundColor>
+                                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                                            <PaddingRight>2pt</PaddingRight>
+                                                                            <PaddingTop>2pt</PaddingTop>
+                                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                                          </Style>
+                                                                        </Textbox>
+                                                                      </CellContents>
+                                                                    </TablixHeader>
+                                                                    <TablixMembers>
+                                                                      <TablixMember>
+                                                                        <Group Name="matrix1_Region_name">
+                                                                          <GroupExpressions>
+                                                                            <GroupExpression>=Fields!Region_name.Value</GroupExpression>
+                                                                          </GroupExpressions>
+                                                                        </Group>
+                                                                        <SortExpressions>
+                                                                          <SortExpression>
+                                                                            <Value>=Fields!Region_name.Value</Value>
+                                                                          </SortExpression>
+                                                                        </SortExpressions>
+                                                                        <TablixHeader>
+                                                                          <Size>0.21in</Size>
+                                                                          <CellContents>
+                                                                            <Textbox Name="Region_name">
+                                                                              <CanGrow>true</CanGrow>
+                                                                              <KeepTogether>true</KeepTogether>
+                                                                              <Paragraphs>
+                                                                                <Paragraph>
+                                                                                  <TextRuns>
+                                                                                    <TextRun>
+                                                                                      <Value>=Fields!Region_name.Value</Value>
+                                                                                      <Style>
+                                                                                        <FontFamily>Tahoma</FontFamily>
+                                                                                        <FontWeight>Bold</FontWeight>
+                                                                                        <Color>White</Color>
+                                                                                      </Style>
+                                                                                    </TextRun>
+                                                                                  </TextRuns>
+                                                                                  <Style />
+                                                                                </Paragraph>
+                                                                              </Paragraphs>
+                                                                              <rd:DefaultName>Region_name</rd:DefaultName>
+                                                                              <ZIndex>11</ZIndex>
+                                                                              <Style>
+                                                                                <Border>
+                                                                                  <Color>LightGrey</Color>
+                                                                                  <Style>Solid</Style>
+                                                                                </Border>
+                                                                                <BackgroundColor>SlateGray</BackgroundColor>
+                                                                                <PaddingLeft>2pt</PaddingLeft>
+                                                                                <PaddingRight>2pt</PaddingRight>
+                                                                                <PaddingTop>2pt</PaddingTop>
+                                                                                <PaddingBottom>2pt</PaddingBottom>
+                                                                              </Style>
+                                                                            </Textbox>
+                                                                          </CellContents>
+                                                                        </TablixHeader>
+                                                                        <TablixMembers>
+                                                                          <TablixMember>
+                                                                            <Group Name="matrix1_Country_name">
+                                                                              <GroupExpressions>
+                                                                                <GroupExpression>=Fields!Country_name.Value</GroupExpression>
+                                                                              </GroupExpressions>
+                                                                            </Group>
+                                                                            <SortExpressions>
+                                                                              <SortExpression>
+                                                                                <Value>=Fields!Country_name.Value</Value>
+                                                                              </SortExpression>
+                                                                            </SortExpressions>
+                                                                            <TablixHeader>
+                                                                              <Size>0.21in</Size>
+                                                                              <CellContents>
+                                                                                <Textbox Name="Country_name">
+                                                                                  <CanGrow>true</CanGrow>
+                                                                                  <KeepTogether>true</KeepTogether>
+                                                                                  <Paragraphs>
+                                                                                    <Paragraph>
+                                                                                      <TextRuns>
+                                                                                        <TextRun>
+                                                                                          <Value>=Fields!Country_name.Value</Value>
+                                                                                          <Style>
+                                                                                            <FontFamily>Tahoma</FontFamily>
+                                                                                            <FontWeight>Bold</FontWeight>
+                                                                                            <Color>White</Color>
+                                                                                          </Style>
+                                                                                        </TextRun>
+                                                                                      </TextRuns>
+                                                                                      <Style />
+                                                                                    </Paragraph>
+                                                                                  </Paragraphs>
+                                                                                  <rd:DefaultName>Country_name</rd:DefaultName>
+                                                                                  <ZIndex>10</ZIndex>
+                                                                                  <Style>
+                                                                                    <Border>
+                                                                                      <Color>LightGrey</Color>
+                                                                                      <Style>Solid</Style>
+                                                                                    </Border>
+                                                                                    <BackgroundColor>#8fa0b0</BackgroundColor>
+                                                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                                                    <PaddingRight>2pt</PaddingRight>
+                                                                                    <PaddingTop>2pt</PaddingTop>
+                                                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                                                  </Style>
+                                                                                </Textbox>
+                                                                              </CellContents>
+                                                                            </TablixHeader>
+                                                                            <TablixMembers>
+                                                                              <TablixMember>
+                                                                                <Group Name="matrix1_Project_Name">
+                                                                                  <GroupExpressions>
+                                                                                    <GroupExpression>=Fields!Project_Name.Value</GroupExpression>
+                                                                                  </GroupExpressions>
+                                                                                </Group>
+                                                                                <SortExpressions>
+                                                                                  <SortExpression>
+                                                                                    <Value>=Fields!Project_Name.Value</Value>
+                                                                                  </SortExpression>
+                                                                                </SortExpressions>
+                                                                                <TablixHeader>
+                                                                                  <Size>0.21in</Size>
+                                                                                  <CellContents>
+                                                                                    <Textbox Name="Project_Name">
+                                                                                      <CanGrow>true</CanGrow>
+                                                                                      <KeepTogether>true</KeepTogether>
+                                                                                      <Paragraphs>
+                                                                                        <Paragraph>
+                                                                                          <TextRuns>
+                                                                                            <TextRun>
+                                                                                              <Value>=Fields!Project_Name.Value</Value>
+                                                                                              <Style>
+                                                                                                <FontFamily>Tahoma</FontFamily>
+                                                                                                <FontWeight>Bold</FontWeight>
+                                                                                                <Color>White</Color>
+                                                                                              </Style>
+                                                                                            </TextRun>
+                                                                                          </TextRuns>
+                                                                                          <Style />
+                                                                                        </Paragraph>
+                                                                                      </Paragraphs>
+                                                                                      <rd:DefaultName>Project_Name</rd:DefaultName>
+                                                                                      <ZIndex>9</ZIndex>
+                                                                                      <Style>
+                                                                                        <Border>
+                                                                                          <Color>LightGrey</Color>
+                                                                                          <Style>Solid</Style>
+                                                                                        </Border>
+                                                                                        <BackgroundColor>#8fa0b0</BackgroundColor>
+                                                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                                                        <PaddingRight>2pt</PaddingRight>
+                                                                                        <PaddingTop>2pt</PaddingTop>
+                                                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                                                      </Style>
+                                                                                    </Textbox>
+                                                                                  </CellContents>
+                                                                                </TablixHeader>
+                                                                                <TablixMembers>
+                                                                                  <TablixMember>
+                                                                                    <Group Name="matrix1_Group_Name">
+                                                                                      <GroupExpressions>
+                                                                                        <GroupExpression>=Fields!Group_Name.Value</GroupExpression>
+                                                                                      </GroupExpressions>
+                                                                                    </Group>
+                                                                                    <SortExpressions>
+                                                                                      <SortExpression>
+                                                                                        <Value>=Fields!Group_Name.Value</Value>
+                                                                                      </SortExpression>
+                                                                                    </SortExpressions>
+                                                                                    <TablixHeader>
+                                                                                      <Size>0.21in</Size>
+                                                                                      <CellContents>
+                                                                                        <Textbox Name="Group_Name">
+                                                                                          <CanGrow>true</CanGrow>
+                                                                                          <KeepTogether>true</KeepTogether>
+                                                                                          <Paragraphs>
+                                                                                            <Paragraph>
+                                                                                              <TextRuns>
+                                                                                                <TextRun>
+                                                                                                  <Value>=Fields!Group_Name.Value</Value>
+                                                                                                  <Style>
+                                                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                                                    <FontWeight>Bold</FontWeight>
+                                                                                                    <Color>White</Color>
+                                                                                                  </Style>
+                                                                                                </TextRun>
+                                                                                              </TextRuns>
+                                                                                              <Style />
+                                                                                            </Paragraph>
+                                                                                          </Paragraphs>
+                                                                                          <rd:DefaultName>Group_Name</rd:DefaultName>
+                                                                                          <ZIndex>8</ZIndex>
+                                                                                          <Style>
+                                                                                            <Border>
+                                                                                              <Color>LightGrey</Color>
+                                                                                              <Style>Solid</Style>
+                                                                                            </Border>
+                                                                                            <BackgroundColor>#8fa0b0</BackgroundColor>
+                                                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                                                            <PaddingRight>2pt</PaddingRight>
+                                                                                            <PaddingTop>2pt</PaddingTop>
+                                                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                                                          </Style>
+                                                                                        </Textbox>
+                                                                                      </CellContents>
+                                                                                    </TablixHeader>
+                                                                                    <Visibility>
+                                                                                      <Hidden>true</Hidden>
+                                                                                      <ToggleItem>Project_Name</ToggleItem>
+                                                                                    </Visibility>
+                                                                                    <DataElementOutput>Output</DataElementOutput>
+                                                                                    <KeepTogether>true</KeepTogether>
+                                                                                  </TablixMember>
+                                                                                </TablixMembers>
+                                                                                <Visibility>
+                                                                                  <Hidden>true</Hidden>
+                                                                                  <ToggleItem>Country_name</ToggleItem>
+                                                                                </Visibility>
+                                                                                <DataElementOutput>Output</DataElementOutput>
+                                                                                <KeepTogether>true</KeepTogether>
+                                                                              </TablixMember>
+                                                                            </TablixMembers>
+                                                                            <Visibility>
+                                                                              <Hidden>true</Hidden>
+                                                                              <ToggleItem>Region_name</ToggleItem>
+                                                                            </Visibility>
+                                                                            <DataElementOutput>Output</DataElementOutput>
+                                                                            <KeepTogether>true</KeepTogether>
+                                                                          </TablixMember>
+                                                                        </TablixMembers>
+                                                                        <Visibility>
+                                                                          <Hidden>true</Hidden>
+                                                                          <ToggleItem>Department_name</ToggleItem>
+                                                                        </Visibility>
+                                                                        <DataElementOutput>Output</DataElementOutput>
+                                                                        <KeepTogether>true</KeepTogether>
+                                                                      </TablixMember>
+                                                                    </TablixMembers>
+                                                                    <DataElementOutput>Output</DataElementOutput>
+                                                                  </TablixMember>
+                                                                </TablixMembers>
+                                                              </TablixColumnHierarchy>
+                                                              <TablixRowHierarchy>
+                                                                <TablixMembers>
+                                                                  <TablixMember>
+                                                                    <Group Name="matrix1_user_id">
+                                                                      <GroupExpressions>
+                                                                        <GroupExpression>=Fields!user_id.Value</GroupExpression>
+                                                                      </GroupExpressions>
+                                                                    </Group>
+                                                                    <SortExpressions>
+                                                                      <SortExpression>
+                                                                        <Value>=Fields!user_id.Value</Value>
+                                                                      </SortExpression>
+                                                                    </SortExpressions>
+                                                                    <TablixHeader>
+                                                                      <Size>1in</Size>
+                                                                      <CellContents>
+                                                                        <Textbox Name="user_id">
+                                                                          <CanGrow>true</CanGrow>
+                                                                          <KeepTogether>true</KeepTogether>
+                                                                          <Paragraphs>
+                                                                            <Paragraph>
+                                                                              <TextRuns>
+                                                                                <TextRun>
+                                                                                  <Value>=Fields!user_id.Value</Value>
+                                                                                  <Style>
+                                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                                    <FontWeight>Bold</FontWeight>
+                                                                                    <Color>White</Color>
+                                                                                  </Style>
+                                                                                </TextRun>
+                                                                              </TextRuns>
+                                                                              <Style />
+                                                                            </Paragraph>
+                                                                          </Paragraphs>
+                                                                          <rd:DefaultName>user_id</rd:DefaultName>
+                                                                          <ZIndex>7</ZIndex>
+                                                                          <Style>
+                                                                            <Border>
+                                                                              <Color>LightGrey</Color>
+                                                                              <Style>Solid</Style>
+                                                                            </Border>
+                                                                            <BackgroundColor>#6e9eca</BackgroundColor>
+                                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                                            <PaddingRight>2pt</PaddingRight>
+                                                                            <PaddingTop>2pt</PaddingTop>
+                                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                                          </Style>
+                                                                        </Textbox>
+                                                                      </CellContents>
+                                                                    </TablixHeader>
+                                                                    <TablixMembers>
+                                                                      <TablixMember>
+                                                                        <Group Name="matrix1_first_name">
+                                                                          <GroupExpressions>
+                                                                            <GroupExpression>=Fields!first_name.Value</GroupExpression>
+                                                                          </GroupExpressions>
+                                                                        </Group>
+                                                                        <SortExpressions>
+                                                                          <SortExpression>
+                                                                            <Value>=Fields!first_name.Value</Value>
+                                                                          </SortExpression>
+                                                                        </SortExpressions>
+                                                                        <TablixHeader>
+                                                                          <Size>1in</Size>
+                                                                          <CellContents>
+                                                                            <Textbox Name="first_name">
+                                                                              <CanGrow>true</CanGrow>
+                                                                              <KeepTogether>true</KeepTogether>
+                                                                              <Paragraphs>
+                                                                                <Paragraph>
+                                                                                  <TextRuns>
+                                                                                    <TextRun>
+                                                                                      <Value>=Fields!first_name.Value</Value>
+                                                                                      <Style>
+                                                                                        <FontFamily>Tahoma</FontFamily>
+                                                                                        <FontWeight>Bold</FontWeight>
+                                                                                        <Color>White</Color>
+                                                                                      </Style>
+                                                                                    </TextRun>
+                                                                                  </TextRuns>
+                                                                                  <Style />
+                                                                                </Paragraph>
+                                                                              </Paragraphs>
+                                                                              <rd:DefaultName>first_name</rd:DefaultName>
+                                                                              <ZIndex>6</ZIndex>
+                                                                              <Style>
+                                                                                <Border>
+                                                                                  <Color>LightGrey</Color>
+                                                                                  <Style>Solid</Style>
+                                                                                </Border>
+                                                                                <BackgroundColor>SlateGray</BackgroundColor>
+                                                                                <PaddingLeft>2pt</PaddingLeft>
+                                                                                <PaddingRight>2pt</PaddingRight>
+                                                                                <PaddingTop>2pt</PaddingTop>
+                                                                                <PaddingBottom>2pt</PaddingBottom>
+                                                                              </Style>
+                                                                            </Textbox>
+                                                                          </CellContents>
+                                                                        </TablixHeader>
+                                                                        <TablixMembers>
+                                                                          <TablixMember>
+                                                                            <Group Name="matrix1_starttime">
+                                                                              <GroupExpressions>
+                                                                                <GroupExpression>=Fields!starttime.Value</GroupExpression>
+                                                                              </GroupExpressions>
+                                                                            </Group>
+                                                                            <SortExpressions>
+                                                                              <SortExpression>
+                                                                                <Value>=Fields!starttime.Value</Value>
+                                                                              </SortExpression>
+                                                                            </SortExpressions>
+                                                                            <TablixHeader>
+                                                                              <Size>1in</Size>
+                                                                              <CellContents>
+                                                                                <Textbox Name="starttime">
+                                                                                  <CanGrow>true</CanGrow>
+                                                                                  <KeepTogether>true</KeepTogether>
+                                                                                  <Paragraphs>
+                                                                                    <Paragraph>
+                                                                                      <TextRuns>
+                                                                                        <TextRun>
+                                                                                          <Value>=Fields!starttime.Value</Value>
+                                                                                          <Style>
+                                                                                            <FontFamily>Tahoma</FontFamily>
+                                                                                            <FontWeight>Bold</FontWeight>
+                                                                                            <Color>White</Color>
+                                                                                          </Style>
+                                                                                        </TextRun>
+                                                                                      </TextRuns>
+                                                                                      <Style />
+                                                                                    </Paragraph>
+                                                                                  </Paragraphs>
+                                                                                  <rd:DefaultName>starttime</rd:DefaultName>
+                                                                                  <ZIndex>5</ZIndex>
+                                                                                  <Style>
+                                                                                    <Border>
+                                                                                      <Color>LightGrey</Color>
+                                                                                      <Style>Solid</Style>
+                                                                                    </Border>
+                                                                                    <BackgroundColor>#8fa0b0</BackgroundColor>
+                                                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                                                    <PaddingRight>2pt</PaddingRight>
+                                                                                    <PaddingTop>2pt</PaddingTop>
+                                                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                                                  </Style>
+                                                                                </Textbox>
+                                                                              </CellContents>
+                                                                            </TablixHeader>
+                                                                            <TablixMembers>
+                                                                              <TablixMember>
+                                                                                <Group Name="matrix1_Hora">
+                                                                                  <GroupExpressions>
+                                                                                    <GroupExpression>=Fields!Hora.Value</GroupExpression>
+                                                                                  </GroupExpressions>
+                                                                                </Group>
+                                                                                <SortExpressions>
+                                                                                  <SortExpression>
+                                                                                    <Value>=Fields!Hora.Value</Value>
+                                                                                  </SortExpression>
+                                                                                </SortExpressions>
+                                                                                <TablixHeader>
+                                                                                  <Size>1in</Size>
+                                                                                  <CellContents>
+                                                                                    <Textbox Name="Hora">
+                                                                                      <CanGrow>true</CanGrow>
+                                                                                      <KeepTogether>true</KeepTogether>
+                                                                                      <Paragraphs>
+                                                                                        <Paragraph>
+                                                                                          <TextRuns>
+                                                                                            <TextRun>
+                                                                                              <Value>=Fields!Hora.Value</Value>
+                                                                                              <Style>
+                                                                                                <FontFamily>Tahoma</FontFamily>
+                                                                                                <FontWeight>Bold</FontWeight>
+                                                                                                <Color>White</Color>
+                                                                                              </Style>
+                                                                                            </TextRun>
+                                                                                          </TextRuns>
+                                                                                          <Style />
+                                                                                        </Paragraph>
+                                                                                      </Paragraphs>
+                                                                                      <rd:DefaultName>Hora</rd:DefaultName>
+                                                                                      <ZIndex>4</ZIndex>
+                                                                                      <Style>
+                                                                                        <Border>
+                                                                                          <Color>LightGrey</Color>
+                                                                                          <Style>Solid</Style>
+                                                                                        </Border>
+                                                                                        <BackgroundColor>#8fa0b0</BackgroundColor>
+                                                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                                                        <PaddingRight>2pt</PaddingRight>
+                                                                                        <PaddingTop>2pt</PaddingTop>
+                                                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                                                      </Style>
+                                                                                    </Textbox>
+                                                                                  </CellContents>
+                                                                                </TablixHeader>
+                                                                                <TablixMembers>
+                                                                                  <TablixMember>
+                                                                                    <Group Name="matrix1_Minute">
+                                                                                      <GroupExpressions>
+                                                                                        <GroupExpression>=Fields!Minute.Value</GroupExpression>
+                                                                                      </GroupExpressions>
+                                                                                    </Group>
+                                                                                    <SortExpressions>
+                                                                                      <SortExpression>
+                                                                                        <Value>=Fields!Minute.Value</Value>
+                                                                                      </SortExpression>
+                                                                                    </SortExpressions>
+                                                                                    <TablixHeader>
+                                                                                      <Size>1in</Size>
+                                                                                      <CellContents>
+                                                                                        <Textbox Name="Minute">
+                                                                                          <CanGrow>true</CanGrow>
+                                                                                          <KeepTogether>true</KeepTogether>
+                                                                                          <Paragraphs>
+                                                                                            <Paragraph>
+                                                                                              <TextRuns>
+                                                                                                <TextRun>
+                                                                                                  <Value>=Fields!Minute.Value</Value>
+                                                                                                  <Style>
+                                                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                                                    <FontWeight>Bold</FontWeight>
+                                                                                                    <Color>White</Color>
+                                                                                                  </Style>
+                                                                                                </TextRun>
+                                                                                              </TextRuns>
+                                                                                              <Style />
+                                                                                            </Paragraph>
+                                                                                          </Paragraphs>
+                                                                                          <rd:DefaultName>Minute</rd:DefaultName>
+                                                                                          <ZIndex>3</ZIndex>
+                                                                                          <Style>
+                                                                                            <Border>
+                                                                                              <Color>LightGrey</Color>
+                                                                                              <Style>Solid</Style>
+                                                                                            </Border>
+                                                                                            <BackgroundColor>#8fa0b0</BackgroundColor>
+                                                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                                                            <PaddingRight>2pt</PaddingRight>
+                                                                                            <PaddingTop>2pt</PaddingTop>
+                                                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                                                          </Style>
+                                                                                        </Textbox>
+                                                                                      </CellContents>
+                                                                                    </TablixHeader>
+                                                                                    <TablixMembers>
+                                                                                      <TablixMember>
+                                                                                        <Group Name="matrix1_Second">
+                                                                                          <GroupExpressions>
+                                                                                            <GroupExpression>=Fields!Second.Value</GroupExpression>
+                                                                                          </GroupExpressions>
+                                                                                        </Group>
+                                                                                        <SortExpressions>
+                                                                                          <SortExpression>
+                                                                                            <Value>=Fields!Second.Value</Value>
+                                                                                          </SortExpression>
+                                                                                        </SortExpressions>
+                                                                                        <TablixHeader>
+                                                                                          <Size>1in</Size>
+                                                                                          <CellContents>
+                                                                                            <Textbox Name="Second">
+                                                                                              <CanGrow>true</CanGrow>
+                                                                                              <KeepTogether>true</KeepTogether>
+                                                                                              <Paragraphs>
+                                                                                                <Paragraph>
+                                                                                                  <TextRuns>
+                                                                                                    <TextRun>
+                                                                                                      <Value>=Fields!Second.Value</Value>
+                                                                                                      <Style>
+                                                                                                        <FontFamily>Tahoma</FontFamily>
+                                                                                                        <FontWeight>Bold</FontWeight>
+                                                                                                        <Color>White</Color>
+                                                                                                      </Style>
+                                                                                                    </TextRun>
+                                                                                                  </TextRuns>
+                                                                                                  <Style />
+                                                                                                </Paragraph>
+                                                                                              </Paragraphs>
+                                                                                              <rd:DefaultName>Second</rd:DefaultName>
+                                                                                              <ZIndex>2</ZIndex>
+                                                                                              <Style>
+                                                                                                <Border>
+                                                                                                  <Color>LightGrey</Color>
+                                                                                                  <Style>Solid</Style>
+                                                                                                </Border>
+                                                                                                <BackgroundColor>#8fa0b0</BackgroundColor>
+                                                                                                <PaddingLeft>2pt</PaddingLeft>
+                                                                                                <PaddingRight>2pt</PaddingRight>
+                                                                                                <PaddingTop>2pt</PaddingTop>
+                                                                                                <PaddingBottom>2pt</PaddingBottom>
+                                                                                              </Style>
+                                                                                            </Textbox>
+                                                                                          </CellContents>
+                                                                                        </TablixHeader>
+                                                                                        <TablixMembers>
+                                                                                          <TablixMember>
+                                                                                            <Group Name="matrix1_endtime">
+                                                                                              <GroupExpressions>
+                                                                                                <GroupExpression>=Fields!endtime.Value</GroupExpression>
+                                                                                              </GroupExpressions>
+                                                                                            </Group>
+                                                                                            <SortExpressions>
+                                                                                              <SortExpression>
+                                                                                                <Value>=Fields!endtime.Value</Value>
+                                                                                              </SortExpression>
+                                                                                            </SortExpressions>
+                                                                                            <TablixHeader>
+                                                                                              <Size>1in</Size>
+                                                                                              <CellContents>
+                                                                                                <Textbox Name="endtime">
+                                                                                                  <CanGrow>true</CanGrow>
+                                                                                                  <KeepTogether>true</KeepTogether>
+                                                                                                  <Paragraphs>
+                                                                                                    <Paragraph>
+                                                                                                      <TextRuns>
+                                                                                                        <TextRun>
+                                                                                                          <Value>=Fields!endtime.Value</Value>
+                                                                                                          <Style>
+                                                                                                            <FontFamily>Tahoma</FontFamily>
+                                                                                                            <FontWeight>Bold</FontWeight>
+                                                                                                            <Color>White</Color>
+                                                                                                          </Style>
+                                                                                                        </TextRun>
+                                                                                                      </TextRuns>
+                                                                                                      <Style />
+                                                                                                    </Paragraph>
+                                                                                                  </Paragraphs>
+                                                                                                  <rd:DefaultName>endtime</rd:DefaultName>
+                                                                                                  <ZIndex>1</ZIndex>
+                                                                                                  <Style>
+                                                                                                    <Border>
+                                                                                                      <Color>LightGrey</Color>
+                                                                                                      <Style>Solid</Style>
+                                                                                                    </Border>
+                                                                                                    <BackgroundColor>#8fa0b0</BackgroundColor>
+                                                                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                                                                    <PaddingRight>2pt</PaddingRight>
+                                                                                                    <PaddingTop>2pt</PaddingTop>
+                                                                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                                                                  </Style>
+                                                                                                </Textbox>
+                                                                                              </CellContents>
+                                                                                            </TablixHeader>
+                                                                                            <Visibility>
+                                                                                              <Hidden>true</Hidden>
+                                                                                              <ToggleItem>Second</ToggleItem>
+                                                                                            </Visibility>
+                                                                                            <DataElementOutput>Output</DataElementOutput>
+                                                                                            <KeepTogether>true</KeepTogether>
+                                                                                          </TablixMember>
+                                                                                        </TablixMembers>
+                                                                                        <Visibility>
+                                                                                          <Hidden>true</Hidden>
+                                                                                          <ToggleItem>Minute</ToggleItem>
+                                                                                        </Visibility>
+                                                                                        <DataElementOutput>Output</DataElementOutput>
+                                                                                        <KeepTogether>true</KeepTogether>
+                                                                                      </TablixMember>
+                                                                                    </TablixMembers>
+                                                                                    <Visibility>
+                                                                                      <Hidden>true</Hidden>
+                                                                                      <ToggleItem>Hora</ToggleItem>
+                                                                                    </Visibility>
+                                                                                    <DataElementOutput>Output</DataElementOutput>
+                                                                                    <KeepTogether>true</KeepTogether>
+                                                                                  </TablixMember>
+                                                                                </TablixMembers>
+                                                                                <Visibility>
+                                                                                  <Hidden>true</Hidden>
+                                                                                  <ToggleItem>starttime</ToggleItem>
+                                                                                </Visibility>
+                                                                                <DataElementOutput>Output</DataElementOutput>
+                                                                                <KeepTogether>true</KeepTogether>
+                                                                              </TablixMember>
+                                                                            </TablixMembers>
+                                                                            <Visibility>
+                                                                              <Hidden>true</Hidden>
+                                                                              <ToggleItem>first_name</ToggleItem>
+                                                                            </Visibility>
+                                                                            <DataElementOutput>Output</DataElementOutput>
+                                                                            <KeepTogether>true</KeepTogether>
+                                                                          </TablixMember>
+                                                                        </TablixMembers>
+                                                                        <Visibility>
+                                                                          <Hidden>true</Hidden>
+                                                                          <ToggleItem>user_id</ToggleItem>
+                                                                        </Visibility>
+                                                                        <DataElementOutput>Output</DataElementOutput>
+                                                                        <KeepTogether>true</KeepTogether>
+                                                                      </TablixMember>
+                                                                    </TablixMembers>
+                                                                    <DataElementOutput>Output</DataElementOutput>
+                                                                  </TablixMember>
+                                                                </TablixMembers>
+                                                              </TablixRowHierarchy>
+                                                              <RepeatColumnHeaders>true</RepeatColumnHeaders>
+                                                              <RepeatRowHeaders>true</RepeatRowHeaders>
+                                                              <DataSetName>DataSource1</DataSetName>
+                                                              <Top>0.5in</Top>
+                                                              <Height>1.26in</Height>
+                                                              <Width>8in</Width>
+                                                              <Style />
+                                                            </Tablix>
+                                                            <Textbox Name="last_name_1">
+                                                              <CanGrow>true</CanGrow>
+                                                              <KeepTogether>true</KeepTogether>
+                                                              <Paragraphs>
+                                                                <Paragraph>
+                                                                  <TextRuns>
+                                                                    <TextRun>
+                                                                      <Value>=Fields!last_name_1.Value</Value>
+                                                                      <Style>
+                                                                        <FontFamily>Tahoma</FontFamily>
+                                                                      </Style>
+                                                                    </TextRun>
+                                                                  </TextRuns>
+                                                                  <Style />
+                                                                </Paragraph>
+                                                              </Paragraphs>
+                                                              <rd:DefaultName>last_name_1</rd:DefaultName>
+                                                              <Height>0.21in</Height>
+                                                              <Width>8in</Width>
+                                                              <ZIndex>1</ZIndex>
+                                                              <Style>
+                                                                <PaddingLeft>2pt</PaddingLeft>
+                                                                <PaddingRight>2pt</PaddingRight>
+                                                                <PaddingTop>2pt</PaddingTop>
+                                                                <PaddingBottom>2pt</PaddingBottom>
+                                                              </Style>
+                                                            </Textbox>
+                                                          </ReportItems>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Style />
+                                                        </Rectangle>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                  </TablixCells>
+                                                </TablixRow>
+                                              </TablixRows>
+                                            </TablixBody>
+                                            <TablixColumnHierarchy>
+                                              <TablixMembers>
+                                                <TablixMember />
+                                              </TablixMembers>
+                                            </TablixColumnHierarchy>
+                                            <TablixRowHierarchy>
+                                              <TablixMembers>
+                                                <TablixMember>
+                                                  <Group Name="list1_last_name_1">
+                                                    <GroupExpressions>
+                                                      <GroupExpression>=Fields!last_name_1.Value</GroupExpression>
+                                                    </GroupExpressions>
+                                                    <PageBreak>
+                                                      <BreakLocation>Between</BreakLocation>
+                                                    </PageBreak>
+                                                  </Group>
+                                                  <SortExpressions>
+                                                    <SortExpression>
+                                                      <Value>=Fields!last_name_1.Value</Value>
+                                                    </SortExpression>
+                                                  </SortExpressions>
+                                                  <DataElementOutput>Output</DataElementOutput>
+                                                  <KeepTogether>true</KeepTogether>
+                                                </TablixMember>
+                                              </TablixMembers>
+                                            </TablixRowHierarchy>
+                                            <DataSetName>DataSource1</DataSetName>
+                                            <PageBreak>
+                                              <BreakLocation>End</BreakLocation>
+                                            </PageBreak>
+                                            <Top>0.5in</Top>
+                                            <Height>1.76in</Height>
+                                            <Width>8in</Width>
+                                            <Style>
+                                              <FontFamily>Tahoma</FontFamily>
+                                            </Style>
+                                          </Tablix>
+                                          <Textbox Name="first_name_1">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!first_name_1.Value</Value>
+                                                    <Style>
+                                                      <FontFamily>Tahoma</FontFamily>
+                                                      <FontSize>12pt</FontSize>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>first_name_1</rd:DefaultName>
+                                            <Height>0.24in</Height>
+                                            <Width>8in</Width>
+                                            <ZIndex>1</ZIndex>
+                                            <Style>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </ReportItems>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Style />
+                                      </Rectangle>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                            </TablixRows>
+                          </TablixBody>
+                          <TablixColumnHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixColumnHierarchy>
+                          <TablixRowHierarchy>
+                            <TablixMembers>
+                              <TablixMember>
+                                <Group Name="list1_first_name_1">
+                                  <GroupExpressions>
+                                    <GroupExpression>=Fields!first_name_1.Value</GroupExpression>
+                                  </GroupExpressions>
+                                  <PageBreak>
+                                    <BreakLocation>Between</BreakLocation>
+                                  </PageBreak>
+                                </Group>
+                                <SortExpressions>
+                                  <SortExpression>
+                                    <Value>=Fields!first_name_1.Value</Value>
+                                  </SortExpression>
+                                </SortExpressions>
+                                <DataElementOutput>Output</DataElementOutput>
+                                <KeepTogether>true</KeepTogether>
+                              </TablixMember>
+                            </TablixMembers>
+                          </TablixRowHierarchy>
+                          <DataSetName>DataSource1</DataSetName>
+                          <PageBreak>
+                            <BreakLocation>End</BreakLocation>
+                          </PageBreak>
+                          <Top>0.5in</Top>
+                          <Height>2.26in</Height>
+                          <Width>8in</Width>
+                          <Style>
+                            <FontFamily>Tahoma</FontFamily>
+                            <FontSize>12pt</FontSize>
+                          </Style>
+                        </Tablix>
+                        <Textbox Name="employee_id">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!employee_id.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>14pt</FontSize>
+                                    <Color>SlateGray</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>employee_id</rd:DefaultName>
+                          <Height>0.27in</Height>
+                          <Width>8in</Width>
+                          <ZIndex>1</ZIndex>
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </ReportItems>
+                      <KeepTogether>true</KeepTogether>
+                      <Style />
+                    </Rectangle>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="list1_employee_id">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!employee_id.Value</GroupExpression>
+                </GroupExpressions>
+                <PageBreak>
+                  <BreakLocation>Between</BreakLocation>
+                </PageBreak>
+              </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!employee_id.Value</Value>
+                </SortExpression>
+              </SortExpressions>
+              <DataElementOutput>Output</DataElementOutput>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>DataSource1</DataSetName>
+        <PageBreak>
+          <BreakLocation>End</BreakLocation>
+        </PageBreak>
+        <Height>2.76in</Height>
+        <Width>8in</Width>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>14pt</FontSize>
+          <Color>SlateGray</Color>
+        </Style>
+      </Tablix>
+    </ReportItems>
+    <Height>2.76in</Height>
+    <Style />
+  </Body>
+  <Width>8.125in</Width>
+  <Page>
+    <PageHeader>
+      <Height>0.36in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Timesheet</Value>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <FontSize>20pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>SteelBlue</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>textbox1</rd:DefaultName>
+          <Left>0.125in</Left>
+          <Height>0.36in</Height>
+          <Width>8in</Width>
+          <Style>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style />
+    </PageHeader>
+    <PageFooter>
+      <Height>0.25in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Line Name="line1">
+          <Height>0in</Height>
+          <Width>8in</Width>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
+        <Textbox Name="textbox4">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Page: " + Globals!PageNumber.ToString()  + "/" + Globals!TotalPages.ToString()</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>textbox4</rd:DefaultName>
+          <Left>6in</Left>
+          <Height>0.25in</Height>
+          <Width>2in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style />
+    </PageFooter>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportID>d11d5513-6fbc-4bbc-97f7-23ae749da48a</rd:ReportID>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+</Report>

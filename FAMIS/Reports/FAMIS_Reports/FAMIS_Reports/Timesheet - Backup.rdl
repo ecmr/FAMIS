@@ -1,0 +1,912 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="DataSource1">
+      <rd:DataSourceID>ecbe7854-05c6-41e1-b9c5-39784a81ffec</rd:DataSourceID>
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=DynamicsCrm;Initial Catalog=FAMIS;User ID=FAMIS;Password=P@ss@w0rd1;</ConnectString>
+        <IntegratedSecurity>true</IntegratedSecurity>
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <RightMargin>1in</RightMargin>
+  <LeftMargin>1in</LeftMargin>
+  <PageHeader>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <ReportItems>
+      <Textbox Name="textbox1">
+        <rd:DefaultName>textbox1</rd:DefaultName>
+        <Style>
+          <Color>SteelBlue</Color>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>20pt</FontSize>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Left>0.125in</Left>
+        <Value>Timesheet</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>0.36in</Height>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageHeader>
+  <BottomMargin>1in</BottomMargin>
+  <rd:ReportID>d11d5513-6fbc-4bbc-97f7-23ae749da48a</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSource1">
+      <Fields>
+        <Field Name="user_id">
+          <DataField>user_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="first_name">
+          <DataField>first_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="last_name">
+          <DataField>last_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="email">
+          <DataField>email</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="employee_id">
+          <DataField>employee_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="first_name_1">
+          <DataField>first_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="last_name_1">
+          <DataField>last_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="code">
+          <DataField>code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="starttime">
+          <DataField>starttime</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="endtime">
+          <DataField>endtime</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Hora">
+          <DataField>Hora</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Minute">
+          <DataField>Minute</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Second">
+          <DataField>Second</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="name">
+          <DataField>name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Group_Name">
+          <DataField>Group_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Project_Name">
+          <DataField>Project_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="local_name">
+          <DataField>local_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Country_name">
+          <DataField>Country_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Region_name">
+          <DataField>Region_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Position_name">
+          <DataField>Position_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Department_name">
+          <DataField>Department_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>Select
+	 U.[user_id], U.first_name, U.last_name, U.email
+	,E.employee_id, E.first_name, E.last_name, E.code
+	,T.starttime, T.endtime, 
+	 DateDiff(hour, T.starttime, T.endtime) Hora
+	,DateDiff(minute, T.starttime, T.endtime) Minute
+	,Case 
+		When Convert(int, DateDiff(second, T.starttime, T.endtime)) &gt; 59 Then
+			Convert(int, DateDiff(second, T.starttime, T.endtime)) - 60
+	End Second
+	,A.name
+	,Gp.name   as Group_Name
+	,Pr.name   as Project_Name
+	,Cli.local_name
+--  ,L.*
+	,Cr.name   as Country_name
+	,r.name    as Region_name 
+	,Pos.name  as Position_name
+	,Dep.name  as Department_name	 
+From 
+	[User] U 
+		left  join Employee E on U.[user_id] = E.[user_id]
+			inner join Agency A on A.agency_id = E.agency_id
+				inner join [Group] Gp on A.agency_id = Gp.agency_id
+				inner join Project Pr on A.agency_id = Pr.agency_id
+				inner join Client Cli on Pr.client_id = Cli.client_id
+				inner join Timesheet T on Cli.client_id = T.client_id
+			inner join Position Pos on E.position_id = E.position_id
+			inner join Department Dep on Pos.department_id = Dep.department_id 
+		inner join Location L on A.agency_id = L.agency_id
+		inner join Country Cr on L.country_id = Cr.country_id
+		inner join Region r on Cr.region_id = r.region_id
+--Where
+--	T.timesheet_id=31</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Width>8.125in</Width>
+  <Body>
+    <ReportItems>
+      <List Name="List1">
+        <Sorting>
+          <SortBy>
+            <SortExpression>=Fields!employee_id.Value</SortExpression>
+            <Direction>Ascending</Direction>
+          </SortBy>
+        </Sorting>
+        <DataSetName>DataSource1</DataSetName>
+        <ReportItems>
+          <Textbox Name="employee_id">
+            <rd:DefaultName>employee_id</rd:DefaultName>
+            <Style>
+              <Color>SlateGray</Color>
+              <FontFamily>Tahoma</FontFamily>
+              <FontSize>14pt</FontSize>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>1</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Height>0.27in</Height>
+            <Value>=Fields!employee_id.Value</Value>
+          </Textbox>
+          <List Name="List2">
+            <Sorting>
+              <SortBy>
+                <SortExpression>=Fields!first_name_1.Value</SortExpression>
+                <Direction>Ascending</Direction>
+              </SortBy>
+            </Sorting>
+            <DataSetName>DataSource1</DataSetName>
+            <ReportItems>
+              <Textbox Name="first_name_1">
+                <rd:DefaultName>first_name_1</rd:DefaultName>
+                <Style>
+                  <FontFamily>Tahoma</FontFamily>
+                  <FontSize>12pt</FontSize>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+                <ZIndex>1</ZIndex>
+                <CanGrow>true</CanGrow>
+                <Height>0.24in</Height>
+                <Value>=Fields!first_name_1.Value</Value>
+              </Textbox>
+              <List Name="List3">
+                <Sorting>
+                  <SortBy>
+                    <SortExpression>=Fields!last_name_1.Value</SortExpression>
+                    <Direction>Ascending</Direction>
+                  </SortBy>
+                </Sorting>
+                <DataSetName>DataSource1</DataSetName>
+                <ReportItems>
+                  <Textbox Name="last_name_1">
+                    <rd:DefaultName>last_name_1</rd:DefaultName>
+                    <Style>
+                      <FontFamily>Tahoma</FontFamily>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                    <ZIndex>1</ZIndex>
+                    <CanGrow>true</CanGrow>
+                    <Height>0.21in</Height>
+                    <Value>=Fields!last_name_1.Value</Value>
+                  </Textbox>
+                  <Matrix Name="matrix1">
+                    <MatrixColumns>
+                      <MatrixColumn>
+                        <Width>1in</Width>
+                      </MatrixColumn>
+                    </MatrixColumns>
+                    <DataSetName>DataSource1</DataSetName>
+                    <RowGroupings>
+                      <RowGrouping>
+                        <Width>1in</Width>
+                        <DynamicRows>
+                          <Grouping Name="matrix1_user_id">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!user_id.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Grouping>
+                          <Sorting>
+                            <SortBy>
+                              <SortExpression>=Fields!user_id.Value</SortExpression>
+                              <Direction>Ascending</Direction>
+                            </SortBy>
+                          </Sorting>
+                          <ReportItems>
+                            <Textbox Name="user_id">
+                              <rd:DefaultName>user_id</rd:DefaultName>
+                              <Style>
+                                <Color>White</Color>
+                                <BackgroundColor>#6e9eca</BackgroundColor>
+                                <BorderColor>
+                                  <Default>LightGrey</Default>
+                                </BorderColor>
+                                <BorderStyle>
+                                  <Default>Solid</Default>
+                                </BorderStyle>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>700</FontWeight>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                              <ZIndex>7</ZIndex>
+                              <CanGrow>true</CanGrow>
+                              <Value>=Fields!user_id.Value</Value>
+                            </Textbox>
+                          </ReportItems>
+                        </DynamicRows>
+                      </RowGrouping>
+                      <RowGrouping>
+                        <Width>1in</Width>
+                        <DynamicRows>
+                          <Grouping Name="matrix1_first_name">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!first_name.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Grouping>
+                          <Sorting>
+                            <SortBy>
+                              <SortExpression>=Fields!first_name.Value</SortExpression>
+                              <Direction>Ascending</Direction>
+                            </SortBy>
+                          </Sorting>
+                          <Visibility>
+                            <Hidden>true</Hidden>
+                            <ToggleItem>user_id</ToggleItem>
+                          </Visibility>
+                          <ReportItems>
+                            <Textbox Name="first_name">
+                              <rd:DefaultName>first_name</rd:DefaultName>
+                              <Style>
+                                <Color>White</Color>
+                                <BackgroundColor>SlateGray</BackgroundColor>
+                                <BorderColor>
+                                  <Default>LightGrey</Default>
+                                </BorderColor>
+                                <BorderStyle>
+                                  <Default>Solid</Default>
+                                </BorderStyle>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>700</FontWeight>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                              <ZIndex>6</ZIndex>
+                              <CanGrow>true</CanGrow>
+                              <Value>=Fields!first_name.Value</Value>
+                            </Textbox>
+                          </ReportItems>
+                        </DynamicRows>
+                      </RowGrouping>
+                      <RowGrouping>
+                        <Width>1in</Width>
+                        <DynamicRows>
+                          <Grouping Name="matrix1_starttime">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!starttime.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Grouping>
+                          <Sorting>
+                            <SortBy>
+                              <SortExpression>=Fields!starttime.Value</SortExpression>
+                              <Direction>Ascending</Direction>
+                            </SortBy>
+                          </Sorting>
+                          <Visibility>
+                            <Hidden>true</Hidden>
+                            <ToggleItem>first_name</ToggleItem>
+                          </Visibility>
+                          <ReportItems>
+                            <Textbox Name="starttime">
+                              <rd:DefaultName>starttime</rd:DefaultName>
+                              <Style>
+                                <Color>White</Color>
+                                <BackgroundColor>#8fa0b0</BackgroundColor>
+                                <BorderColor>
+                                  <Default>LightGrey</Default>
+                                </BorderColor>
+                                <BorderStyle>
+                                  <Default>Solid</Default>
+                                </BorderStyle>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>700</FontWeight>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                              <ZIndex>5</ZIndex>
+                              <CanGrow>true</CanGrow>
+                              <Value>=Fields!starttime.Value</Value>
+                            </Textbox>
+                          </ReportItems>
+                        </DynamicRows>
+                      </RowGrouping>
+                      <RowGrouping>
+                        <Width>1in</Width>
+                        <DynamicRows>
+                          <Grouping Name="matrix1_Hora">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!Hora.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Grouping>
+                          <Sorting>
+                            <SortBy>
+                              <SortExpression>=Fields!Hora.Value</SortExpression>
+                              <Direction>Ascending</Direction>
+                            </SortBy>
+                          </Sorting>
+                          <Visibility>
+                            <Hidden>true</Hidden>
+                            <ToggleItem>starttime</ToggleItem>
+                          </Visibility>
+                          <ReportItems>
+                            <Textbox Name="Hora">
+                              <rd:DefaultName>Hora</rd:DefaultName>
+                              <Style>
+                                <Color>White</Color>
+                                <BackgroundColor>#8fa0b0</BackgroundColor>
+                                <BorderColor>
+                                  <Default>LightGrey</Default>
+                                </BorderColor>
+                                <BorderStyle>
+                                  <Default>Solid</Default>
+                                </BorderStyle>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>700</FontWeight>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                              <ZIndex>4</ZIndex>
+                              <CanGrow>true</CanGrow>
+                              <Value>=Fields!Hora.Value</Value>
+                            </Textbox>
+                          </ReportItems>
+                        </DynamicRows>
+                      </RowGrouping>
+                      <RowGrouping>
+                        <Width>1in</Width>
+                        <DynamicRows>
+                          <Grouping Name="matrix1_Minute">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!Minute.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Grouping>
+                          <Sorting>
+                            <SortBy>
+                              <SortExpression>=Fields!Minute.Value</SortExpression>
+                              <Direction>Ascending</Direction>
+                            </SortBy>
+                          </Sorting>
+                          <Visibility>
+                            <Hidden>true</Hidden>
+                            <ToggleItem>Hora</ToggleItem>
+                          </Visibility>
+                          <ReportItems>
+                            <Textbox Name="Minute">
+                              <rd:DefaultName>Minute</rd:DefaultName>
+                              <Style>
+                                <Color>White</Color>
+                                <BackgroundColor>#8fa0b0</BackgroundColor>
+                                <BorderColor>
+                                  <Default>LightGrey</Default>
+                                </BorderColor>
+                                <BorderStyle>
+                                  <Default>Solid</Default>
+                                </BorderStyle>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>700</FontWeight>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                              <ZIndex>3</ZIndex>
+                              <CanGrow>true</CanGrow>
+                              <Value>=Fields!Minute.Value</Value>
+                            </Textbox>
+                          </ReportItems>
+                        </DynamicRows>
+                      </RowGrouping>
+                      <RowGrouping>
+                        <Width>1in</Width>
+                        <DynamicRows>
+                          <Grouping Name="matrix1_Second">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!Second.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Grouping>
+                          <Sorting>
+                            <SortBy>
+                              <SortExpression>=Fields!Second.Value</SortExpression>
+                              <Direction>Ascending</Direction>
+                            </SortBy>
+                          </Sorting>
+                          <Visibility>
+                            <Hidden>true</Hidden>
+                            <ToggleItem>Minute</ToggleItem>
+                          </Visibility>
+                          <ReportItems>
+                            <Textbox Name="Second">
+                              <rd:DefaultName>Second</rd:DefaultName>
+                              <Style>
+                                <Color>White</Color>
+                                <BackgroundColor>#8fa0b0</BackgroundColor>
+                                <BorderColor>
+                                  <Default>LightGrey</Default>
+                                </BorderColor>
+                                <BorderStyle>
+                                  <Default>Solid</Default>
+                                </BorderStyle>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>700</FontWeight>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                              <ZIndex>2</ZIndex>
+                              <CanGrow>true</CanGrow>
+                              <Value>=Fields!Second.Value</Value>
+                            </Textbox>
+                          </ReportItems>
+                        </DynamicRows>
+                      </RowGrouping>
+                      <RowGrouping>
+                        <Width>1in</Width>
+                        <DynamicRows>
+                          <Grouping Name="matrix1_endtime">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!endtime.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Grouping>
+                          <Sorting>
+                            <SortBy>
+                              <SortExpression>=Fields!endtime.Value</SortExpression>
+                              <Direction>Ascending</Direction>
+                            </SortBy>
+                          </Sorting>
+                          <Visibility>
+                            <Hidden>true</Hidden>
+                            <ToggleItem>Second</ToggleItem>
+                          </Visibility>
+                          <ReportItems>
+                            <Textbox Name="endtime">
+                              <rd:DefaultName>endtime</rd:DefaultName>
+                              <Style>
+                                <Color>White</Color>
+                                <BackgroundColor>#8fa0b0</BackgroundColor>
+                                <BorderColor>
+                                  <Default>LightGrey</Default>
+                                </BorderColor>
+                                <BorderStyle>
+                                  <Default>Solid</Default>
+                                </BorderStyle>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>700</FontWeight>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                              <ZIndex>1</ZIndex>
+                              <CanGrow>true</CanGrow>
+                              <Value>=Fields!endtime.Value</Value>
+                            </Textbox>
+                          </ReportItems>
+                        </DynamicRows>
+                      </RowGrouping>
+                    </RowGroupings>
+                    <Top>0.5in</Top>
+                    <ColumnGroupings>
+                      <ColumnGrouping>
+                        <Height>0.21in</Height>
+                        <DynamicColumns>
+                          <Grouping Name="matrix1_Department_name">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!Department_name.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Grouping>
+                          <Sorting>
+                            <SortBy>
+                              <SortExpression>=Fields!Department_name.Value</SortExpression>
+                              <Direction>Ascending</Direction>
+                            </SortBy>
+                          </Sorting>
+                          <ReportItems>
+                            <Textbox Name="Department_name">
+                              <rd:DefaultName>Department_name</rd:DefaultName>
+                              <Style>
+                                <Color>White</Color>
+                                <BackgroundColor>#6e9eca</BackgroundColor>
+                                <BorderColor>
+                                  <Default>LightGrey</Default>
+                                </BorderColor>
+                                <BorderStyle>
+                                  <Default>Solid</Default>
+                                </BorderStyle>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>700</FontWeight>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                              <ZIndex>12</ZIndex>
+                              <CanGrow>true</CanGrow>
+                              <Value>=Fields!Department_name.Value</Value>
+                            </Textbox>
+                          </ReportItems>
+                        </DynamicColumns>
+                      </ColumnGrouping>
+                      <ColumnGrouping>
+                        <Height>0.21in</Height>
+                        <DynamicColumns>
+                          <Grouping Name="matrix1_Region_name">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!Region_name.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Grouping>
+                          <Sorting>
+                            <SortBy>
+                              <SortExpression>=Fields!Region_name.Value</SortExpression>
+                              <Direction>Ascending</Direction>
+                            </SortBy>
+                          </Sorting>
+                          <Visibility>
+                            <Hidden>true</Hidden>
+                            <ToggleItem>Department_name</ToggleItem>
+                          </Visibility>
+                          <ReportItems>
+                            <Textbox Name="Region_name">
+                              <rd:DefaultName>Region_name</rd:DefaultName>
+                              <Style>
+                                <Color>White</Color>
+                                <BackgroundColor>SlateGray</BackgroundColor>
+                                <BorderColor>
+                                  <Default>LightGrey</Default>
+                                </BorderColor>
+                                <BorderStyle>
+                                  <Default>Solid</Default>
+                                </BorderStyle>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>700</FontWeight>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                              <ZIndex>11</ZIndex>
+                              <CanGrow>true</CanGrow>
+                              <Value>=Fields!Region_name.Value</Value>
+                            </Textbox>
+                          </ReportItems>
+                        </DynamicColumns>
+                      </ColumnGrouping>
+                      <ColumnGrouping>
+                        <Height>0.21in</Height>
+                        <DynamicColumns>
+                          <Grouping Name="matrix1_Country_name">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!Country_name.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Grouping>
+                          <Sorting>
+                            <SortBy>
+                              <SortExpression>=Fields!Country_name.Value</SortExpression>
+                              <Direction>Ascending</Direction>
+                            </SortBy>
+                          </Sorting>
+                          <Visibility>
+                            <Hidden>true</Hidden>
+                            <ToggleItem>Region_name</ToggleItem>
+                          </Visibility>
+                          <ReportItems>
+                            <Textbox Name="Country_name">
+                              <rd:DefaultName>Country_name</rd:DefaultName>
+                              <Style>
+                                <Color>White</Color>
+                                <BackgroundColor>#8fa0b0</BackgroundColor>
+                                <BorderColor>
+                                  <Default>LightGrey</Default>
+                                </BorderColor>
+                                <BorderStyle>
+                                  <Default>Solid</Default>
+                                </BorderStyle>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>700</FontWeight>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                              <ZIndex>10</ZIndex>
+                              <CanGrow>true</CanGrow>
+                              <Value>=Fields!Country_name.Value</Value>
+                            </Textbox>
+                          </ReportItems>
+                        </DynamicColumns>
+                      </ColumnGrouping>
+                      <ColumnGrouping>
+                        <Height>0.21in</Height>
+                        <DynamicColumns>
+                          <Grouping Name="matrix1_Project_Name">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!Project_Name.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Grouping>
+                          <Sorting>
+                            <SortBy>
+                              <SortExpression>=Fields!Project_Name.Value</SortExpression>
+                              <Direction>Ascending</Direction>
+                            </SortBy>
+                          </Sorting>
+                          <Visibility>
+                            <Hidden>true</Hidden>
+                            <ToggleItem>Country_name</ToggleItem>
+                          </Visibility>
+                          <ReportItems>
+                            <Textbox Name="Project_Name">
+                              <rd:DefaultName>Project_Name</rd:DefaultName>
+                              <Style>
+                                <Color>White</Color>
+                                <BackgroundColor>#8fa0b0</BackgroundColor>
+                                <BorderColor>
+                                  <Default>LightGrey</Default>
+                                </BorderColor>
+                                <BorderStyle>
+                                  <Default>Solid</Default>
+                                </BorderStyle>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>700</FontWeight>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                              <ZIndex>9</ZIndex>
+                              <CanGrow>true</CanGrow>
+                              <Value>=Fields!Project_Name.Value</Value>
+                            </Textbox>
+                          </ReportItems>
+                        </DynamicColumns>
+                      </ColumnGrouping>
+                      <ColumnGrouping>
+                        <Height>0.21in</Height>
+                        <DynamicColumns>
+                          <Grouping Name="matrix1_Group_Name">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!Group_Name.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Grouping>
+                          <Sorting>
+                            <SortBy>
+                              <SortExpression>=Fields!Group_Name.Value</SortExpression>
+                              <Direction>Ascending</Direction>
+                            </SortBy>
+                          </Sorting>
+                          <Visibility>
+                            <Hidden>true</Hidden>
+                            <ToggleItem>Project_Name</ToggleItem>
+                          </Visibility>
+                          <ReportItems>
+                            <Textbox Name="Group_Name">
+                              <rd:DefaultName>Group_Name</rd:DefaultName>
+                              <Style>
+                                <Color>White</Color>
+                                <BackgroundColor>#8fa0b0</BackgroundColor>
+                                <BorderColor>
+                                  <Default>LightGrey</Default>
+                                </BorderColor>
+                                <BorderStyle>
+                                  <Default>Solid</Default>
+                                </BorderStyle>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>700</FontWeight>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                              <ZIndex>8</ZIndex>
+                              <CanGrow>true</CanGrow>
+                              <Value>=Fields!Group_Name.Value</Value>
+                            </Textbox>
+                          </ReportItems>
+                        </DynamicColumns>
+                      </ColumnGrouping>
+                    </ColumnGroupings>
+                    <Corner>
+                      <ReportItems>
+                        <Textbox Name="textbox3">
+                          <rd:DefaultName>textbox3</rd:DefaultName>
+                          <Style>
+                            <BorderColor>
+                              <Default>LightGrey</Default>
+                            </BorderColor>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <FontFamily>Tahoma</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <ZIndex>13</ZIndex>
+                          <CanGrow>true</CanGrow>
+                          <Value>
+                          </Value>
+                        </Textbox>
+                      </ReportItems>
+                    </Corner>
+                    <MatrixRows>
+                      <MatrixRow>
+                        <Height>0.21in</Height>
+                        <MatrixCells>
+                          <MatrixCell>
+                            <ReportItems>
+                              <Textbox Name="textbox2">
+                                <rd:DefaultName>textbox2</rd:DefaultName>
+                                <Style>
+                                  <BorderColor>
+                                    <Default>LightGrey</Default>
+                                  </BorderColor>
+                                  <BorderStyle>
+                                    <Default>Solid</Default>
+                                  </BorderStyle>
+                                  <FontFamily>Tahoma</FontFamily>
+                                  <PaddingLeft>2pt</PaddingLeft>
+                                  <PaddingRight>2pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                                <CanGrow>true</CanGrow>
+                                <Value>=First(Fields!code.Value)</Value>
+                              </Textbox>
+                            </ReportItems>
+                          </MatrixCell>
+                        </MatrixCells>
+                      </MatrixRow>
+                    </MatrixRows>
+                  </Matrix>
+                </ReportItems>
+                <Top>0.5in</Top>
+                <Style>
+                  <FontFamily>Tahoma</FontFamily>
+                </Style>
+                <Grouping Name="list1_last_name_1">
+                  <GroupExpressions>
+                    <GroupExpression>=Fields!last_name_1.Value</GroupExpression>
+                  </GroupExpressions>
+                  <PageBreakAtEnd>true</PageBreakAtEnd>
+                </Grouping>
+              </List>
+            </ReportItems>
+            <Top>0.5in</Top>
+            <Style>
+              <FontFamily>Tahoma</FontFamily>
+              <FontSize>12pt</FontSize>
+            </Style>
+            <Grouping Name="list1_first_name_1">
+              <GroupExpressions>
+                <GroupExpression>=Fields!first_name_1.Value</GroupExpression>
+              </GroupExpressions>
+              <PageBreakAtEnd>true</PageBreakAtEnd>
+            </Grouping>
+          </List>
+        </ReportItems>
+        <Width>8in</Width>
+        <Style>
+          <Color>SlateGray</Color>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>14pt</FontSize>
+        </Style>
+        <Grouping Name="list1_employee_id">
+          <GroupExpressions>
+            <GroupExpression>=Fields!employee_id.Value</GroupExpression>
+          </GroupExpressions>
+          <PageBreakAtEnd>true</PageBreakAtEnd>
+        </Grouping>
+        <Height>2.76in</Height>
+      </List>
+    </ReportItems>
+    <Height>2.875in</Height>
+  </Body>
+  <Language>en-US</Language>
+  <PageFooter>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <ReportItems>
+      <Textbox Name="textbox4">
+        <rd:DefaultName>textbox4</rd:DefaultName>
+        <Width>2in</Width>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>1</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>6in</Left>
+        <Value>="Page: " + Globals!PageNumber.ToString()  + "/" + Globals!TotalPages.ToString()</Value>
+      </Textbox>
+      <Line Name="line1">
+        <Width>8in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Height>0in</Height>
+      </Line>
+    </ReportItems>
+    <Height>0.25in</Height>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageFooter>
+  <TopMargin>1in</TopMargin>
+</Report>

@@ -1,0 +1,36 @@
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Meu Projeto FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_BLL.dll
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Meu Projeto FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_BLL.pdb
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Meu Projeto FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_DALL.dll
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Meu Projeto FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\Model.dll
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Meu Projeto FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\Model.pdb
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Meu Projeto FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_DALL.pdb
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Meu Projeto FAMIS\Projeto Fonte\FAMIS_BLL\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Meu Projeto FAMIS\Projeto Fonte\FAMIS_BLL\obj\Debug\FAMIS_BLL.dll
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Meu Projeto FAMIS\Projeto Fonte\FAMIS_BLL\obj\Debug\FAMIS_BLL.pdb
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_BLL.dll
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_BLL.pdb
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_DALL.dll
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\bin\Debug\Model.dll
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\bin\Debug\Model.pdb
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_DALL.pdb
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\obj\Debug\FAMIS_BLL.dll
+C:\Documents and Settings\Administrator\Desktop\Job's\Grey\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\obj\Debug\FAMIS_BLL.pdb
+C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_BLL.dll
+C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_BLL.pdb
+C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_DALL.dll
+C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\bin\Debug\Model.dll
+C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_DALL.pdb
+C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\bin\Debug\Model.pdb
+C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\obj\Debug\FAMIS_BLL.dll
+C:\Documents and Settings\Administrator\Desktop\Projeto FAMIS com MasterPage\Projeto Fonte\FAMIS_BLL\obj\Debug\FAMIS_BLL.pdb
+C:\Projetos\GREY\FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_BLL.dll
+C:\Projetos\GREY\FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_BLL.pdb
+C:\Projetos\GREY\FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_DALL.dll
+C:\Projetos\GREY\FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\Model.dll
+C:\Projetos\GREY\FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_DALL.pdb
+C:\Projetos\GREY\FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\Model.pdb
+C:\Projetos\GREY\FAMIS\Projeto Fonte\FAMIS_BLL\obj\Debug\ResolveAssemblyReference.cache
+C:\Projetos\GREY\FAMIS\Projeto Fonte\FAMIS_BLL\obj\Debug\FAMIS_BLL.dll
+C:\Projetos\GREY\FAMIS\Projeto Fonte\FAMIS_BLL\obj\Debug\FAMIS_BLL.pdb

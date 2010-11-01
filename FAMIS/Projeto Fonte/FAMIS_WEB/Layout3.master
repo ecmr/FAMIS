@@ -1,0 +1,132 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Layout3.master.cs" Inherits="Layout" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Master page de exemplo</title>
+    <style type="text/css">
+        .style1
+        {
+            width: 1098px;
+        }
+        .style2
+        {
+            height: 260px;
+            width: 1098px;
+        }
+        .style3
+        {
+            width: 156px;
+        }
+        .style4
+        {
+            height: 260px;
+            width: 156px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div><table>
+            <tr>
+                <td class="style3">
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/imagens/Topo/Grey.bmp" 
+                        Width="150px" /></td>
+                <td bgcolor="#339999" class="style1">
+                    <asp:Image ID="Image2" runat="server" ImageUrl="~/imagens/Topo/logo_Grey.jpg" /></td>
+            </tr>
+            <tr>
+                <td align="left" valign="top" class="style4">
+                    <table width="100%" border="1" bordercolor="#339999">
+                        <tr>
+                            <td  bgcolor="#0000FF"  style="width: 337%; height: 21px">
+                                <a href=""><span style="color:White">Setup</span></a></td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="#ffffff" style="width: 337%; height: 21px">
+                                &nbsp;&nbsp;&nbsp;&nbsp; <a href="Default.aspx?id=1"><span style="color:Blue">Agencies</span></a></td>
+                                
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="Default.aspx?id=2">
+                                Users</a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="Default.aspx?id=3">
+                                Clients</a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="Default.aspx?id=4">
+                                Countries</a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="Default.aspx?id=5">
+                                Departments</a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="Default.aspx?id=6">
+                                Employes</a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="Default.aspx?id=6">
+                                Geospecs</a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="Default.aspx?id=7">
+                                Groups</a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="Default.aspx?id=8">
+                                Locations</a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="Default.aspx?id=9">
+                                Positions</a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="Default.aspx?id=10">
+                                Regions</a></td>
+                        </tr>
+                        <tr>
+                            <td  bgcolor="#0000FF"  style="width: 337%; height: 21px">
+                                <a href=""><span style="color:White">TimeSheet</span></a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="Default.aspx?id=11">
+                                Users Appointment</a></td>
+                        </tr>                                                                        
+                    </table>
+                </td>
+                <td valign="top" class="style2">
+                    <asp:ContentPlaceHolder ID="ConteudoCentral" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

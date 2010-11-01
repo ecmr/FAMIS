@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+<script type="text/jscript">
+    function WindowSize()
+    {
+            LeftPosition = (screen.width) ? (screen.width)/2 : 0;
+            TopPosition = (screen.height) ? (screen.height)/2 : 0;
+            var winOpen = window.open('Login.aspx', '', 'top='+TopPosition+',left='+LeftPosition+'resizable=no,scrooling=no,menubar=no,toolbar=no');
+	        winOpen.moveTo(0, 0);
+	        winOpen.resizeTo(400, 500);
+	        window.opener = self;
+	        setTimeout("window.close()",1000);
+	        //window.close();        
+    }    
+</script>    
+</head>
+<body onload="WindowSize();">
+
+</body>
+</html>

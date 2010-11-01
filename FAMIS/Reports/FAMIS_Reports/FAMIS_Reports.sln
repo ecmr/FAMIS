@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "FAMIS_Reports", "FAMIS_Reports\FAMIS_Reports.rptproj", "{E867E584-5B21-4D16-A3AF-FCDFB91E8A9B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Production|Default = Production|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E867E584-5B21-4D16-A3AF-FCDFB91E8A9B}.Debug|Default.ActiveCfg = Debug
+		{E867E584-5B21-4D16-A3AF-FCDFB91E8A9B}.Debug|Default.Build.0 = DebugLocal
+		{E867E584-5B21-4D16-A3AF-FCDFB91E8A9B}.Debug|Default.Deploy.0 = DebugLocal
+		{E867E584-5B21-4D16-A3AF-FCDFB91E8A9B}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{E867E584-5B21-4D16-A3AF-FCDFB91E8A9B}.DebugLocal|Default.Build.0 = DebugLocal
+		{E867E584-5B21-4D16-A3AF-FCDFB91E8A9B}.Production|Default.ActiveCfg = Production
+		{E867E584-5B21-4D16-A3AF-FCDFB91E8A9B}.Production|Default.Build.0 = Production
+		{E867E584-5B21-4D16-A3AF-FCDFB91E8A9B}.Production|Default.Deploy.0 = Production
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
