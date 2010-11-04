@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					   xmlns:s="library://ns.adobe.com/flex/spark" 
+					   xmlns:mx="library://ns.adobe.com/flex/mx">
+
+	<fx:Script>
+		<![CDATA[
+		
+		[Bindable]
+		public var cards: Array = [ {label:"Visa", data:1}, 
+		{label:"MasterCard", data:2}, {label:"American Express", data:3} ];
+		
+		[Bindable]
+		public var selectedItem:Object;        
+		]]>
+	</fx:Script>
+	<fx:Style source="AIR_Timesheet.css"/>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:BorderContainer x="37" y="27" width="548" height="310" borderVisible="false">
+		<mx:Form x="10" y="39" width="516" height="176" contentBackgroundColor="#FEFDFD" cornerRadius="20" dropShadowVisible="false" backgroundColor="#E6DFDF" borderColor="#E7E1E1" borderVisible="true" paddingLeft="0" paddingRight="0">
+			<mx:FormItem width="396" height="9">
+			</mx:FormItem>
+				<mx:HBox>
+					<mx:FormItem label="      MONDAY 21/02"  width="234"/>
+					<mx:FormItem label="WORKING FOR:"  width="269"/>	
+				</mx:HBox>
+			<mx:HBox>
+				<s:Label id="lblTempo" text="06:54" width="234" height="50" verticalAlign="middle" fontSize="36" color="#C6B43B">
+				</s:Label>
+				<s:ComboBox dataProvider="{cards}" width="268" height="51" close="selectedItem=ComboBox(event.target).selectedItem" />
+			</mx:HBox>
+		</mx:Form>
+		<s:Label id="two" x="401" y="10" text="GREY" width="113" height="29" fontWeight="bold" fontFamily="Verdana" fontSize="36"/>
+	</s:BorderContainer>
+</s:WindowedApplication>
