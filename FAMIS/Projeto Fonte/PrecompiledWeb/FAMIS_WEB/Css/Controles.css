@@ -1,0 +1,140 @@
+﻿body 
+{
+    background-image: url(_/imgs/app_back.gif);
+    background-repeat:repeat-x;
+    border-top: 1px solid #6693cf;
+    font-family: Tahoma;
+    font-size: 11px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#MainDiv
+{
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #6893CF;
+    background-color: #eaf3ff;
+    display: table;
+    text-align: center;
+	height: 1250px;
+}
+DIV.ContentDiv
+{ /*** Layout do Tamanho ***/
+    height: 1221px;
+    width: 1018px;
+    text-align:left;
+    border: 1px solid #00008b; /* #6893CF;*/
+    background-color: #F3F8FF;
+    overflow: auto;
+}
+table
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #6893CF;
+}
+th
+{
+    font-size: 7pt;
+    background-image: url(_/imgs/nav_header_back.gif);
+    /*filter: progid:DXImageTranform.Microsoft.Gradient(GradientType=0, StartColorStr=#DBEBFF, EndColorStr=#FFFFFF;)*/
+    background-repeat: repeat-y; padding: 3px;border-top: 1px solid #ffffff;
+    border-bottom: 1px solid#DDECFF;
+}
+th, td
+{
+    border-left: 1px solid #DDECFF;
+}
+td
+{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #DDECFF;
+    text-align: left;
+}
+ackground-color: #edf4fc;
+}
+.AltRow
+{
+    background-color: #ffffff;
+}
+.AltRow
+{
+    background-color: #ffffff;
+}
+.TableHeader
+{
+    font-size: 7pt;
+    font-weight: bold;
+    padding-top: 10px
+}      
+.Title
+{
+    font-size: x-large;
+    font-weight: bold;
+    padding-top: 10px;
+    text-align: left;
+}
+#botoesform 
+{
+	/*
+	margin-top:4px;
+	margin-left:7px;
+	width:100%;
+	height:21px;
+	float:left;
+	border: 1px solid #6893CF;
+	*/
+	width:350px; height:200px; margin-top:4px; margin-left:7px; width:96%; 
+height:19px; 
+float:left; border:solid 1px #00008b; 
+}
+
+/*******************************************************************************
+ DESIGN INFORMATION GRID: describes color, scheme 
+*******************************************************************************/
+.grid_tittle {
+	font:11px Tahoma, Verdana, Arial,bold;
+	font-weight:bold;
+	padding-left:5px;
+	color:#000;
+	background-image: url(../Images/Display/grid_titulo_background.gif);
+	background-position:right;
+	background-repeat:repeat-x;
+	height:20px;
+	padding-bottom:3px;
+}
+.grid_tittle_div {
+	font:11px Tahoma, Verdana, Arial;
+	padding-left:5px;
+	color:#000;
+	background-image:url(../Images/Display/grid_titulo_div.gif);
+	background-position:right;
+	background-repeat:no-repeat;
+	height:20px;
+	padding-bottom:3px;
+}
+.grid_line_01 {
+	font:11px Tahoma, Verdana, Arial;
+	color:#000;
+	background-image: url(../Images/Display/grid_background.gif);
+	background-repeat:repeat-x;
+	height:21px;
+}
+.grid_line_02 {
+	font:11px Tahoma, Verdana, Arial;
+	color:#000000;
+	background-image: url(../Images/Display/grid_background.gif);
+	background-repeat:repeat-x;
+	height:21px;
+}
+#gridform {
+	margin:0 auto;
+	width:1404%;
+	height:294px;
+	float:left;
+}
+/*******************************************************************************
+ DESIGN INFORMATION MODAL: describes color, scheme 
+*******************************************************************************/

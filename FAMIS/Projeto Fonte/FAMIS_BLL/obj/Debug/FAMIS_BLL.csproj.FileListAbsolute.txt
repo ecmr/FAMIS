@@ -34,3 +34,12 @@ C:\Projetos\GREY\FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\Model.pdb
 C:\Projetos\GREY\FAMIS\Projeto Fonte\FAMIS_BLL\obj\Debug\ResolveAssemblyReference.cache
 C:\Projetos\GREY\FAMIS\Projeto Fonte\FAMIS_BLL\obj\Debug\FAMIS_BLL.dll
 C:\Projetos\GREY\FAMIS\Projeto Fonte\FAMIS_BLL\obj\Debug\FAMIS_BLL.pdb
+C:\Edinei\FAMIS\FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_BLL.dll
+C:\Edinei\FAMIS\FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_BLL.pdb
+C:\Edinei\FAMIS\FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_DALL.dll
+C:\Edinei\FAMIS\FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\Model.dll
+C:\Edinei\FAMIS\FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\FAMIS_DALL.pdb
+C:\Edinei\FAMIS\FAMIS\Projeto Fonte\FAMIS_BLL\bin\Debug\Model.pdb
+C:\Edinei\FAMIS\FAMIS\Projeto Fonte\FAMIS_BLL\obj\Debug\ResolveAssemblyReference.cache
+C:\Edinei\FAMIS\FAMIS\Projeto Fonte\FAMIS_BLL\obj\Debug\FAMIS_BLL.dll
+C:\Edinei\FAMIS\FAMIS\Projeto Fonte\FAMIS_BLL\obj\Debug\FAMIS_BLL.pdb

@@ -1,96 +1,79 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Positions.ascx.cs" Inherits="Controles_Positions" %>
 <!-- Begin do Controle -->
-<head><title></title>
-    <link rel="Stylesheet" type="text/css" href="../Css/Controles.css" />
-    <style type="text/css">
-        .style1
-        {
-            width: 331px;
-        }
-        .style2
-        {
-            height: 20px;
-        }
-    </style>
-</head>
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <style type="text/css" media="all">
+  	@import "../Css/Css.css";
+   </style>
+  <!--[if lte IE 7]>
 
-    <div id="MainDiv">
-        <div>
-            &nbsp;
-            <div id="LeadDiv" class="ContentDiv" >
-                <div class="Title">
-                    Positions</div>&nbsp;
-                <table id="LeadTable" runat="server" cellpadding="0" cellspacing="3" 
-                    style="border-bottom-color: #00008b; width: 983px;"> 
-                    <tr>
-                        <td align="left" width="300px">
-                            Position ID
-                        </td>
-                        <td align="left" width="300px">
-                            Name
-                        </td>                                    
-                        <td align="left" width="300px">
-                            Code
-                        </td>                                    
-                    </tr> 
-                    <tr>
-                        <td  align="left"  width="300px">
+  <style type="text/css" media="all">
+  	@import "../Css/fieldset-background-image-ie.css";
+      #header
+      {
+          width: 597px;
+      }
+  </style>
+
+  <![endif]-->
+</head>
+<body>
+	<div class="pagePosition" >
+		<div class="headerPosition">
+			<h1>
+				Positions
+			</h1>
+		</div> <!-- END #header -->
+		<div class="contentPosition">
+			<form class="formPosition" action="">
+				<fieldset class="fieldsetPosition">
+					<legend class="legendPosition">
+						Position Details
+					</legend>
+					<ol class="OlPosition" >
+						<li class="LIPosition">
+							<label for="PositionId">
+								Position ID:
+							</label>
                             <asp:TextBox ID="txtPosition_id" Enabled="false" runat="server" Width="100px" style="text-align: left"></asp:TextBox>
-                        </td>
-                        <td align="left" width="300px">
-                            <asp:TextBox ID="TxtName" Width="290px" TextMode="MultiLine" runat="server" 
-                                Height="49px" style="margin-left: 0px"></asp:TextBox>
-                        </td>                        
-                        <td align="left" width="300px">
-                            <asp:TextBox ID="TxtCode" runat="server" Width="290px" TextMode="MultiLine" 
-                                Height="53px" style="margin-left: 0px"></asp:TextBox>                        
-                        </td>                        
-                    </tr>
-                    <tr>
-                        <td align="left" width="300px">
-                            Department
-                        </td>                    
-                        <td align="left" class="style1">
-                            Salary
-                        </td>
-                        <td align="left">
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" width="300px" class="style2">
-                            <asp:DropDownList ID="DropDownDepartment" Width="300px" runat="server" Height="24px"></asp:DropDownList>
-                        </td>
-                        <td>
+						</li>
+						<li style="height: 55px; width:100%;" >
+							<label for="email">
+								Name:
+							</label>
+                            <asp:TextBox ID="TxtName" Width="290px" TextMode="MultiLine" runat="server" Height="49px" style="margin-left: 0px"></asp:TextBox>
+						</li>
+						<li style="height: 55px; width:100%;" >
+							<label for="code">
+								Code:
+							</label>
+                            <asp:TextBox ID="TxtCode" runat="server" Width="290px" TextMode="MultiLine" Height="53px" style="margin-left: 0px"></asp:TextBox> 
+						</li>
+						<li class="LIPosition">
+							<label for="email">
+								Department:
+							</label>
+                            <asp:DropDownList ID="DropDownDepartment" Width="290px" runat="server" Height="24px"></asp:DropDownList>
+						</li>
+						<li class="LIPosition">
+							<label for="email">
+								Salary:
+							</label>
                             <asp:TextBox ID="TxtSalaray" runat="server"></asp:TextBox>
-                        </td>                         
-                        <td>
-                        </td>                         
-                    </tr>                    
-                    </table> 
-                <table id="botoesTable" runat="server" cellpadding="0" cellspacing="3" 
-                    style="border-bottom-color: #00008b; width: 766px;"   > 
-                    <tr>
-                        <td align="left">
-                            <div id="botoesform" >
-                                <asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
-                            </div>
-                        </td>
-                    </tr> 
-                </table>
-                <table id="GridTable" runat="server" cellpadding="0" cellspacing="3" 
-                    style="border-bottom-color: #00008b; width: 767px;"> 
-                    <tr>
-                        <td align="left">
-                            &nbsp;List
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td align="left">
-                            <div id="gridform">
-                                 <asp:GridView ID="grvPosition" runat="server" AllowPaging="True" PageSize="5" 
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset class="fieldsetPositioncList">
+					<legend>
+						Positions List
+					</legend>
+					<ol class="OlPositioncList">
+						<li class="LIPositioncList">
+                            <asp:GridView ID="grvPosition" runat="server" AllowPaging="True" PageSize="5" 
                                     AutoGenerateColumns="False" CellPadding="4" 
-                                    GridLines="Horizontal" Width="600px" DataKeyNames="position_id,name"  
-                    OnPageIndexChanging="grvPosition_PageIndexChanging">
+                                    GridLines="Horizontal" Width="711px" DataKeyNames="position_id,name" 
+                                OnPageIndexChanging="grvPosition_PageIndexChanging">
                                       <Columns>
                                       <asp:TemplateField ItemStyle-Width="25px" ItemStyle-HorizontalAlign="Center" 
                                               HeaderStyle-CssClass="grid_tittle" >
@@ -129,12 +112,14 @@
                                     <HeaderStyle />
                                     <AlternatingRowStyle CssClass="grid_line_02" />
                                 </asp:GridView>
-                            </div>
-                            &nbsp;
-                        </td>
-                    </tr>  
-                </table> 
-            </div>
-        </div>
-    </div>
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset class="fieldsetSubmitAgencieButtons" >
+					<asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
+				</fieldset>
+			</form>
+		</div><!-- END #content -->
+	</div> <!-- END #page -->
+</body> 
 <!-- End do Controle -->

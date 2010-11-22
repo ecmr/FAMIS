@@ -19,7 +19,7 @@ namespace FAMIS_DALL
         public string Add(Model.Client client)
         {
             string str = "Insert Into [Client](local_name, intl_name, code, active, multinational)" + Environment.NewLine;
-            str += " Values('" + client.Local_name + "', '" + client.Intl_name + "'," + client.Code + ", " + client.Active + " , '" + client.Multinational + "')";
+            str += " Values('" + client.Local_name + "', '" + client.Intl_name + "', '" + client.Code + "', " + client.Active + " , " + client.Multinational + ")";
 
             try
             {

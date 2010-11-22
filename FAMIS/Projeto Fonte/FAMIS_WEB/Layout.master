@@ -11,16 +11,12 @@
         .style2
         {
             height: 260px;
-            width: 922px;
+            width: 918px;
         }
         .style3
         {
     }
-        .style4
-        {
-            height: 260px;
-            }
-    </style>
+        </style>
 <!--#####################################################################################-->
     <!--%%%%%%%%%%%% MyCSSMenu Styles [Keep in head for full validation!] %%%%%%%%%%%-->
     <style type="text/css">
@@ -170,7 +166,7 @@
             <tr>
                 <td class="style3" colspan="2">
                     <asp:Image ID="Image2" runat="server" ImageUrl="~/imagens/Topo/logo_puro.jpg" 
-                        Width="100%" /></td>
+                        Width="100%" Height="58px" /></td>
             </tr>
             <tr>
                 <td align="left" valign="top" >

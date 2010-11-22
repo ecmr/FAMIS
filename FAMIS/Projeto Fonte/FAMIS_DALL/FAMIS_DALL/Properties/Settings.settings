@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="StrCon" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Data Source=WSERVER_2003_DE\MSSQLSERVER_2008;Initial Catalog=FAMIS;User ID=FAMIS;Password=P@ss@w0rd1;</Value>
+      <Value Profile="(Default)">Data Source=(local);Initial Catalog=FAMIS;User ID=FAMIS;Password=P@ss@w0rd1;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

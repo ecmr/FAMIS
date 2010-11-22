@@ -1,88 +1,96 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Clients.ascx.cs" Inherits="Clients" %>
 <!-- Begin do Controle -->
-<head><title></title>
-    <link rel="Stylesheet" type="text/css" href="../Css/Controles.css" />
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <style type="text/css" media="all">
+  	@import "../Css/Css.css";
+  	@import "../Css/fieldset-background-image_Clients.css";
+   </style>
+  <!--[if lte IE 7]>
+
+  <style type="text/css" media="all">
+  	@import "../Css/fieldset-background-image-ie.css";
+      #header
+      {
+          width: 597px;
+      }
+  </style>
+
+  <![endif]-->
 </head>
-
-    <div id="MainDiv">
-        <div>
-            &nbsp;
-            <div id="LeadDiv" class="ContentDiv" >
-                <div class="Title">
-                    Clients</div>&nbsp;
-                <table id="LeadTable" runat="server" width="300px" cellpadding="0" cellspacing="3" style="border-bottom-color: #00008b;"> 
-                    <tr>
-                        <td align="left">
-                            Client ID
-                        </td>
-                        <td align="left">
-                            Local Name
-                        </td>                    
-                    </tr> 
-                    <tr>
-                        <td align="left">
-                            <asp:TextBox ID="txtClient_id" Enabled="false" runat="server" Width="100px"></asp:TextBox>
-                        </td>
-                        <td align="left">
-                            <asp:TextBox ID="txtLocalName" runat="server" Width="490px"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="left">
-                            Intl Name
-                        </td>
-                        <td align="left">
-                            Code
-                        </td>                    
-                    </tr> 
-                    <tr>
-                        <td align="left">
-                            <asp:TextBox ID="txtIntlName" runat="server" Width="100px"></asp:TextBox>
-                        </td>
-                        <td align="left">
-                            <asp:TextBox ID="TxtCode" runat="server" Width="190px"></asp:TextBox>
-                        </td>
-                    </tr>  
-                    <tr>
-                        <td align="left">
-                            Active
-                        </td>
-                        <td align="left">
-                            Multinational
-                        </td>                    
-                    </tr> 
-                    <tr>
-                        <td align="left">
-                            <asp:RadioButton ID="RadioActiveTrue" Text="true" GroupName="Active" runat="server"></asp:RadioButton>
-                            <asp:RadioButton ID="RadioActiveFalse" Text="false" GroupName="Active" runat="server"></asp:RadioButton>
-                        </td>
-                        <td align="left">
-                            <asp:RadioButton ID="RadioMultiTrue" Text="true" GroupName="Mult" runat="server"></asp:RadioButton>
-                            <asp:RadioButton ID="RadioMultiFalse" Text="false" GroupName="Mult" runat="server"></asp:RadioButton>
-                        </td>
-                    </tr>                                                            
-                </table> 
-                <table id="botoesTable" runat="server" width="300px" cellpadding="0" cellspacing="3" style="border-bottom-color: #00008b;"   > 
-                    <tr>
-                        <td align="left">
-                            <div id="botoesform" >
-                                <asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
-                            </div>
-                        </td>
-                    </tr> 
-                </table>
-                <table id="GridTable" runat="server" width="300px" cellpadding="0" cellspacing="3" style="border-bottom-color: #00008b;"> 
-                    <tr>
-                        <td align="left">
-                            &nbsp;List
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td align="left">
-
-                            <div id="gridform">
-                                <asp:GridView ID="grvClient" runat="server" AllowPaging="True" PageSize="5" AutoGenerateColumns="False"
-                                    CellPadding="4" GridLines="Horizontal" Width="100%" DataKeyNames="client_id,local_name,active"
+<body>
+	<div class="pageClients">
+		<div class="headerAgencie">
+			<h1>
+				Clientes
+			</h1>
+		</div> <!-- END #header -->
+		<div class="contentClients">
+			<form class="formClients" action="">
+				<fieldset class="fieldsetClients">
+					<legend>
+						Client Details
+					</legend>
+					<ol style="width:100%;">
+						<li  style="width:100%;">
+							<label for="name">
+								Client ID:
+							</label>
+                            <asp:TextBox ID="txtClient_id" CssClass="text" Enabled="false" runat="server"/>
+						</li>
+						<li  style="width:100%;">
+							<label for="email">
+								Local Name:
+							</label>
+                            <asp:TextBox ID="txtLocalName" CssClass="text" runat="server"/>
+						</li>
+						<li  style="width:100%;">
+							<label for="email">
+								Intl Name:
+							</label>
+                            <asp:TextBox ID="txtIntlName" CssClass="text" runat="server"/>
+						</li>
+						<li  style="width:100%;">
+							<label for="Code">
+								Code:
+							</label>
+                            <asp:TextBox ID="TxtCode" CssClass="text" runat="server"/>
+						</li>
+                        <li  style="width:100%;">
+                            <fieldset class="fieldsetClientsActive">
+                                <legend>Active</legend>
+                                <ol  style="width:100%;height:110px;">
+                                    <li  style="width:100%;">
+                                        <asp:RadioButton ID="RadioActiveTrue" Text="True" GroupName="Active" runat="server"></asp:RadioButton>
+                                    </li>
+                                    <li style="width:100%;">
+                                        <asp:RadioButton ID="RadioActiveFalse" Text="False" GroupName="Active" runat="server"></asp:RadioButton>
+                                    </li>
+                                </ol>
+                            </fieldset>
+                            <fieldset class="fieldsetClientsMulti">
+                                <legend>Multinational</legend>
+                                <ol style="width:100%;">
+                                    <li  style="width:100%;">
+                                        <asp:RadioButton ID="RadioMultiTrue" Text="True" GroupName="Mult" runat="server"></asp:RadioButton>
+                                    </li>
+                                    <li style="width:100%;">
+                                        <asp:RadioButton ID="RadioMultiFalse" Text="False" GroupName="Mult" runat="server"></asp:RadioButton>
+                                    </li>
+                                </ol>
+                            </fieldset>
+		                </li>
+					</ol>
+				</fieldset>
+				<fieldset class="fieldsetClientsList">
+					<legend>
+						Client List
+					</legend>
+					<ol  style="width:100%; height:27%;">
+						<li  style="width:100%; height:90%;">
+                            <asp:GridView ID="grvClient" runat="server" AllowPaging="True" PageSize="5" AutoGenerateColumns="False"
+                                    CellPadding="4" GridLines="Horizontal" Width="98%" DataKeyNames="client_id,local_name,active"
                                     OnPageIndexChanging="grvClient_PageIndexChanging">
                                     <Columns>
                                         <asp:TemplateField ItemStyle-Width="25px" ItemStyle-HorizontalAlign="Center" HeaderStyle-CssClass="grid_tittle">
@@ -116,12 +124,13 @@
                                     <HeaderStyle />
                                     <AlternatingRowStyle CssClass="grid_line_02" />
                                 </asp:GridView>
-                            </div>
-                            &nbsp;
-                        </td>
-                    </tr>  
-                </table> 
-            </div>
-        </div>
-    </div>
-<!-- End do Controle -->
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset class="fieldsetSubmitAgencieButtons" >
+					<asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
+				</fieldset>
+			</form>
+		</div><!-- END #content -->
+	</div> <!-- END #page -->
+</body>

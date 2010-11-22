@@ -14,7 +14,7 @@ public partial class _Default : System.Web.UI.Page
             //Control ctrlRet = Page.LoadControl("~/Controles/TESTENEWPAGE.ascx");
             //PlaceHolder1.Controls.Add(ctrlRet);
 
-            Control ctrlRet = Page.LoadControl("~/Controles/ControleModelo.ascx"); //  Agencies.ascx");
+            Control ctrlRet = Page.LoadControl("~/Controles/Agencies.ascx");
             PlaceHolder1.Controls.Add(ctrlRet);
         }
         //Chamda do controle de Agencias    
@@ -113,7 +113,7 @@ public partial class _Default : System.Web.UI.Page
         else
         {
             //PlaceHolder1.Controls.Add(Home());
-            Control ctrlRet = Page.LoadControl("~/Controles/ControleModelo.ascx"); //  Agencies.ascx");
+            Control ctrlRet = Page.LoadControl("~/Controles/NewModel.ascx"); //  Agencies.ascx");
             PlaceHolder1.Controls.Add(ctrlRet);   
         }
     }

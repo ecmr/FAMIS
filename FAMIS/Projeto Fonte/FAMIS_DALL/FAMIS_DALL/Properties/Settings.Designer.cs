@@ -25,8 +25,7 @@ namespace FAMIS_DALL.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WSERVER_2003_DE\\MSSQLSERVER_2008;Initial Catalog=FAMIS;User ID=FAMIS;" +
-            "Password=P@ss@w0rd1;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local);Initial Catalog=FAMIS;User ID=FAMIS;Password=P@ss@w0rd1;")]
         public string StrCon {
             get {
                 return ((string)(this["StrCon"]));

@@ -1,0 +1,86 @@
+<%@ master language="C#" autoeventwireup="true" inherits="Layout, App_Web_3t03ibnw" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Master page de exemplo</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div><table>
+            <tr>
+                <td style="width: 271px">
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/imagens/Topo/Grey.bmp" /></td>
+                <td style="width: 117px" bgcolor="#339999">
+                    <asp:Image ID="Image2" runat="server" ImageUrl="~/imagens/Topo/logo_Grey.jpg" /></td>
+            </tr>
+            <tr>
+                <td style="width: 271px; height: 260px;" align="left" valign="top">
+                    <table width="100%" border="1" bordercolor="#339999">
+                        <tr>
+                            <td style="width: 337%; height: 21px">
+                                <a href="Modelo Layout/Agency.aspx"  >
+                                Agencies</a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%; height: 21px">
+                                <a href="Default.aspx?id=10">
+                                Calendário</a></td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="#339999" style="height: 21px; width: 337%;">
+                                <strong><span style="color: #ffffff">Categorias</span></strong></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                <a href="Default.aspx?id=1">
+                                Bebidas</a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                <a href="Default.aspx?id=2">
+                                Condimentos</a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                <a href="Default.aspx?id=3">
+                                Confeitos</a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                <a href="Default.aspx?id=4">
+                                Laticínios</a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                <a href="Default.aspx?id=5">
+                                Grãos/Cereais</a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                <a href="Default.aspx?id=6">
+                                Carnes/Aves</a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                <a href="Default.aspx?id=7">
+                                Hortigranjeiros</a></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 337%">
+                                <a href="Default.aspx?id=8">
+                                Frutos do Mar</a></td>
+                        </tr>
+                    </table>
+                </td>
+                <td width=100% valign="top" style="height: 260px">
+                    <asp:ContentPlaceHolder ID="ConteudoCentral" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

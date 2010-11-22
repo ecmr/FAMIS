@@ -23,7 +23,7 @@ public partial class Agencies : System.Web.UI.UserControl
         if (!Page.IsPostBack)
         {
             PreencheGrid();
-            TxtAgencyName.Focus(); 
+            TxtAgencyName.Focus();
         }
     }
 
@@ -39,7 +39,7 @@ public partial class Agencies : System.Web.UI.UserControl
                 Ag.Add(agencie);
                 TxtAgencyName.Text = "";
                 TxtAgencyId.Text = "";
-                Int32 i = 0;
+                //Int32 i = 0;
 
             }
             catch (Exception ex)
@@ -52,13 +52,13 @@ public partial class Agencies : System.Web.UI.UserControl
             try
             {
                 Model.Agency agencie = new Model.Agency();
-                agencie.Agency_id = Convert.ToInt32(TxtAgencyId.Text);   
+                agencie.Agency_id = Convert.ToInt32(TxtAgencyId.Text);
                 agencie.Name = this.TxtAgencyName.Text;
                 FAMIS_BLL.Agency Ag = new FAMIS_BLL.Agency();
                 Ag.Update(agencie);
                 TxtAgencyName.Text = "";
                 TxtAgencyId.Text = "";
-                Int32 i = 0;
+                //Int32 i = 0;
             }
             catch (Exception ex)
             {
@@ -67,12 +67,12 @@ public partial class Agencies : System.Web.UI.UserControl
         }
         PreencheGrid();
     }
-    
+
     protected void btn_UpdtePane_Click(object sender, EventArgs e)
     {
-        
+
     }
-    
+
     public void PreencheGrid()
     {
         #region "List"
@@ -95,15 +95,15 @@ public partial class Agencies : System.Web.UI.UserControl
 
     protected void btnEditar_Click(object sender, EventArgs e)
     {
-            ImageButton btnEdit = sender as ImageButton;
-            GridViewRow grid = (GridViewRow)btnEdit.NamingContainer;
-           
-                FAMIS_BLL.Agency _agency = new FAMIS_BLL.Agency();
-                List<Model.Agency> ListAgency =
-                    _agency.Select(" Where agency_id=" + grvAgency.DataKeys[grid.RowIndex].Values[0].ToString());
+        ImageButton btnEdit = sender as ImageButton;
+        GridViewRow grid = (GridViewRow)btnEdit.NamingContainer;
 
-                TxtAgencyId.Text = ListAgency.ElementAt(0).Agency_id.ToString();
-                TxtAgencyName.Text = ListAgency.ElementAt(0).Name.ToString(); 
+        FAMIS_BLL.Agency _agency = new FAMIS_BLL.Agency();
+        List<Model.Agency> ListAgency =
+            _agency.Select(" Where agency_id=" + grvAgency.DataKeys[grid.RowIndex].Values[0].ToString());
+
+        TxtAgencyId.Text = ListAgency.ElementAt(0).Agency_id.ToString();
+        TxtAgencyName.Text = ListAgency.ElementAt(0).Name.ToString();
     }
 
     protected void btnExcluir_Click(object sender, EventArgs e)
@@ -114,7 +114,7 @@ public partial class Agencies : System.Web.UI.UserControl
             GridViewRow grid = (GridViewRow)btnEdit.NamingContainer;
 
             FAMIS_BLL.Agency _agency = new FAMIS_BLL.Agency();
-            FAMIS_BLL.Agency _agencyDel = new FAMIS_BLL.Agency(); 
+            FAMIS_BLL.Agency _agencyDel = new FAMIS_BLL.Agency();
 
             List<Model.Agency> ListAgency =
                 _agency.Select(" Where agency_id=" + grvAgency.DataKeys[grid.RowIndex].Values[0].ToString());

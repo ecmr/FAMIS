@@ -1,181 +1,143 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Employes.ascx.cs" Inherits="Controles_Employes"  %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <!-- Begin do Controle -->
-<head><title></title>
-    <link rel="Stylesheet" type="text/css" href="../Css/Controles.css" />
-    <style type="text/css">
-        .style2
-        {
-            width: 307px;
-            height: 22px;
-        }
-        .style4
-        {
-            height: 22px;
-        }
-        .style5
-        {            height: 44px;
-        }
-        .style7
-        {
-            height: 34px;
-        }
-        .style8
-        {
-        }
-        .style10
-        {
-            width: 908px;
-        }
-        #gridformEmp {
-	        margin:0 auto;
-	        width:100%;
-	        height:294px;
-	        float:left;
-        }
-        DIV.ContentDivEmp
-        { /*** Layout do Tamanho ***/
-            height: 98%;
-            width: 1018px;
-            text-align:left;
-            border: 1px solid #00008b; /* #6893CF;*/
-            background-color: #F3F8FF;
-            overflow: auto;
-        }
-        Div.DivEmpXX
-        {
-            margin: 5px;
-            padding: 5px;
-            border: 1px solid #6893CF;
-            background-color: #eaf3ff;
-            display: table;
-            text-align: center;
-	        height: 99%;
-        }                        
-        .style11
-        {
-            width: 908px;
-            height: 33px;
-        }
-    </style>
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <style type="text/css" media="all">
+  	@import "../Css/Css.css";
+   </style>
+  <!--[if lte IE 7]>
+
+  <style type="text/css" media="all">
+  	@import "../Css/fieldset-background-image-ie.css";
+      #header
+      {
+          width: 597px;
+      }
+  </style>
+
+  <![endif]-->
+<style type="text/css">
+
+    * { margin: 0; padding: 0; }
+
+#container { width: 600px; margin: 0 auto; }
+
+#colunaUm {
+
+	width: 149px;
+
+	float: left;
+        height: 61px;
+    }
+
+#colunaDois {
+
+	width: 200px;
+
+	float: left;
+        height: 48px;
+    }
+</style>
 </head>
-
-    <div id="MainDivXX" class="DivEmpXX" >
-        <div>
-            &nbsp;
-            <div id="LeadDiv" class="ContentDivEmp" >
-                <div class="Title">
-                    Employes<br />
-                </div>&nbsp;
-                <table id="LeadTable" runat="server" cellpadding="0" cellspacing="3" 
-                    style="border-bottom-color: #00008b; width: 917px;" border="2"> 
+<body>
+	<div class="pageEmployee" >
+		<div class="headerEmployee" >
+			<h1>
+				Employes
+			</h1>
+		</div> 
+        <!-- END #header -->
+		<div class="contentEmployee">
+			<form class="formEmployee" action="">
+                <table style="width: 100%; height: 401px;">
                     <tr>
-                        <td align="left" colspan="4" class="style7">
-                            </td>
-                    </tr> 
-                    <tr>
-                        <td align="left" class="style4" >
-                            Employee ID
+                        <td>
+           				    <fieldset class="fieldsetEmployee">
+					            <legend>
+						            Employee Details
+					            </legend>
+					            <ol style="height: 30px; width: 100%;">
+						            <li style="height: 30px; width: 100%;">
+							            <label for="name">
+								            Employee ID:
+							            </label>
+                                        <asp:TextBox ID="TxtEmployee_id" CssClass="text" Enabled="false" runat="server" Width="100px"/>
+						            </li>
+						            <li style="height: 30px; width: 100%;">
+							            <label for="email">
+								            First Name:
+							            </label>
+                                        <asp:TextBox ID="TxtFirstName" CssClass="text" runat="server" Width="200px"/>
+						            </li>
+                                    <li style="height: 30px; width: 100%;">
+                                        <label for="lastName">
+                                            Last Name:
+                                        </label>
+                                        <asp:TextBox ID="txtLast_name" runat="server" Width="200px"></asp:TextBox>
+                                    </li>
+                                    <li style="height: 50px; width: 100%;">
+                                        <label for="code">
+                                            Code:
+                                        </label>
+                                        <asp:TextBox ID="TextCode" TextMode="MultiLine" runat="server" Height="45px" 
+                                            Width="200px"></asp:TextBox>
+                                    </li>
+                                    <li style="height: 30px; width: 100%;">
+                                        <label for="Position">
+                                            Position:
+                                        </label>
+                                        <asp:DropDownList ID="DropDownPosition" Height="18px" Width="229px" 
+                                            runat="server"></asp:DropDownList>
+                                    </li>
+                                    <li style="height: 30px; width: 100%;">
+                                        <label for="Salary">
+                                            Salary:
+                                        </label>
+                                        <asp:TextBox ID="TxtSalary" runat="server" Width="100px"></asp:TextBox> 
+                                    </li>
+                                    <li>
+                                        <label for="code">
+                                            Hired Date:
+                                        </label>
+                                        <asp:TextBox ID="txtDateHired" runat="server" Width="100px"></asp:TextBox>
+                                        <asp:ImageButton ID="ImgCalendar1" runat="server" ImageUrl="~/imagens/Crm/calon.gif" onclick="ImageButton1_Click" />
+                                    </li>
+					            </ol>
+				            </fieldset>
                         </td>
-                        <td align="left" class="style2" >
-                            <asp:TextBox ID="TxtEmployee_id" Enabled="false" runat="server"  Width="100px"></asp:TextBox> 
+                        <td>
+           				    <fieldset class="fieldsetEmployeeB">
+					            <legend>
+						            User Photo
+					            </legend>
+					            <ol class="fieldsetEmployeeOl">
+						            <li class="fieldsetEmployeeLi">
+                                        <asp:Image ID="PicturePhoto" runat="server" ImageUrl="~/imagens/Pictures/Edinei.JPG" Width="233px" Height="181px" 
+                                                    BorderStyle="Solid" BorderWidth="2px" style="text-align: center; margin-top: 0px" />
+						            </li>
+                                    <li class="FieldSetBrowser">
+                                        <asp:FileUpload ID="FileUploadPhoto" runat="server" Width="307px" 
+                                            Height="46px" />
+                                    </li>
+                                    <li class="FieldSetBrowser">
+                                        <asp:Button ID="UploadPhoto" OnClick="UploadPhoto_Click" Width="90px" Height="23px"  runat="server" Text="Upload" />                                    
+                                    </li>
+					            </ol>
+				            </fieldset>
                         </td>
-                        <td align="left" rowspan="4" bgcolor="Black" class="style8" colspan="2">
-                            <br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                            <asp:Image ID="PicturePhoto" runat="server" 
-                                ImageUrl="~/imagens/Pictures/Edinei.JPG" Width="233px" Height="181px" 
-                                BorderStyle="Solid" BorderWidth="2px" 
-                                style="text-align: center; margin-top: 0px" />
-                        </td>
-                    </tr>  
-                    <tr>
-                        <td align="left" class="style4" >
-                            First Name </td>
-                        <td align="left" class="style2" >
-                            <asp:TextBox ID="TxtFirstName" runat="server"  Width="300px"></asp:TextBox> 
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td align="left" class="style4"  >
-                            Last Name</td>
-                        <td align="left" class="style2"  >
-                            <asp:TextBox ID="txtLast_name" runat="server" Width="300px"></asp:TextBox>    
-                        </td>
-                    </tr>                      
-                    <tr>
-                        <td align="left" class="style4"  >
-                            Code</td>
-                        <td align="left" class="style2"  >
-                            <asp:TextBox ID="TextCode" TextMode="MultiLine" runat="server" Height="37px" 
-                                Width="300px"></asp:TextBox> 
-                        </td>
-                    </tr>                      
-                    <tr>
-                        <td align="left" class="style4"  >
-                            Position
-                        </td>
-                        <td align="left" class="style2"  >
-                            <asp:DropDownList ID="DropDownPosition" Height="22px" Width="300px"  runat="server"></asp:DropDownList>
-                        </td>
-                        <td align="left" class="style8" colspan="2">
-                            <asp:FileUpload ID="FileUploadPhoto" runat="server" Width="218px" />
-                        </td>
-                    </tr>                    
-                    <tr>
-                        <td align="left" class="style4"  >
-                            Agency
-                        </td>
-                        <td align="left" class="style2"  >
-                            <asp:DropDownList ID="DropDownAgency" Height="22px" Width="300px"  runat="server"></asp:DropDownList>
-                        </td>
-                        <td align="left" class="style8" colspan="2">
-                            <asp:Button ID="UploadPhoto" OnClick="UploadPhoto_Click" Width="90px" Height="23px"  runat="server" Text="Upload" />
-                        </td>
-                    </tr>                    
-                    <tr>
-                        <td align="left" class="style4"  >
-                            Salary
-                            </td>
-                        <td align="left" class="style2"  >
-                            <asp:TextBox ID="TxtSalary" runat="server" Width="100px"></asp:TextBox> 
-                        </td>
-                        <td align="left">
-                            
-                            Hired Date</td>
-
-                        <td align="left">
-                            
-                            <asp:TextBox ID="txtDateHired" runat="server" Width="90px"></asp:TextBox>
-                            <asp:ImageButton ID="ImgCalendar1" runat="server" ImageUrl="~/imagens/Crm/calon.gif" onclick="ImageButton1_Click" />
-                            
-                        </td>
-
-                    </tr>                    
-                    <tr>
-                        <td align="left" class="style5" colspan="4"  >
-                            <div id="botoesform">
-                                <asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" 
-                                    onclick="lkbSalvar_Click"><asp:Image ID="btnSalvar" runat="server" 
-                                    ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" 
-                                    ToolTip="Salvar" />Save</asp:LinkButton>
-                            </div>
-                            </td>
-                    </tr>                    
-                    </table>
-                <table id="GridTable" runat="server" cellpadding="0" cellspacing="3" 
-                    style="border-bottom-color: #00008b; height: 360px;" border="2" > 
-                    <tr>
-                        <td align="left" class="style11" >
-                            &nbsp;List
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td align="left" class="style10" >
-                            <div id="gridformEmp">
+                    </tr>
+                </table>
+				<fieldset class="fieldsetEmployeeList">
+					<legend>
+						Employee List
+					</legend>
+					<ol class="OlEmployeeList">
+						<li class="LIEmployeeList">
                                  <asp:GridView ID="grvEmployee" runat="server" AllowPaging="True" PageSize="5" 
                                     AutoGenerateColumns="False" CellPadding="4" 
-                                    GridLines="Horizontal" Width="411px" DataKeyNames="agency_id,name"  
+                                    GridLines="Horizontal" Width="721px" DataKeyNames="agency_id,name"  
                                     OnPageIndexChanging="grvEmployee_PageIndexChanging" 
                                      onselectedindexchanged="grvEmployee_SelectedIndexChanged">
                                       <Columns>
@@ -216,12 +178,15 @@
                                     <HeaderStyle />
                                     <AlternatingRowStyle CssClass="grid_line_02" />
                                 </asp:GridView>
-                            </div>
-                            &nbsp;
-                        </td>
-                    </tr>  
-                </table> 
-            </div>
-        </div>
-    </div>
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset class="fieldsetSubmitEmployeeButtons">
+					<asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
+				</fieldset>
+			</form>
+		</div><!-- END #content -->
+	</div> <!-- END #page -->
+    <!-- END #page -->
+</body>
 <!-- End do Controle -->

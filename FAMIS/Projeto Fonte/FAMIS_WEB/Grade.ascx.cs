@@ -57,31 +57,22 @@ public partial class Grade : System.Web.UI.UserControl
         {
             case 1:
                 return "Beverages";
-            break;
             case 2:
                 return "Condiments";
-            break;
             case 3:
                 return "Confections";
-            break;
             case 4:
                 return "Dairy Products";
-            break;
             case 5:
                 return "Grains/Cereals";
-            break;
             case 6:
                 return "Meat/Poultry";
-            break;
             case 7:
                 return "Produce";
-            break;
             case 8:
                 return "Seafood";
-            break;
             default:
                 return "Opção inválida";
-            break;
         }
     }
 }

@@ -1,0 +1,21 @@
+fieldset
+{
+	position: relative;
+    top: -76px;
+    left: 2px;
+    width: 699px;
+    }
+
+legend
+{
+	position: relative;
+	left: 9px;
+	top: 0em;
+    width: 111px;
+    height: 19px;
+}
+
+fieldset ol
+{
+	padding-top: 0.25em;
+}

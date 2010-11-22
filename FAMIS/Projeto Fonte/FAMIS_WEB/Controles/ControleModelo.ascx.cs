@@ -28,7 +28,7 @@ public partial class ControleModelo : System.Web.UI.UserControl
                 Ag.Add(agencie);
                 TxtAgencyName.Text = "";
                 TxtAgencyId.Text = "";
-                Int32 i = 0;
+                //Int32 i = 0;
 
             }
             catch (Exception ex)
@@ -47,7 +47,7 @@ public partial class ControleModelo : System.Web.UI.UserControl
                 Ag.Update(agencie);
                 TxtAgencyName.Text = "";
                 TxtAgencyId.Text = "";
-                Int32 i = 0;
+                //Int32 i = 0;
             }
             catch (Exception ex)
             {

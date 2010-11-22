@@ -18,3 +18,8 @@ C:\Projetos\GREY\FAMIS\Projeto Fonte\Model\bin\Debug\Model.pdb
 C:\Projetos\GREY\FAMIS\Projeto Fonte\Model\obj\Debug\ResolveAssemblyReference.cache
 C:\Projetos\GREY\FAMIS\Projeto Fonte\Model\obj\Debug\Model.dll
 C:\Projetos\GREY\FAMIS\Projeto Fonte\Model\obj\Debug\Model.pdb
+C:\Edinei\FAMIS\FAMIS\Projeto Fonte\Model\bin\Debug\Model.dll
+C:\Edinei\FAMIS\FAMIS\Projeto Fonte\Model\bin\Debug\Model.pdb
+C:\Edinei\FAMIS\FAMIS\Projeto Fonte\Model\obj\Debug\ResolveAssemblyReference.cache
+C:\Edinei\FAMIS\FAMIS\Projeto Fonte\Model\obj\Debug\Model.dll
+C:\Edinei\FAMIS\FAMIS\Projeto Fonte\Model\obj\Debug\Model.pdb

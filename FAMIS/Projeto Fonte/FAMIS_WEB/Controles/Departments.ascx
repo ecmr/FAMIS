@@ -1,57 +1,60 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Departments.ascx.cs" Inherits="Departments" %>
 <!-- Begin do Controle -->
-<head><title></title>
-    <link rel="Stylesheet" type="text/css" href="../Css/Controles.css" />
-</head>
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <style type="text/css" media="all">
+  	@import "../Css/Css.css";
+   </style>
+  <!--[if lte IE 7]>
 
-    <div id="MainDiv">
-        <div>
-            &nbsp;
-            <div id="LeadDiv" class="ContentDiv" >
-                <div class="Title">
-                    Departments</div>&nbsp;
-                <table id="LeadTable" runat="server" cellpadding="0" cellspacing="3" 
-                    style="border-bottom-color: #00008b; width: 628px;"> 
-                    <tr>
-                        <td align="left">
-                            Department ID
-                        </td>
-                        <td align="left">
-                            Department Name
-                        </td>                    
-                    </tr> 
-                    <tr>
-                        <td align="left">
-                            <asp:TextBox ID="txtDepartment_id" Enabled="false" runat="server" Width="100px"></asp:TextBox>
-                        </td>
-                        <td align="left">
-                            <asp:TextBox ID="txtDepartmentName" runat="server" Width="490px"></asp:TextBox>
-                        </td>                    
-                    </tr>                    
-                </table> 
-                <table id="botoesTable" runat="server" cellpadding="0" cellspacing="3" 
-                    style="border-bottom-color: #00008b; width: 630px;"   > 
-                    <tr>
-                        <td align="left">
-                            <div id="botoesform" >
-                                <asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
-                            </div>
-                        </td>
-                    </tr> 
-                </table> 
-                <table id="GridTable" runat="server" cellpadding="0" cellspacing="3" 
-                    style="border-bottom-color: #00008b; width: 633px;"> 
-                    <tr>
-                        <td align="left">
-                            &nbsp;List
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td align="left">
-                            <div id="gridform">
-                                 <asp:GridView ID="grvDepartment" runat="server" AllowPaging="True" PageSize="5" 
+  <style type="text/css" media="all">
+  	@import "../Css/fieldset-background-image-ie.css";
+      #header
+      {
+          width: 597px;
+      }
+  </style>
+
+  <![endif]-->
+</head>
+<body>
+	<div id="page">
+		<div id="header">
+			<h1>
+				Departments
+			</h1>
+		</div> <!-- END #header -->
+		<div class="contentFilho">
+			<form class="formFilho" action="">
+				<fieldset class="fieldset">
+					<legend>
+						Department Details
+					</legend>
+					<ol class="OlDepartment">
+						<li class="LIOlDepartment">
+							<label for="name">
+								Department ID:
+							</label>
+                            <asp:TextBox ID="txtDepartment_id" CssClass="text" Enabled="false" runat="server"/>
+						</li>
+						<li class="LIOlDepartment">
+							<label for="email">
+								Department Name:
+							</label>
+                            <asp:TextBox ID="txtDepartmentName" CssClass="text" runat="server"/>
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset class="fieldsetDepartmentsList">
+					<legend>
+						Departments List
+					</legend>
+					<ol>
+						<li>
+                            <asp:GridView ID="grvDepartment" runat="server" AllowPaging="True" PageSize="5" 
                                     AutoGenerateColumns="False" CellPadding="4" 
-                                    GridLines="Horizontal" Width="600px" DataKeyNames="department_id,name"  
+                                    GridLines="Horizontal" Width="699px" DataKeyNames="department_id,name"  
                     OnPageIndexChanging="grvClient_PageIndexChanging">
                                   <Columns>
                                   <asp:TemplateField ItemStyle-Width="25px" ItemStyle-HorizontalAlign="Center" 
@@ -91,12 +94,14 @@
                                     <HeaderStyle />
                                     <AlternatingRowStyle CssClass="grid_line_02" />
                                 </asp:GridView>
-                            </div>
-                            &nbsp;
-                        </td>
-                    </tr>  
-                </table> 
-            </div>
-        </div>
-    </div>
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset class="fieldsetSubmit" >
+					<asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
+				</fieldset>
+			</form>
+		</div><!-- END #content -->
+	</div> <!-- END #page -->
+</body>
 <!-- End do Controle -->

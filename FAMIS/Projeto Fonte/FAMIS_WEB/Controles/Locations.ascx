@@ -1,110 +1,91 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Locations.ascx.cs" Inherits="Controles_Locations" %>
 <!-- Begin do Controle -->
-<head><title></title>
-    <link rel="Stylesheet" type="text/css" href="../Css/Controles.css" />
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <style type="text/css" media="all">
+  	@import "../Css/Css.css";
+   </style>
+  <!--[if lte IE 7]>
+
+  <style type="text/css" media="all">
+  	@import "../Css/fieldset-background-image-ie.css";
+      #header
+      {
+          width: 597px;
+      }
+  </style>
+
+  <![endif]-->
 </head>
-
-    <div id="MainDiv">
-        <div>
-            &nbsp;
-            <div id="LeadDiv" class="ContentDiv" >
-                <div class="Title">
-                    Locations</div>&nbsp;
-                <table id="LeadTable" runat="server" width="300px" cellpadding="0" cellspacing="3" style="border-bottom-color: #00008b;" align="center"> 
-                    <tr>
-                        <td width="100px" align="left">
-                            Location ID
-                        </td>
-                        <td width="200px" align="left">
-                            Address
-                        </td>  
-                        <td align="left">
-                            Number
-                        </td>                                          
-                    </tr> 
-                    <tr>
-
-                        <td align="left">
+<body>
+	<div class="pageLocation" >
+		<div class="headerLocation">
+			<h1>
+				Locations
+			</h1>
+		</div> <!-- END #header -->
+		<div class="contentLocation">
+			<form class="formLocation" action="">
+				<fieldset class="fieldsetLocation">
+					<legend class="legendLocation">
+						Location Details
+					</legend>
+					<ol class="OlLocation" >
+						<li class="LILocation">
+							<label for="name">
+								Location ID:
+							</label>
                             <asp:TextBox ID="txtLocation_id" Enabled="false" runat="server" Width="123px"></asp:TextBox>
-                        </td>
-                        <td align="left">
+						</li>
+						<li class="LILocation">
+							<label for="email">
+								Address:
+							</label>
                             <asp:TextBox ID="txtAddress" runat="server" Width="265px"></asp:TextBox>
-                        </td>
-                        <td align="left">
-                            <asp:TextBox ID="TxtNumber" runat="server" Width="191px"></asp:TextBox>
-                        </td>                                                                    
-                    </tr>
-                    <tr>
-                        <td align="left">
-                            City</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td align="left" colspan="3" >
-                            <asp:TextBox ID="TxtCity" runat="server" Width="589px"></asp:TextBox>
-                        </td>
-                    </tr>
-<!--***********************************-->
-                    <tr>
-                      <td colspan="3">
-                          Region
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">
-                          <asp:DropDownList ID="DropDownRegion" Width="589px" AutoPostBack="true" 
-                              runat="server" Height="22px" 
-                              onselectedindexchanged="DropDownRegion_SelectedIndexChanged"></asp:DropDownList>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">
-                          Country
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">
-                          <asp:DropDownList ID="DropDownCountry" Width="589px" AutoPostBack="true" 
-                              runat="server" Height="22px" 
-                              onselectedindexchanged="DropDownCountry_SelectedIndexChanged"></asp:DropDownList>
-                      </td>
-                    </tr>  
-                    <tr>
-                      <td colspan="3">
-                          Agency
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">
-                          <asp:DropDownList ID="DropDownAgency" Width="589px" runat="server" Height="22px"></asp:DropDownList>
-                      </td>
-                    </tr>                                                           
-                </table>
-                <table id="botoesTable" runat="server" cellpadding="0" cellspacing="3" 
-                    style="border-bottom-color: #00008b; width: 598px;" align="center"> 
-                    <tr>
-                        <td align="left">
-                            <div id="botoesform" >
-                                <asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
-                                <br />
-                            </div>
-                        </td>
-                    </tr> 
-                </table>
-                <table id="GridTable" runat="server" cellpadding="0" cellspacing="3" 
-                    style="border-bottom-color: #00008b; width: 599px;" align="center"> 
-                    <tr>
-                        <td align="left">
-                            &nbsp;List
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td align="left">
-                            <div id="gridform">
-                                 <asp:GridView ID="grvLocation" runat="server" AllowPaging="True" PageSize="5" 
+						</li>
+						<li class="LILocation">
+							<label for="email">
+								Number:
+							</label>
+                            <asp:TextBox ID="TxtNumber" runat="server" Width="265px"></asp:TextBox>
+						</li>
+						<li class="LILocation">
+							<label for="email">
+								City:
+							</label>
+                            <asp:TextBox ID="TxtCity" runat="server" Width="265px"></asp:TextBox>
+						</li>
+                        
+						<li class="LILocation">
+							<label for="Agency">
+								Region:
+							</label>
+                            <asp:DropDownList ID="DropDownRegion" Width="390px" AutoPostBack="true" runat="server" Height="22px" onselectedindexchanged="DropDownRegion_SelectedIndexChanged"></asp:DropDownList>
+						</li>
+						<li class="LILocation">
+							<label for="Agency">
+								Country:
+							</label>
+                            <asp:DropDownList ID="DropDownCountry" Width="390px" AutoPostBack="true" runat="server" Height="22px" onselectedindexchanged="DropDownCountry_SelectedIndexChanged"></asp:DropDownList>
+						</li>
+						<li class="LILocation">
+							<label for="Agency">
+								Agency:
+							</label>
+                            <asp:DropDownList ID="DropDownAgency" Width="390px" runat="server" Height="22px"></asp:DropDownList>
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset class="fieldsetLocationcList">
+					<legend>
+						Agencies List
+					</legend>
+					<ol class="OlLocationList">
+						<li class="LILocationList">
+                            <asp:GridView ID="grvLocation" runat="server" AllowPaging="True" PageSize="5" 
                                     AutoGenerateColumns="False" CellPadding="4" 
-                                    GridLines="Horizontal" Width="581px" DataKeyNames="location_id,city"  
+                                    GridLines="Horizontal" Width="710px" DataKeyNames="location_id,city"  
                     OnPageIndexChanging="grvLocation_PageIndexChanging">
                                       <Columns>
                                       <asp:TemplateField ItemStyle-Width="25px" ItemStyle-HorizontalAlign="Center" 
@@ -144,11 +125,13 @@
                                     <HeaderStyle />
                                     <AlternatingRowStyle CssClass="grid_line_02" />
                                 </asp:GridView>
-                            </div>
-                            &nbsp;
-                        </td>
-                    </tr>  
-                </table>                
-            </div>
-        </div>    
-    </div>  
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset class="fieldsetSubmitAgencieButtons" >
+					<asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
+				</fieldset>
+			</form>
+		</div><!-- END #content -->
+	</div> <!-- END #page -->
+</body>  

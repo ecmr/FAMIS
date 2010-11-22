@@ -1,0 +1,540 @@
+﻿* {
+	margin:0;
+	padding:0;
+	}
+body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	overflow: hidden;
+	height: 100%;
+	max-height: 100%;
+	/*
+    scrollbar-base-color: #FFFFFF;
+	scrollbar-arrow-color: #6699cc;
+	scrollbar-3dlight-color: #6699cc;
+	scrollbar-darkshadow-color: #6699cc;
+	scrollbar-face-color: #FFFFFF;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-shadow-color: #FFFFFF;
+	scrollbar-track-color: #d6e8ff;
+    */
+}
+.modal {
+	background-color:White;
+}
+ul {
+	list-style:none;
+}
+#mensagemerro {
+	font:11px Tahoma, Verdana, Arial;
+	color:#FF0000;
+	background-color:#ffdfe0;
+	width:100%;
+	height:21px;
+	float:left;
+	border-bottom:solid 1px #ff9999;
+	display:none;
+}
+#alerta {
+	font:11px Tahoma, Verdana, Arial;
+	color:#FF0000;
+	background-color:#ffdfe0;
+	width:100%;
+	height:21px;
+	float:left;
+	border-bottom:solid 1px #ff9999;
+}
+/*******************************************************************************
+ DESIGN INFORMATION FRAMES: describes frames
+ *******************************************************************************/
+#framecontent {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 86px; /*Height of frame div*/
+	overflow: hidden; /*Disable scrollbars. Set to "scroll" to enable*/
+	background-image:url(../Images/topo/background.gif);
+	background-repeat:repeat-x;
+	color: white;
+}
+#maincontent {
+	position: fixed;
+	top: 86px; /*Set top value to HeightOfFrameDiv*/
+	left: 0;
+	right: 4px;
+	bottom: 21px;
+	overflow: auto;
+	background-image:url('../Images/display/background.gif');
+	background-attachment:fixed;
+}
+.innertube {
+	margin: 0px; /*Margins for inner DIV inside each DIV (to provide padding)*/
+	background-color:#FFFFFF;
+	height:100%;
+}
+.contentform {
+	margin: 5px; /*Margins for inner DIV inside each DIV */
+	background-color:#eaf3ff;
+	height:172px;
+	border:solid 1px #6693cf;
+}
+.contentformpopup {
+	background-color:#eaf3ff;
+	margin: 5px; /*Margins for inner DIV inside each DIV */
+	width:600px;
+	height:auto;
+	border:solid 1px #6693cf;
+}
+* html body { /*IE6 hack*/
+	padding: 86px 0 0 0; /*Set value to (HeightOfFrameDiv 0 0 0)*/
+}
+* html #maincontent { /*IE6 hack*/
+	height: 100%;
+	width: 100%;
+}
+/*******************************************************************************
+ DESIGN INFORMATION TOP: describes top
+ *******************************************************************************/
+#toplogo {
+	width:732px;
+	height:58px;
+	float:left;
+}
+#toplogin {
+	font:11px Tahoma, Verdana, Arial;
+	width:180px;
+	height:53px;
+	float:right;
+	text-align:right;
+	padding-right:20px;
+	padding-top:5px;
+	color:#c6e8ff;
+}
+#topmenu {
+	margin:0;
+	width:100%;
+	height:60px;
+	background-image:url('../Images/menu_strip_bg_gray.gif');
+	float:left;
+	clear:both;
+}
+/*******************************************************************************
+ DESIGN INFORMATION FORM: describes form
+ *******************************************************************************/
+ #formtitulo {
+	font:bold 12px Tahoma, Verdana, Arial;
+	background-image:url(../Images/app_titlebar.gif);
+	background-repeat:repeat-x;
+	width:100%;
+	height:26px;
+	line-height:20px;
+	float:left;
+}
+#botoes {
+	background-image: url(../Images/Display/botoes_bkg.gif);
+	background-repeat:repeat-x;
+	width:100%;
+	height:26px;
+	line-height:20px;
+	float:left;
+}
+.botoesgerais {
+	padding-top:5px;
+	padding-left:5px;
+}
+#formgeral {
+	width:100%;
+	height:auto;
+	float:left;/*background-color: #cee1fa;*/
+}
+#formfont {
+	font:bold 11px Tahoma, Verdana, Arial;
+	color:#000000;
+	width: 114%;
+}
+.txtbox {
+	font:12px Tahoma, Verdana, Arial;
+	border:solid 1px #6699cc;
+	height:18px;
+}
+/*******************************************************************************
+ DESIGN INFORMATION LOGIN: describes login
+ *******************************************************************************/
+ #logincontent {
+	position: fixed;
+	top:52px; /*Set top value to HeightOfFrameDiv*/
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	overflow: auto;
+	height: 650px; 
+	background-image:url('../imagens/display/background.gif');
+	background-attachment:fixed;
+}
+.logincontentform 
+{
+	/*Formulario da Layout.master */
+	margin: 5px; /*Margins for inner DIV inside each DIV */
+	background-color:#eaf3ff;
+	height:613px;
+	border:solid 1px #6693cf;
+}
+#logintitulo {
+	font:bold 14px Tahoma, Verdana, Arial;
+	color:#15428b;
+	background-image:url(../Images/app_titlebar.gif);
+	background-repeat:repeat-x;
+	width:100%;
+	height:26px;
+	line-height:23px;
+	float:left;
+}
+#loginimagem {
+	margin-top:30px;
+	margin-left:20px;
+	width:87px;
+	height:114px;
+	float:left;
+}
+#loginusuario {
+	font:12px Tahoma, Verdana, Arial;
+	color:#15428b;
+	margin-top:25px;
+	margin-left:20px;
+	width:210px;
+	height:100px;
+	float:left;
+}
+#loginusuario li {
+	padding-top:5px;
+}
+.loginerro {
+	margin-left:10px;
+	margin-right:5px;
+	margin-top:3px;
+}
+.loginbtn {
+	margin-left:120px;
+	cursor:pointer;
+}
+/*******************************************************************************
+ DESIGN INFORMATION GRID: describes color, scheme 
+*******************************************************************************/
+.grid_tittle {
+	font:11px Tahoma, Verdana, Arial;
+	padding-left:5px;
+	color:#000;
+	background-image: url(../Images/Display/grid_titulo_background.gif);
+	background-position:right;
+	background-repeat:repeat-x;
+	height:20px;
+	padding-bottom:3px;
+}
+.grid_tittle_div {
+	font:11px Tahoma, Verdana, Arial;
+	padding-left:5px;
+	color:#000;
+	background-image:url(../Images/Display/grid_titulo_div.gif);
+	background-position:right;
+	background-repeat:no-repeat;
+	height:20px;
+	padding-bottom:3px;
+}
+.grid_line_01 {
+	font:11px Tahoma, Verdana, Arial;
+	color:#000;
+	background-image: url(../Images/Display/grid_background.gif);
+	background-repeat:repeat-x;
+	height:21px;
+}
+.grid_line_02 {
+	font:11px Tahoma, Verdana, Arial;
+	color:#000000;
+	background-image: url(../Images/Display/grid_background.gif);
+	background-repeat:repeat-x;
+	height:21px;
+}
+#gridform {
+	margin:0 auto;
+	width:100%;
+	height:23px;
+	float:left;
+}
+/*******************************************************************************
+ DESIGN INFORMATION MODAL: describes color, scheme 
+*******************************************************************************/
+.modalBackground {
+	background-color: #000;
+	/* filter: alpha(opacity=80);
+	opacity: 0.8; */
+}
+/*******************************************************************************
+ DESIGN INFORMATION MODAL: treeview
+*******************************************************************************/
+#treeview {
+	width:100%;
+	height:293px;
+	border:solid 1px #6699cc;
+	overflow:auto;
+}
+/*******************************************************************************
+ DESIGN INFORMATION MODAL: teste
+*******************************************************************************/
+#botoesform 
+{
+	margin-top:4px;
+	margin-left:7px;
+	width:108%;
+	height:21px;
+	float:left;
+}
+#botoesform li 
+{
+	float:left;
+	height:24px;
+	width: 5px;
+}
+#botoesform li a 
+{
+	font:11px Arial, Helvetica, sans-serif;
+	color:#15428b;
+	text-decoration:none;
+	padding-left:6px;
+	padding-right:6px;
+	padding-top:3px;
+	padding-bottom:4px;
+	height:18px;
+}
+#botoesform li a:hover
+{
+	font:11px Arial, Helvetica, sans-serif;
+	color:#15428b;
+	text-decoration:none;
+	background-image: url(~/imagens/app_titlebar_hover.gif);
+	background-repeat:repeat-x;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:2px;
+	padding-bottom:3px;
+	border:solid 1px #ffdb6c;
+	height:18px;
+}
+.separator 
+{
+	margin-top:1px;
+	height:15px;
+	background-image:url(../Images/botoes_div.gif);
+	background-repeat:no-repeat;
+	width:6px;
+	padding-left:2px;
+}
+
+/***********************************************************************
+ ***********************************************************************
+*/
+
+/*******************************************************************************
+********************************************************************************
+**
+* - GENERAL
+*
+* - PAGE CONTAINERS
+*
+* - HEADER
+*
+* - CONTENT
+**
+********************************************************************************
+ ******************************************************************************/
+
+/* GENERAL ------------------------------------------------------------------ */
+
+html
+{
+	height: 100%;
+}
+
+/* Zero default margin & padding around common elements */
+body, dd, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, ul
+{
+	margin: 0;
+	border: 0 none transparent;
+	padding: 0;
+}
+
+body
+{
+	height: 100%;
+	background-color: #333333;
+	background-image: url('../images/bg.gif');
+	background-position: 100% 0;
+	color: #000000;
+	line-height: 1.5;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 80%;
+	text-align: center;
+    width: 1312px;
+}
+
+a:link
+{
+	color: #003399;
+}
+
+a:visited
+{
+	color: #B266B2;
+}
+
+a:hover
+{
+	text-decoration: none;
+}
+
+
+
+
+/* PAGE CONTAINERS ---------------------------------------------------------- */
+
+#page
+{
+	/*width: 636px;*/
+	width: 90%;
+	min-height: 100%;
+	margin: 0 auto;
+	padding: 0 18px 0 18px;
+	background-image: url('../images/page.gif');
+	background-repeat: repeat-y;
+	text-align: left;
+}
+
+* html #page
+{
+	height: 100%;
+}
+
+
+
+
+/* HEADER ------------------------------------------------------------------- */
+
+#header
+{
+	height: 70px;
+	width: 821px;
+	background-color: #B2DD32;
+	background-image: url(../images/header1.jpg);
+	background-repeat: repeat-x;
+}
+
+h1
+{
+	padding: 0 35px;
+	font-size: 220%;
+	font-weight: normal;
+	line-height: 82px;
+}
+
+
+
+
+/* CONTENT ------------------------------------------------------------------ */
+
+#content
+{
+	padding: 0 35px;
+	width: 96%;
+}
+.contentFilho
+{
+	padding: 0 35px;
+	width: 65%;
+    height: 625px;
+}
+p
+{
+	margin-top: 1.5em;
+}
+
+form
+{
+	margin-top: 1.5em;
+	padding-bottom: 35px;
+    width: 1126px;
+    height: 600px;
+}
+
+.formFilho
+{
+	margin-top: 1.5em;
+	/* padding-bottom: 35px; */
+    width: 100%;
+    height: 600px;
+}
+
+input.text
+{
+  width: 10.5em;
+}
+
+/*****************************************************************
+ *****************************************************************/
+ 
+
+
+legend
+{
+	margin-left: 1em;
+	padding: 0;
+	color: #000000;
+	font-weight: bold;
+}
+
+.fieldset
+{
+	float: left;
+	clear: left;
+	width: 745px;
+	margin: 0 0 1.5em 0;
+	padding: 0;
+	border: 1px solid #BFBAB0;
+	background-color: #F2EFE9;
+	background-image: url(../images/fieldset_gradient.jpg); 
+	background-repeat: repeat-x;
+}
+
+.fieldsetSubmit
+{
+	float: none;
+	width: 92%;
+	border-style: none;
+	padding-left: 12em;
+	background-color: transparent;
+	background-image: none;
+}
+
+fieldset ol
+{
+	padding: 1em 1em 0 1em;
+	list-style: none;
+	/*zoom: 1;*/
+}
+
+fieldset li
+{
+	float: left;
+	clear: left;
+	width: 100%;
+	padding-bottom: 1em;
+}
+
+label
+{
+	float: left;
+	width: 10em;
+	margin-right: 1em;
+}
+
+

@@ -2,83 +2,88 @@
 <!-- Begin do Controle -->
 <asp:ScriptManager ID="ScriptManager1" runat="server">
 </asp:ScriptManager>
-<head><title></title>
-    <link rel="Stylesheet" type="text/css" href="../Css/Controles.css" />
-</head>
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <style type="text/css" media="all">
+  	@import "../Css/Css.css";
+   </style>
+  <!--[if lte IE 7]>
 
-    <div id="MainDiv">
-        <div>
-            &nbsp;
-            <div id="LeadDiv" class="ContentDiv" >
-                <div class="Title">
-                    Geospecs</div>&nbsp;
-                <table id="LeadTable" runat="server" width="300px" cellpadding="0" cellspacing="3" style="border-bottom-color: #00008b;" align="center"> 
-                    <tr>
-                        <td align="left">
-                            Geospec ID
-                        </td>
-                        <td align="left">
-                            Currency
-                        </td> 
-                        <td align="left">
-                            Decimal Symbol
-                        </td>
-                        <td align="left">
-                            Date Format
-                        </td>                                                 
-                    </tr> 
-                    <tr>
-                        <td align="left" width="120px">
-                            <asp:TextBox ID="txtGeospec_id" Enabled="false" runat="server" Width="100px"></asp:TextBox>
-                        </td>
-                        <td align="left">
-                            <asp:TextBox ID="txtCurrency" runat="server" MaxLength="10"  Width="125px"></asp:TextBox>
-                        </td>                    
-                        <td align="left" width="120px">
-                            <asp:TextBox ID="txtDecimalSymbol" runat="server" Width="157px"></asp:TextBox>
-                        </td>
-                        <td align="left">
-                            <asp:TextBox ID="txtDateFormat" runat="server" Width="143px"></asp:TextBox>
-                        </td>           
-                    </tr>
-                    <tr>
-                        <td colspan="2" align="left">
-                            Region
-                        </td>
-                        <td colspan="2" align="left">
-                            Country
-                        </td>                        
-                    </tr>
-                    <tr>
-                        <td colspan="2" align="left">
-                            <asp:DropDownList ID="DropRegion" runat="server" Height="22px" Width="300px" AutoPostBack="true" onselectedindexchanged="DropRegion_SelectedIndexChanged"></asp:DropDownList>
-                        </td>                    
-                        <td colspan="2" align="left">
-                            <asp:DropDownList ID="DropCountry" runat="server" Height="22px" Width="300px"></asp:DropDownList>
-                        </td>                                            
-                    </tr>
-                </table> 
-                <table id="botoesTable" runat="server" cellpadding="0" cellspacing="3" 
-                    style="border-bottom-color: #00008b; width: 614px;" align="center"> 
-                    <tr>
-                        <td align="left">
-                            <div id="botoesform" >
-                                <asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
-                            </div>
-                        </td>
-                    </tr> 
-                </table>                 
-                <table id="GridTable" runat="server" cellpadding="0" cellspacing="3" 
-                    style="border-bottom-color: #00008b; width: 612px;" align="center"> 
-                    <tr>
-                        <td align="left">
-                            List
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td align="left">
-                            <div id="gridform">
-                                 <asp:GridView ID="grvGeospec" runat="server" AllowPaging="True" PageSize="5" AutoGenerateColumns="False" CellPadding="4" GridLines="Horizontal" Width="600px" DataKeyNames="geospec_id,currency" OnPageIndexChanging="grvGeospec_PageIndexChanging">
+  <style type="text/css" media="all">
+  	@import "../Css/fieldset-background-image-ie.css";
+      #header
+      {
+          width: 821px;
+      }
+  </style>
+
+  <![endif]-->
+</head>
+<body>
+	<div class="pageGeospec" >
+		<div class="headerGeospec">
+			<h1>
+				Geospec
+			</h1>
+		</div> <!-- END #header -->
+		<div class="contentGeospec">
+			<form class="formGeospec" action="">
+				<fieldset class="fieldsetGeospec">
+					<legend>
+						Geospec Details
+					</legend>
+					<ol class="OlGeospec">
+						<li class="LIGeospec">
+							<label for="GeospecId">
+								Geospec ID:
+							</label>
+                            <asp:TextBox ID="txtGeospec_id" Enabled="false" runat="server" Width="100px" />
+						</li>
+						<li class="LIGeospec">
+							<label for="Currency">
+								Currency:
+							</label>
+                            <asp:TextBox ID="txtCurrency" runat="server" MaxLength="10"  Width="125px" />
+						</li>
+						<li class="LIGeospec">
+							<label for="DecSymbol">
+								Decimal Symbol:
+							</label>
+                            <asp:TextBox ID="txtDecimalSymbol" runat="server" Width="157px" />
+						</li>
+                        <li class="LIGeospec">
+                            <label for="DateFormat">
+                                Date Format
+                            </label>
+                            <asp:TextBox ID="txtDateFormat" runat="server" Width="143px" />
+                        </li>
+                        <li class="LIGeospec">
+                            <label for="Region">
+                                Region
+                            </label>
+                            <asp:DropDownList ID="DropRegion" runat="server" Height="22px" Width="300px" AutoPostBack="true" onselectedindexchanged="DropRegion_SelectedIndexChanged" />
+                        </li>
+                        <li class="LIGeospec">
+                            <label for="">
+                                Country
+                            </label>
+                            <asp:DropDownList ID="DropCountry" runat="server" Height="22px" Width="300px" />
+                        </li>
+					</ol>
+				</fieldset>
+				<fieldset class="fieldsetGeospecList">
+					<legend>
+						Geospec List
+					</legend>
+					<ol class="OlGeospecList">
+						<li class="LIGeospecList">
+                            <asp:GridView ID="grvGeospec" runat="server" AllowPaging="True" PageSize="5" 
+                                                                 AutoGenerateColumns="False" 
+                                CellPadding="4" GridLines="Horizontal" 
+                                                                 Width="711px" DataKeyNames="geospec_id,currency" 
+                                                                 
+                                OnPageIndexChanging="grvGeospec_PageIndexChanging">
                                       <Columns>
                                       <asp:TemplateField ItemStyle-Width="25px" ItemStyle-HorizontalAlign="Center" HeaderStyle-CssClass="grid_tittle" >
                                         <ItemTemplate>
@@ -116,14 +121,16 @@
                                     <HeaderStyle />
                                     <AlternatingRowStyle CssClass="grid_line_02" />
                                 </asp:GridView>
-                            </div>
-                            &nbsp;
-                        </td>
-                    </tr>  
-                </table> 
-            </div>
-        </div>
-    </div>
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset class="fieldsetSubmitGeospecButtons" >
+					<asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
+				</fieldset>
+			</form>
+		</div><!-- END #content -->
+	</div> <!-- END #page -->
+</body>
 <!-- End do Controle -->
 
 
