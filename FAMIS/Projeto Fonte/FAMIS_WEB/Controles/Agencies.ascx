@@ -20,6 +20,8 @@
   <![endif]-->
 </head>
 <body>
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
 	<div class="pageAgencie" >
 		<div class="headerAgencie">
 			<h1>
@@ -28,7 +30,9 @@
 		</div> <!-- END #header -->
 		<div class="contentAgencie">
 			<form class="formAgencie" action="">
-				<fieldset class="fieldsetAgencie">
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <fieldset class="fieldsetAgencie">
 					<legend class="legendAgencie">
 						Agency Details
 					</legend>
@@ -47,17 +51,18 @@
 						</li>
 					</ol>
 				</fieldset>
+                </ContentTemplate>
+            </asp:UpdatePanel>
 				<fieldset class="fieldsetAgencieList">
 					<legend>
 						Agencies List
 					</legend>
 					<ol>
 						<li>
-                                <asp:GridView ID="grvAgency" runat="server" AllowPaging="True" PageSize="5" 
-                                AutoGenerateColumns="False" CellPadding="4" 
-                                GridLines="Horizontal" Width="705px" DataKeyNames="agency_id,name"  
-                                OnPageIndexChanging="grvAgency_PageIndexChanging">
-                                    <Columns>
+                            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                <ContentTemplate>
+                                    <asp:GridView ID="grvAgency" runat="server" AllowPaging="True" PageSize="5" AutoGenerateColumns="False" CellPadding="4" GridLines="Horizontal" Width="705px" DataKeyNames="agency_id,name"  OnPageIndexChanging="grvAgency_PageIndexChanging">
+                                        <Columns>
                                     <asp:TemplateField ItemStyle-Width="25px" ItemStyle-HorizontalAlign="Center" 
                                             HeaderStyle-CssClass="grid_tittle" >
                                     <ItemTemplate>
@@ -89,18 +94,24 @@
                                     <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
                                     </asp:BoundField>
                                     </Columns>
-                                <pagerstyle backcolor="LightBlue"/>                
-                                <FooterStyle />
-                                <RowStyle CssClass="grid_line_01" />
-                                <HeaderStyle />
-                                <AlternatingRowStyle CssClass="grid_line_02" />
-                            </asp:GridView>
+                                        <pagerstyle backcolor="LightBlue"/>                
+                                        <FooterStyle />
+                                        <RowStyle CssClass="grid_line_01" />
+                                        <HeaderStyle />
+                                        <AlternatingRowStyle CssClass="grid_line_02" />
+                                    </asp:GridView>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
 						</li>
 					</ol>
 				</fieldset>
 				<fieldset class="fieldsetSubmitAgencieButtons" >
-					<asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
-				</fieldset>
+                    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                        <ContentTemplate>
+                            <asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>                    
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </fieldset>
 			</form>
 		</div><!-- END #content -->
 	</div> <!-- END #page -->

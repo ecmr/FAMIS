@@ -13,6 +13,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Text.RegularExpressions;
 
 using System.Data.SqlClient;
 
@@ -29,7 +30,7 @@ public partial class Controles_Employes : System.Web.UI.UserControl
         }
 
         PreencheGrid();
-        //PreencheCombos();
+        PreencheCombos();
         //txtFirst_name.Focus();
     }
 
@@ -116,75 +117,75 @@ public partial class Controles_Employes : System.Web.UI.UserControl
 
     public void PreencheCombos()
     {
-        FAMIS_BLL.Position _position = new FAMIS_BLL.Position(); 
+        FAMIS_BLL.Position _position = new FAMIS_BLL.Position();
 
-        //DropDownPosition.DataSource = _position.GetSelect("Select distinct position_id, name From dbo.[position]");
-        //DropDownPosition.DataValueField = "position_id";
-        //DropDownPosition.DataTextField = "name";
-        //DropDownPosition.DataBind();
-        //DropDownPosition.SelectedIndex = 0 ; //  .Items.FindByValue(   //.FindByValue("1").Selected = true;  
-        
+        DropDownPosition.DataSource = _position.GetSelect("Select distinct position_id, name From dbo.[position]");
+        DropDownPosition.DataValueField = "position_id";
+        DropDownPosition.DataTextField = "name";
+        DropDownPosition.DataBind();
+        DropDownPosition.SelectedIndex = 0;
 
-        FAMIS_BLL.Agency _agency = new FAMIS_BLL.Agency();
-        
+        #region "old"
+        //FAMIS_BLL.Agency _agency = new FAMIS_BLL.Agency();
+
         //DropDownAgencies.DataSource = _agency.GetSelect("Select distinct agency_id, name From dbo.[agency]");
         //DropDownAgencies.DataValueField = "agency_id";
         //DropDownAgencies.DataTextField = "name";
         //DropDownAgencies.DataBind();
-        //DropDownAgencies.SelectedIndex =  0; // .Items.FindByValue("1").Selected = true;  
-
+        //DropDownAgencies.SelectedIndex = 0; // .Items.FindByValue("1").Selected = true;  
+        #endregion
     }
 
     protected void btnEditar_Click(object sender, EventArgs e)
     {
-    //    ImageButton btnEdit = sender as ImageButton;
-    //    GridViewRow grid = (GridViewRow)btnEdit.NamingContainer;
+        ImageButton btnEdit = sender as ImageButton;
+        GridViewRow grid = (GridViewRow)btnEdit.NamingContainer;
 
-    //    FAMIS_BLL.Employee _employee = new FAMIS_BLL.Employee();
-    //    List<Model.Employee> ListEmployee =
-    //        _employee.Select(" Where Employee_id=" + grvEmployee.DataKeys[grid.RowIndex].Values[0].ToString());
+        FAMIS_BLL.Employee _employee = new FAMIS_BLL.Employee();
+        List<Model.Employee> ListEmployee =
+            _employee.Select(" Where Employee_id=" + grvEmployee.DataKeys[grid.RowIndex].Values[0].ToString());
 
-    //    txtEmployee_Id.Text = ListEmployee.ElementAt(0).Agency_id.ToString();
-    //    txtFirst_name.Text = ListEmployee.ElementAt(0).First_name.ToString();
-    //    txtLast_name.Text = ListEmployee.ElementAt(0).Last_name.ToString();
-    //    DropDownPosition.SelectedValue = ListEmployee.ElementAt(0).Position_id.ToString();
-    //    DropDownAgencies.SelectedValue = ListEmployee.ElementAt(0).Agency_id.ToString();
-    //    txtSalary.Text = ListEmployee.ElementAt(0).Salary.ToString();
-    //    txtDateHired.Text = ListEmployee.ElementAt(0).Date_hired.ToString();
-    //    txtCode0.Text = ListEmployee.ElementAt(0).Code.ToString();
-    //    PicturePhoto.ImageUrl = "";
+        TxtEmployee_id.Text = ListEmployee.ElementAt(0).Agency_id.ToString();
+        TxtFirstName.Text = ListEmployee.ElementAt(0).First_name.ToString();
+        txtLast_name.Text = ListEmployee.ElementAt(0).Last_name.ToString();
+        DropDownPosition.SelectedValue = ListEmployee.ElementAt(0).Position_id.ToString();
+        //DropDownAgencies.SelectedValue = ListEmployee.ElementAt(0).Agency_id.ToString();
+        TxtSalary.Text = ListEmployee.ElementAt(0).Salary.ToString();
+        txtDateHired.Text = ListEmployee.ElementAt(0).Date_hired.ToString();
+        TxtCode.Text = ListEmployee.ElementAt(0).Code.ToString();
+        PicturePhoto.ImageUrl = "";
     }
 
     protected void btnExcluir_Click(object sender, EventArgs e)
     {
-    //    try
-    //    {
-    //        ImageButton btnEdit = sender as ImageButton;
-    //        GridViewRow grid = (GridViewRow)btnEdit.NamingContainer;
+        try
+        {
+            ImageButton btnEdit = sender as ImageButton;
+            GridViewRow grid = (GridViewRow)btnEdit.NamingContainer;
 
-    //        FAMIS_BLL.Employee _employee = new FAMIS_BLL.Employee();
-    //        FAMIS_BLL.Employee _employeeDel = new FAMIS_BLL.Employee();
+            FAMIS_BLL.Employee _employee = new FAMIS_BLL.Employee();
+            FAMIS_BLL.Employee _employeeDel = new FAMIS_BLL.Employee();
 
-    //        List<Model.Employee> ListEmployee =
-    //            _employee.Select(" Where Employee_id=" + grvEmployee.DataKeys[grid.RowIndex].Values[0].ToString());
+            List<Model.Employee> ListEmployee =
+                _employee.Select(" Where Employee_id=" + grvEmployee.DataKeys[grid.RowIndex].Values[0].ToString());
 
-    //        _employeeDel.Remove(ListEmployee.ElementAt(0));
+            _employeeDel.Remove(ListEmployee.ElementAt(0));
 
-    //        PreencheGrid();
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        throw new Exception("Error: " + ex.Message.ToString());
-    //    }
+            PreencheGrid();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Error: " + ex.Message.ToString());
+        }
 
     }
 
     protected void grvEmployee_PageIndexChanging(Object sender, GridViewPageEventArgs e)
     {
-    //    FAMIS_BLL.Employee _employee = new FAMIS_BLL.Employee();
-    //    grvEmployee.DataSource = _employee.Select(""); //lista;
-    //    grvEmployee.PageIndex = e.NewPageIndex;
-    //    grvEmployee.DataBind();
+        FAMIS_BLL.Employee _employee = new FAMIS_BLL.Employee();
+        grvEmployee.DataSource = _employee.Select(""); //lista;
+        grvEmployee.PageIndex = e.NewPageIndex;
+        grvEmployee.DataBind();
     } 
 
     protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
@@ -194,20 +195,20 @@ public partial class Controles_Employes : System.Web.UI.UserControl
 
     protected void UploadPhoto_Click(object sender, EventArgs e)
     {
-    //    if (FileUploadPhoto.HasFile)
-    //    {
-    //        //Salvar na pasta de imagens do projeto
-    //        FileUploadPhoto.SaveAs(MapPath("../imagens/UsersPhoto/" + FileUploadPhoto.FileName));
-    //        //Carregar o PicturePhoto do diretorio do projeto
-    //        PicturePhoto.ImageUrl = "~/imagens/UsersPhoto/" + FileUploadPhoto.FileName;
-    //        //Criar uma Session para armazenar o path da foto...
-    //        HttpContext.Current.Session.Add("CaminhoFotoEmployee", FileUploadPhoto.FileName); //PicturePhoto.ImageUrl
-    //        //Session["CaminhoFotoEmployee"]
-    //    }
-    //    else
-    //    {
-    //        //Mensagem caso não tiver foto
-    //    }
+        if (FileUploadPhoto.HasFile)
+        {
+            //Salvar na pasta de imagens do projeto
+            FileUploadPhoto.SaveAs(MapPath("../" + "imagens/UsersPhoto/" + FileUploadPhoto.FileName));
+            //Carregar o PicturePhoto do diretorio do projeto
+            PicturePhoto.ImageUrl = Request.ApplicationPath + "/imagens/UsersPhoto/" + FileUploadPhoto.FileName;
+            //Criar uma Session para armazenar o path da foto...
+            HttpContext.Current.Session.Add("CaminhoFotoEmployee", PicturePhoto.ImageUrl);
+            //Session["CaminhoFotoEmployee"]
+        }
+        else
+        {
+            //Mensagem caso não tiver foto
+        }
     }
 
     //private bool GravarImagem(int codigoCliente)

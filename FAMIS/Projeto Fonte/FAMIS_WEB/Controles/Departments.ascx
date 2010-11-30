@@ -12,13 +12,15 @@
   	@import "../Css/fieldset-background-image-ie.css";
       #header
       {
-          width: 597px;
+          width: 820px;
       }
   </style>
 
   <![endif]-->
 </head>
 <body>
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
 	<div id="page">
 		<div id="header">
 			<h1>
@@ -27,7 +29,9 @@
 		</div> <!-- END #header -->
 		<div class="contentFilho">
 			<form class="formFilho" action="">
-				<fieldset class="fieldset">
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <fieldset class="fieldset">
 					<legend>
 						Department Details
 					</legend>
@@ -45,8 +49,12 @@
                             <asp:TextBox ID="txtDepartmentName" CssClass="text" runat="server"/>
 						</li>
 					</ol>
-				</fieldset>
-				<fieldset class="fieldsetDepartmentsList">
+				</fieldset>    
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                    <ContentTemplate>
+                        <fieldset class="fieldsetDepartmentsList">
 					<legend>
 						Departments List
 					</legend>
@@ -96,10 +104,16 @@
                                 </asp:GridView>
 						</li>
 					</ol>
-				</fieldset>
-				<fieldset class="fieldsetSubmit" >
-					<asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
-				</fieldset>
+				</fieldset>    
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                    <ContentTemplate>
+                        <fieldset class="fieldsetSubmit" >
+					        <asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
+				        </fieldset>    
+                    </ContentTemplate>
+                </asp:UpdatePanel>				
 			</form>
 		</div><!-- END #content -->
 	</div> <!-- END #page -->

@@ -258,7 +258,7 @@ namespace FAMIS_DALL
             List<Model.Employee> lstEmployee = new List<Model.Employee>();
             Model.Employee employee;
 
-            SqlCommand cmd = new SqlCommand(pQuery, db.Db());
+            SqlCommand cmd = new SqlCommand("Select * From Employee " + pQuery, db.Db());
             //SQLHelper.ExecuteReader("string de conexao", CommandType.StoredProcedure, "Procedure", null)
             using (SqlDataReader dr = cmd.ExecuteReader())
             {

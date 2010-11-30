@@ -19,6 +19,8 @@
   <![endif]-->
 </head>
 <body>
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
 	<div id="page">
 		<div id="header">
 			<h1>
@@ -27,24 +29,26 @@
 		</div> <!-- END #header -->
 		<div class="contentFilho">
 			<form class="formFilho" action="">
-				<fieldset class="fieldset">
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <fieldset class="fieldsetCountrie">
 					<legend>
 						Country Details
 					</legend>
-					<ol>
-						<li>
+					<ol class="OlCountry">
+						<li class="LICountry">
 							<label for="name">
 								Country ID:
 							</label>
                             <asp:TextBox ID="txtCountry_id" CssClass="text" Enabled="false" runat="server"/>
 						</li>
-						<li>
+						<li class="LICountry">
 							<label for="email">
 								Country Name:
 							</label>
                             <asp:TextBox ID="txtCountryName" CssClass="text" runat="server"/>
 						</li>
-						<li>
+						<li class="LICountry">
 							<label for="email">
 								Regions:
 							</label>
@@ -52,7 +56,11 @@
 						</li>
 					</ol>
 				</fieldset>
-				<fieldset class="fieldsetCountriesList">
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                    <ContentTemplate>
+                        <fieldset class="fieldsetCountriesList">
 					<legend>
 						Country List
 					</legend>
@@ -106,10 +114,16 @@
                                 </asp:GridView>
 						</li>
 					</ol>
-				</fieldset>
-				<fieldset class="fieldsetSubmit" >
-					<asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
-				</fieldset>
+				</fieldset>    
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                    <ContentTemplate>
+                        <fieldset class="fieldsetSubmit" >
+					        <asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
+				        </fieldset>
+                    </ContentTemplate>
+                </asp:UpdatePanel>			
 			</form>
 		</div><!-- END #content -->
 	</div> <!-- END #page -->
