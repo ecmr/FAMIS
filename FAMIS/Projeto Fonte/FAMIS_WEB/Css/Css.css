@@ -425,8 +425,9 @@ a:hover
 	height: 70px;
 	width: 821px;
 	background-color: #B2DD32;
-	background-image: url(../images/header1.jpg);
+	/*background-image: url(../images/header1.jpg);
 	background-repeat: repeat-x;
+    */
 }
 
 h1
@@ -477,6 +478,8 @@ form
 
 input.text
 {
+    width: 200px;
+    height: 18px;
 }
 
 /*****************************************************************
@@ -537,11 +540,15 @@ fieldset li
 
 label
 {
-	float: left;
-	width: 10em;
-	margin-right: 1em;
-    height: 16px;
+    display:block;
+   /* float:left; /* posição dos campos: Label a direita e texto a esquerda */
+   width: 14.2em; /* tamanho do label na horizonal */
+   height: 16px;
+   margin-right: 1em; /* Espaço entre label e text */
+   text-align:left;
+        
 }
+
 
 /******************************************
  ******************************************
@@ -898,6 +905,20 @@ label
 /******************************************
  ******************************************
  ************** Departments  **************/
+ .fieldsetSubmitDepartmentButtons
+{
+	float: none;
+	top:1px;
+	width: 830px;
+	border-style: none;
+	padding-left: 1em;
+	margin-left: 0;
+    height: 40px;
+	background-color: #B2DD32;
+	background-image: url('../images/fieldset_gradient.jpg');
+	background-repeat: repeat-x;    
+}
+ 
  .fieldsetDepartmentsList
 {
 	float: left;
@@ -913,34 +934,57 @@ label
 }
 .OlDepartment
 {
-    width: 738px;
+    width: 355px;
     height:98px;
 }
 .LIOlDepartment
 {
-    width: 738px;
+    width: 356px;
     height:20px;    
 }
  /******************************************
  ******************************************
  **************** Employee ****************/
+
+ /**************/
+ /****Tabela****/
+ /*************/
+ .colunaUm {
+	width: 180px;
+    height: 61px;
+}
+
+.colunaDois {
+	width: 140px;
+    height: 48px;
+}
+.colunaTres {
+	width: 150px;
+    height: 48px;
+}
+ /**************/
+ /****Fim****/
+ /*************/
+ 
  .pageEmployee
 {
-	/*width: 636px;*/
+	/*width: 1064px;*/
 	width: 90%;
 	min-height: 100%;
 	margin: 0 auto;
 	padding: 0 18px 0 18px;
-	background-image: url('../images/page.gif');
+	/*background-image: url(../images/page.gif);*/
 	background-repeat: repeat-y;
 	text-align: left;
-    height: 798px;
+    height: 699px;
 }
 
 /* 
 * html #page
 {
 	height: 100%;
+
+aqui
 }
 */
 
@@ -965,9 +1009,9 @@ label
 
 .contentEmployee
 {
-	padding: 0 35px;
-	width: 65%;
-    height: 625px;
+	padding: 0 5px;
+	width: 100%; /* 82%; */
+    height: 692px;
 }
 .pEmployee
 {
@@ -976,20 +1020,20 @@ label
 
 .formEmployee
 {
-	margin-top: 1.5em;
-	/* padding-bottom: 35px; */
-    width: 100%;
-    height: 600px;
+	margin-top: 1em;
+	margin-left: 1em;
+	padding-bottom: 35px;
+    width: 99%;
+    height: 640px;
 }
 
-.fieldsetEmployee
+.fieldsetEmployeeC1
 {
 	float: left;
 	clear: left;
-    top: 50px; 
-    height: 363px;
-	width: 390px;
-	margin: 0 0 1.5em 0;
+    height: 311px;
+	width: 100%;
+	margin: 0.3em 0 0 0;
 	padding: 0;
 	border: 1px solid #BFBAB0;
 	background-color: #F2EFE9;
@@ -997,14 +1041,26 @@ label
 	background-repeat: repeat-x;
 }
 
-.fieldsetEmployeeB
+.fieldsetEmployeeC2
 {
-    float: left;
+	float: left;
 	clear: left;
-	top: 50px;
-	height: 363px;
-	width: 350px;
-	margin: 0 0 1.5em 0;
+    height: 311px;
+	width: 100%;
+	margin: 0.3em 0 0 0;
+	padding: 0;
+	border: 1px solid #BFBAB0;
+	background-color: #F2EFE9;
+	background-image: url('../images/fieldset_gradient.jpg'); 
+	background-repeat: repeat-x;
+}
+.fieldsetEmployeeC3
+{
+	float: left;
+	clear: left;
+    height: 311px;
+	width: 80%;
+	margin: 0.3em 0 0 0;
 	padding: 0;
 	border: 1px solid #BFBAB0;
 	background-color: #F2EFE9;
@@ -1013,9 +1069,9 @@ label
 }
 .fieldsetEmployeeList
 {
-    top: 50px;
-	width: 740px;
-	height: 195px;
+    top: 12px;
+	width: 90%;
+	height: 187px;
 	float: left;
 	clear: left;
 	padding: 0;
@@ -1028,32 +1084,70 @@ label
     margin-bottom: 1.5em;
 }
 
+/* Atual */
 .fieldsetSubmitEmployeeButtons
 {
 	float: none;
-	top:300px;
-	width: 92%;
+	top:1px;
+	width: 842px;
 	border-style: none;
-	padding-left: 12em;
-	background-color: transparent;
-	background-image: none;
+	padding-left: 1em;
+	margin-left: 0;
+    height: 40px;
+	background-color: #B2DD32;
+	background-image: url('../images/fieldset_gradient.jpg');
+	background-repeat: repeat-x;    
 }
+
+.LabelTitle
+{
+    font-size: 25px;
+    float:left; /* posição dos campos: Label a direita e texto a esquerda */
+    width: 8em; /* tamanho do label na horizonal */
+    height: 29px;
+    margin-right: 13em; /* Espaço entre label e text */
+    text-align:left;
+}    
 
 .fieldsetEmployeeOl
 {
 	padding: 1em 1em 0 1em;
 	list-style: none;
-    width: 318px;
-    height: 296px;
+    width: 230px;
+    height: 294px;
 }
 
+.fieldsetEmployee Li
+{
+    height: 26px; 
+    width: 100%;
+    padding-left: 1em;
+}
+.fieldsetEmployeeC1 Li
+{
+    height: 26px; 
+    width: 100%;
+    padding-left: 1em;
+}
+.fieldsetEmployeeC2 Li
+{
+    height: 26px; 
+    width: 80%;
+    padding-left: 1em;
+}
+.fieldsetEmployeeC3 Li
+{
+    height: 26px; 
+    width: 100%;
+    padding-left: 1em;
+}
 .fieldsetEmployeeLi
 {
 	float: left;
 	clear: left;
-	width: 94%;
+	width: 102%;
 	padding-bottom: 1em;
-    height: 179px;
+    height: 207px;
 }
 lFieldSetBrowser
 {
@@ -1074,19 +1168,65 @@ lFieldSetBrowser
 
 .OlEmployeeList
 {
-    width: 738px;
+    width: 840px;
     height:158px;
 }
 .LIEmployeeList
 {
-    width: 738px;
-    height:158px;    
+    width: 843px;
+    height:148px;    
 }
 .LIEmployeeColA
 {
     width: 384px;
     height:24px;    
 }
+
+ /**************/
+ /** Botão CV **/
+ /**************/
+ #btnCv
+{
+    margin: 0;
+    padding: 0;
+    /* background: #FFE6A0 url('../imagens/Crm/toolbar_hover.gif') repeat-x; */
+    background: #FFE6A0 url('../images/fieldset_gradient.jpg') repeat-x;
+    border: #FFB74C;
+    list-style-type: none;
+    width: 252px;
+}
+#btnCv li
+{
+    margin: 0;
+    padding: 0;
+}
+#btnCv a
+{
+    display: block; /* aumenta a área clicável */
+    /*color: #FFB74C;*/
+    text-decoration: none;
+    padding: 0 15px;
+    line-height: 22px; border: 1px solid #FFB74C;
+    background-image: #FFE6A0 url('../imagens/Crm/toolbar_msdown.gif') repeat-x;
+}
+#btnCv a:hover
+{
+    /* background-image: #937D5A url('../imagens/toolbar_msdown.gif') repeat-x; */
+    background: #937D5A url('../imagens/Crm/toolbar_msdown.gif') repeat-x;
+    border: 1px solid #937D5A;
+    background-color: #FFE6A0;    
+    line-height: 18px;
+
+}
+#btnCv #btnCv_con a
+{
+    border: none;
+}
+#btnCv img a:hover
+{
+    background: transparent;    
+}
+
 /******************************************
  ******************************************
  **************** Geospecs ****************/
@@ -1758,7 +1898,7 @@ lFieldSetBrowser
 .fieldsetSubmitUserButtons
 {
 	float: none;
-	top:150px;
+	top:60px;
 	width: 92%;
 	border-style: none;
 	padding-left: 12em;
@@ -1793,3 +1933,6 @@ lFieldSetBrowser
     width: 738px;
     height:157px;    
 }
+
+
+

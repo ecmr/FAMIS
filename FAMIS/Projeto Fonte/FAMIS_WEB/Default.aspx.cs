@@ -11,7 +11,7 @@ public partial class _Default : System.Web.UI.Page
     {
         if (Request.QueryString["Id"] == null)
         {
-            Control ctrlRet = Page.LoadControl("~/Controles/TESTE_LAYOUT.ascx");
+            Control ctrlRet = Page.LoadControl("~/Controles/Employes.ascx");
             PlaceHolder1.Controls.Add(ctrlRet);
 
             //Control ctrlRet = Page.LoadControl("~/Controles/Agencies.ascx");

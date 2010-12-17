@@ -16,100 +16,53 @@ namespace FAMIS_DALL
             db = new DB();
         }
 
-        public string Add(Model.Employee employee)
+        public Int32 Add(Model.Employee employee)
         {
             try
             {
-                //SqlCommand _cmdAdd = new SqlCommand("sp_Employee", db.Db());
-                //_cmdAdd.CommandType = CommandType.StoredProcedure;   
-
-                //SqlParameter[] param = new SqlParameter[10];
-
-                //param[0] = new SqlParameter("@Param0", SqlDbType.Int);
-                //param[0].Direction = ParameterDirection.Input;
-                //param[0].Value = employee.Agency_id; 
-                //_cmdAdd.Parameters.Add(param[0]);
-
-                //param[1] = new SqlParameter("@Param1", SqlDbType.Int);
-                //param[1].Direction = ParameterDirection.Input;
-                //param[1].Value = employee.Position_id; 
-                //_cmdAdd.Parameters.Add(param[1]);
-
-                //param[2] = new SqlParameter("@Param2", SqlDbType.VarChar);
-                //param[2].Direction = ParameterDirection.Input;
-                //param[2].Value = employee.First_name.ToString();  
-                //_cmdAdd.Parameters.Add(param[2]);
-
-                //param[3] = new SqlParameter("@Param3", SqlDbType.VarChar);
-                //param[3].Direction = ParameterDirection.Input;
-                //param[3].Value = employee.Last_name; 
-                //_cmdAdd.Parameters.Add(param[3]);
-
-                //param[4] = new SqlParameter("@Param4", SqlDbType.VarChar);
-                //param[4].Direction = ParameterDirection.Input;
-                //param[4].Value = employee.Code; 
-                //_cmdAdd.Parameters.Add(param[4]);
-
-                //param[5] = new SqlParameter("@Param5", SqlDbType.DateTime);
-                //param[5].Direction = ParameterDirection.Input;
-                //param[5].Value = employee.Date_hired; 
-                //_cmdAdd.Parameters.Add(param[5]);
-
-                //param[6] = new SqlParameter("@Param6", SqlDbType.DateTime);
-                //param[6].Direction = ParameterDirection.Input;
-                //param[6].Value = employee.Last_version;  
-                //_cmdAdd.Parameters.Add(param[6]);
-
-                //param[7] = new SqlParameter("@Param7", SqlDbType.Decimal);
-                //param[7].Direction = ParameterDirection.Input;
-                //param[7].Value = employee.Salary; 
-                //_cmdAdd.Parameters.Add(param[7]);
-
-
-                //************************************
-                //************************************
-                System.Drawing.Image _Image;
-                _Image = employee.Picture; 
-                // Convert image to memory stream
-                System.IO.MemoryStream _MemoryStream = new System.IO.MemoryStream();
-                _Image.Save(_MemoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
-                
-                //param[8] = new SqlParameter("@Param8", SqlDbType.Image);
-                //param[8].Direction = ParameterDirection.Input;
-                //param[8].Value = _MemoryStream.ToArray();  
-                //_cmdAdd.Parameters.Add(param[8]);
-                ////************************************
-                ////************************************
-
-
-                //param[9] = new SqlParameter("@Param9", SqlDbType.Image);
-                //param[9].Direction = ParameterDirection.Input;
-                //param[9].Value = employee.Cv; 
-                //_cmdAdd.Parameters.Add(param[9]);
-
-
-            #region "antigo"
-            string str = "INSERT INTO [FAMIS].[dbo].[Employee] ([agency_id],[position_id],[first_name],[last_name],[code],[date_hired],[last_version],[salary],[picture],[cv])" + Environment.NewLine;
-            str += " VALUES (" + employee.Agency_id + "," + employee.Position_id + ", '" +
+                SqlCommand _cmdAdd;
+            #region "Atual"
+                string str = "INSERT INTO [FAMIS].[dbo].[Employee] ([agency_id], [position_id], [department_id],[first_name],[last_name],[code],[date_hired],[last_version],[amount],[amount1],[date1],[amount2],[date2],[picture],[cv])" + Environment.NewLine;
+                str += " VALUES (" + 
+                employee.Agency_id + "," + 
+                employee.Position_id + ", " +
+                employee.Department_id + ", '" + 
                 employee.First_name + "','" + 
                 employee.Last_name + "','" +
-                employee.Code + "','" + 
-                employee.Date_hired + "','" +
-                employee.Last_version + "', " + 
-                employee.Salary + ", " +
-                _MemoryStream.ToArray() + ", " +
-                employee.Cv + ")";
+                employee.Code + "'," +
+                "convert(datetime, '" + employee.Date_hired.Year.ToString() + "-" + employee.Date_hired.Month.ToString() + "-" + employee.Date_hired.Day.ToString() + " " + employee.Date_hired.Hour.ToString("00") + ":" + employee.Date_hired.Minute.ToString("00") + ":" + employee.Date_hired.Second.ToString("00") + "')" + "," +
+                "convert(datetime, '" + employee.Last_version.Year.ToString() + "-" + employee.Last_version.Month.ToString() + "-" + employee.Last_version.Day.ToString() + " " + employee.Last_version.Hour.ToString("00") + ":" + employee.Last_version.Minute.ToString("00") + ":" + employee.Last_version.Second.ToString("00") + "')" + "," + 
+                employee.Amount + "," + 
+                employee.Amount1 + "," +
+                "convert(datetime, '" + employee.Date1.Year.ToString() + "-" + employee.Date1.Month.ToString() + "-" + employee.Date1.Day.ToString() + " " + employee.Date1.Hour.ToString("00") + ":" + employee.Date1.Minute.ToString("00") + ":" + employee.Date1.Second.ToString("00") + "')" + "," + 
+                employee.Amount2 + "," +
+                "convert(datetime, '" + employee.Date2.Year.ToString() + "-" + employee.Date2.Month.ToString() + "-" + employee.Date2.Day.ToString() + " " + employee.Date2.Hour.ToString("00") + ":" + employee.Date2.Minute.ToString("00") + ":" + employee.Date2.Second.ToString("00") + "')" + ",'" + 
+                employee.Picture + "', '" + 
+                employee.Cv + "')";
             #endregion
 
-            SqlCommand _cmdAdd = new SqlCommand(str, db.Db());
+            _cmdAdd = new SqlCommand(str, db.Db());
             _cmdAdd.CommandType = CommandType.Text; 
+            int iret = _cmdAdd.ExecuteNonQuery();
+            _cmdAdd = null;
+  
+            str = "Select employee_id From Employee " + Environment.NewLine;
+            str += " Where Position_id=" + employee.Position_id + Environment.NewLine;
+            str += " and Department_id=" + employee.Department_id + Environment.NewLine;
+            str += " and agency_id=" + employee.Agency_id + Environment.NewLine;
+            str += " and date_hired='" + employee.Date_hired.Year.ToString() + "-" + employee.Date_hired.Month.ToString() + "-" + employee.Date_hired.Day + "'" + Environment.NewLine;      
+            str += " and First_name='" + employee.First_name + "'" + Environment.NewLine;
+            str += " and Last_name='" + employee.Last_name + "'";
 
-                int iret = _cmdAdd.ExecuteNonQuery();
-                return iret.ToString() + " Record successfully saved";
+            _cmdAdd = new SqlCommand(str, db.Db());
+            _cmdAdd.CommandType = CommandType.Text;
+            Int32 iId = (Int32)_cmdAdd.ExecuteScalar();
+            return iId;
             }
             catch (SqlException ex)
             {
-                return "Error saving the record of: " + employee.First_name + Environment.NewLine + " Erro: " + ex.Message.ToString();
+                return 0;
+                //return "Error saving the record of: " + employee.First_name + Environment.NewLine + " Erro: " + ex.Message.ToString();
                 throw;
             }
             finally
@@ -137,47 +90,72 @@ namespace FAMIS_DALL
 
         public string Update(Model.Employee employee)
         {
+
             String str = " UPDATE [FAMIS].[dbo].[Employee] " + Environment.NewLine;
-                   str += " SET " + Environment.NewLine;
+            str += " SET " + Environment.NewLine;
 
-                   if (!string.IsNullOrEmpty(employee.Position_id.ToString()))
-                   {
-                       str += " [position_id] = " + employee.Position_id + Environment.NewLine;
-                   }
-                   if (!string.IsNullOrEmpty(employee.First_name))
-                   {
-                       str += " ,[first_name] =  '" + employee.First_name + "'" + Environment.NewLine;
-                   }
-                   if (!string.IsNullOrEmpty(employee.Last_name))
-                   {
-                       str += " ,[last_name] =  '" + employee.Last_name + "'" + Environment.NewLine;
-                   }
-                   if (!string.IsNullOrEmpty(employee.Last_name))
-                   {
-                       str += " ,[code] =  '" + employee.Code + "'" + Environment.NewLine;
-                   }
-                   if (!string.IsNullOrEmpty(employee.Date_hired.ToString()))
-                   {
-                       str += " ,[date_hired] = '" + employee.Date_hired + "'" + Environment.NewLine;
-                   }
-                   if (!string.IsNullOrEmpty(employee.Last_version.ToString()))
-                   {
-                       str += " ,[last_version] = '" + employee.Last_version + "'" + Environment.NewLine;
-                   }
-                   if (!string.IsNullOrEmpty(employee.Salary.ToString()))
-                   {
-                       str += " ,[salary] =  " + employee.Salary + Environment.NewLine;
-                   }
-                   if (!string.IsNullOrEmpty(employee.Picture.ToString()))
-                   {
-                       str += " ,[picture] = '" + employee.Picture + "'" + Environment.NewLine;
-                   }
-                   if (!string.IsNullOrEmpty(employee.Cv.ToString()))
-                   {
-                       str += " ,[cv] =  '" + employee.Cv + "'" + Environment.NewLine;
-                   }
+            if (!string.IsNullOrEmpty(employee.Position_id.ToString()))
+            {
+                str += " [agency_id] = " + employee.Agency_id + Environment.NewLine;
+            }
+            if (!string.IsNullOrEmpty(employee.Position_id.ToString()))
+            {
+                str += "       ,[position_id] = " + employee.Position_id + Environment.NewLine;
+            }
+            if (!string.IsNullOrEmpty(employee.Department_id.ToString()))
+            {
+                str += "       ,[department_id] = " + employee.Department_id + Environment.NewLine;
+            }
+            if (!string.IsNullOrEmpty(employee.First_name.ToString()))
+            {
+                str += "       ,[first_name] = '" + employee.First_name + "'" + Environment.NewLine;
+            }
+            if (!string.IsNullOrEmpty(employee.Last_name.ToString()))
+            {
+                str += "       ,[last_name] = '" + employee.Last_name + "'" + Environment.NewLine;
+            }
+            if (!string.IsNullOrEmpty(employee.Code.ToString()))
+            {
+                str += "       ,[code] = '" + employee.Code + "'" + Environment.NewLine;
+            }
+            if (!string.IsNullOrEmpty(employee.Date_hired.ToString()))
+            {
+                str += " ,[date_hired] = convert(datetime, '" + employee.Date_hired.Year.ToString() + "-" + employee.Date_hired.Month.ToString() + "-" + employee.Date_hired.Day.ToString() + " " + employee.Date_hired.Hour.ToString("00") + ":" + employee.Date_hired.Minute.ToString("00") + ":" + employee.Date_hired.Second.ToString("00") + "')" + Environment.NewLine;
+            }
+            if (!string.IsNullOrEmpty(employee.Last_version.ToString()))
+            {
+                str += " ,[last_version] = convert(datetime, '" + employee.Last_version.Year.ToString() + "-" + employee.Last_version.Month.ToString() + "-" + employee.Last_version.Day.ToString() + " " + employee.Last_version.Hour.ToString("00") + ":" + employee.Last_version.Minute.ToString("00") + ":" + employee.Last_version.Second.ToString("00") + "') " + Environment.NewLine;
+            }
+            if (!string.IsNullOrEmpty(employee.Amount.ToString()))
+            {
+                str += "       ,[amount] = " + employee.Amount + Environment.NewLine;
+            }
+            if (!string.IsNullOrEmpty(employee.Amount1.ToString()))
+            {
+                str += "       ,[amount1] = " + employee.Amount1 + Environment.NewLine;
+            }
+            if (!string.IsNullOrEmpty(employee.Date1.ToString()))
+            {
+                str += " ,[date1] = convert(datetime, '" + employee.Date1.Year.ToString() + "-" + employee.Date1.Month.ToString() + "-" + employee.Date1.Day.ToString() + " " + employee.Date1.Hour.ToString("00") + ":" + employee.Date1.Minute.ToString("00") + ":" + employee.Date1.Second.ToString("00") + "')" + Environment.NewLine;
+            }
+            if (!string.IsNullOrEmpty(employee.Amount2.ToString()))
+            {
+                str += "       ,[amount2] = " + employee.Amount2 + Environment.NewLine;
+            }
+            if (!string.IsNullOrEmpty(employee.Date2.ToString()))
+            {
+                str += " ,[date2] = convert(datetime, '" + employee.Date2.Year.ToString() + "-" + employee.Date2.Month.ToString() + "-" + employee.Date2.Day.ToString() + " " + employee.Date2.Hour.ToString("00") + ":" + employee.Date2.Minute.ToString("00") + ":" + employee.Date2.Second.ToString("00") + "')" + Environment.NewLine;
+            }
+            if (!string.IsNullOrEmpty(employee.Picture.ToString()))
+            {
+                str += "       ,[picture] = '" + employee.Picture + "'" + Environment.NewLine;
+            }
+            if (!string.IsNullOrEmpty(employee.Cv.ToString()))
+            {
+                str += "       ,[cv] = '" + employee.Cv + "'" + Environment.NewLine;
+            }
 
-                   str += " WHERE [employee_id] = " + employee.Employee_id; 
+           str += " WHERE [employee_id] = " + employee.Employee_id; 
 
             try
             {
@@ -203,11 +181,11 @@ namespace FAMIS_DALL
                 {
                     if (!dr.IsDBNull(0))
                     {
-                        employee.Agency_id = dr.GetInt32(0);
+                        employee.Employee_id = dr.GetInt32(0);
                     }
                     if (!dr.IsDBNull(1))
                     {
-                        employee.Employee_id = dr.GetInt32(1);
+                        employee.Agency_id = dr.GetInt32(1);
                     }
                     if (!dr.IsDBNull(2))
                     {
@@ -215,33 +193,58 @@ namespace FAMIS_DALL
                     }
                     if (!dr.IsDBNull(3))
                     {
-                        employee.First_name = dr.GetString(3);
+                        employee.Department_id = dr.GetInt32(3);
                     }
                     if (!dr.IsDBNull(4))
                     {
-                        employee.Code = dr.GetString(4);
+                        employee.First_name = dr.GetString(4);
                     }
                     if (!dr.IsDBNull(5))
                     {
-                        employee.Date_hired = dr.GetDateTime(5);
+                        employee.Last_name = dr.GetString(5);
                     }
                     if (!dr.IsDBNull(6))
                     {
-                        employee.Last_version = dr.GetDateTime(6);
+                        employee.Code = dr.GetString(6);
                     }
                     if (!dr.IsDBNull(7))
                     {
-                        employee.Salary = dr.GetDecimal(7);
+                        employee.Date_hired = dr.GetDateTime(7);
                     }
                     if (!dr.IsDBNull(8))
                     {
-                        //employee.Picture = dr.GetByte(8);
+                        employee.Last_version = dr.GetDateTime(8);
                     }
                     if (!dr.IsDBNull(9))
                     {
-                        employee.Cv = dr.GetByte(9);
+                        employee.Amount = dr.GetDecimal(9);
+                    }
+                    if (!dr.IsDBNull(10))
+                    {
+                        employee.Amount1 = dr.GetDecimal(10);
+                    }
+                    if (!dr.IsDBNull(11))
+                    {
+                        employee.Date1 = dr.GetDateTime(11);
+                    }
+                    if (!dr.IsDBNull(12))
+                    {
+                        employee.Amount2 = dr.GetDecimal(12);
+                    }
+                    if (!dr.IsDBNull(13))
+                    {
+                        employee.Date2 = dr.GetDateTime(13);
+                    }
+                    if (!dr.IsDBNull(14))
+                    {
+                        employee.Picture = dr.GetString(14);
+                    }
+                    if (!dr.IsDBNull(15))
+                    {
+                        employee.Cv = dr.GetString(15);
                     }
                 }
+
                 return employee;
 
             }
@@ -265,13 +268,14 @@ namespace FAMIS_DALL
                 while (dr.Read())
                 {
                     employee = new Model.Employee();
+
                     if (!dr.IsDBNull(0))
                     {
-                        employee.Agency_id = dr.GetInt32(0);
+                        employee.Employee_id = dr.GetInt32(0);
                     }
                     if (!dr.IsDBNull(1))
                     {
-                        employee.Employee_id = dr.GetInt32(1);
+                        employee.Agency_id = dr.GetInt32(1);
                     }
                     if (!dr.IsDBNull(2))
                     {
@@ -279,31 +283,55 @@ namespace FAMIS_DALL
                     }
                     if (!dr.IsDBNull(3))
                     {
-                        employee.First_name = dr.GetString(3);
+                        employee.Department_id = dr.GetInt32(3);
                     }
                     if (!dr.IsDBNull(4))
                     {
-                        employee.Code = dr.GetString(4);
+                        employee.First_name = dr.GetString(4);
                     }
                     if (!dr.IsDBNull(5))
                     {
-                        employee.Date_hired = dr.GetDateTime(5);
+                        employee.Last_name = dr.GetString(5);
                     }
                     if (!dr.IsDBNull(6))
                     {
-                        employee.Last_version = dr.GetDateTime(6);
+                        employee.Code = dr.GetString(6);
                     }
                     if (!dr.IsDBNull(7))
                     {
-                        employee.Salary = dr.GetDecimal(7);
+                        employee.Date_hired  = dr.GetDateTime(7);
                     }
                     if (!dr.IsDBNull(8))
                     {
-                        //employee.Picture = dr.GetByte(8);
+                        employee.Last_version = dr.GetDateTime(8);
                     }
                     if (!dr.IsDBNull(9))
                     {
-                        employee.Cv = dr.GetByte(9);
+                        employee.Amount = dr.GetDecimal(9); 
+                    }
+                    if (!dr.IsDBNull(10))
+                    {
+                        employee.Amount1 = dr.GetDecimal(10);
+                    }
+                    if (!dr.IsDBNull(11))
+                    {
+                        employee.Date1 = dr.GetDateTime(11);
+                    }
+                    if (!dr.IsDBNull(12))
+                    {
+                        employee.Amount2 = dr.GetDecimal(12);
+                    }
+                    if (!dr.IsDBNull(13))
+                    {
+                        employee.Date2 = dr.GetDateTime(13);
+                    }
+                    if (!dr.IsDBNull(14))
+                    {
+                        employee.Picture = dr.GetString(14);
+                    }
+                    if (!dr.IsDBNull(15))
+                    {
+                        employee.Cv = dr.GetString(15);
                     }
 
                     lstEmployee.Add(employee);
@@ -313,6 +341,14 @@ namespace FAMIS_DALL
             return lstEmployee;
         }
 
-
+        public DataView GetSelect(String pQuery)
+        {
+            DataSet ds = new DataSet();
+            SqlDataAdapter adapter = new SqlDataAdapter(pQuery, db.Db());
+            adapter.Fill(ds, "Employees");
+            DataView dv = ds.Tables[0].DefaultView;
+            return dv;
+        }        
+        
     }
 }

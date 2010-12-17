@@ -80,6 +80,7 @@ first child of the left and right table columns */
 .rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
 {
     margin-top: 0px;
+    height:330PX;
 }
 
 
@@ -357,17 +358,16 @@ div.accountInfo
 	margin-top: 1.5em;
 	/* padding-bottom: 35px; */
     width: 100%;
-    height: 600px;
+    height: 600px
 }
-
 .fieldsetEmployee
 {
 	float: left;
 	clear: left;
     top: 50px; 
-    height: 363px;
-	width: 390px;
-	margin: 0 0 1.5em 0;
+    height: 318px;
+	width: 603px;
+	margin: 0 0 0 0;
 	padding: 0;
 	border: 1px solid #BFBAB0;
 	background-color: #F2EFE9;
@@ -375,14 +375,17 @@ div.accountInfo
 	background-repeat: repeat-x;
 }
 
+
+}
+
 .fieldsetEmployeeB
 {
     float: left;
 	clear: left;
 	top: 50px;
-	height: 363px;
-	width: 350px;
-	margin: 0 0 1.5em 0;
+	height: 318px;
+	width: 250px;
+	margin: 0 0 0 0;
 	padding: 0;
 	border: 1px solid #BFBAB0;
 	background-color: #F2EFE9;
@@ -417,9 +420,9 @@ div.accountInfo
 	background-image: none;
 }
 
-.fieldsetEmployeeOl
+.fieldsetEmployee Ol
 {
-	padding: 1em 1em 0 1em;
+	padding: 0 1em 0 1em;
 	list-style: none;
     width: 318px;
     height: 296px;
@@ -469,16 +472,32 @@ lFieldSetBrowser
 .divX
 {
     float:left;
-    clear:left;
+    /* clear:left; */
     width:100%;
+    height: 22px;
     margin: 0 0 1.5em 0;
     padding: 0;
 }
 label
 {
     float:left; /* posição dos campos: Label a direita e texto a esquerda */
-    width: 10em; /* tamanho do label na horizonal */
+    width: 8em; /* tamanho do label na horizonal */
+    height: 22px;
     margin-right: 1em; /* Espaço entre label e text */
-    text-align:left;    
+    text-align:left;
+        
 }
+.LITR
+{
+    height:16px;
+    text-align:left;
+    padding-bottom: 1em;
 
+}
+.OLx
+{
+    padding: 1em 1em 0 1em;
+    list-style: none;
+    height: 32px;
+    margin-left: 2px;
+}

@@ -279,7 +279,7 @@ namespace FAMIS_DALL
             sQuery += " ,[code] ";
             sQuery += " ,[date_hired] ";
             sQuery += " ,[last_version] ";
-            sQuery += " ,[salary] ";
+            //sQuery += " ,[salary] ";
             sQuery += " ,[picture] ";
             sQuery += " ,[cv] ";
             sQuery += " FROM [FAMIS].[dbo].[Employee]";
@@ -326,16 +326,16 @@ namespace FAMIS_DALL
                     }
                     if (!dr.IsDBNull(8))
                     {
-                        employee.Salary = dr.GetDecimal(8);
+                        //employee.Salary = dr.GetDecimal(8);
                     }
                     if (!dr.IsDBNull(9))
                     {
                         employee.Picture = dr.GetString(9);
                     }
-                    if (!dr.IsDBNull(10))
-                    {
-                        //employee.Cv = dr.GetByte(10);
-                    }
+                    //if (!dr.IsDBNull(10))
+                    //{
+                    //    //employee.Cv = dr.GetByte(10);
+                    //}
 
                     lstEmployee.Add(employee);
                 }

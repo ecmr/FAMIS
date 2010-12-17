@@ -24,138 +24,174 @@
 
 #container { width: 600px; margin: 0 auto; }
 
-#colunaUm {
-
-	width: 149px;
-
-	float: left;
-        height: 61px;
-    }
-
-#colunaDois {
-
-	width: 200px;
-
-	float: left;
-        height: 48px;
-    }
-</style>
+    </style>
 </head>
 <body>
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
 	<!-- BEGIN #page -->
     <div class="pageEmployee" >
-		<div class="headerEmployee" >
-			<h1>
-				Employes
-			</h1>
-		</div> 
         <!-- END #header -->
 		<div class="contentEmployee">
 			<form class="formEmployee" action="">
-                <table style="width: 100%; height: 444px;">
+                <table style="width: 75%; height: 366px;" >
                     <tr>
-                        <td>
-                            <fieldset class="fieldsetEmployee">
+                        <td colspan="3">
+                            <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                                <ContentTemplate>
+                                    <fieldset class="fieldsetSubmitEmployeeButtons">
+                                        <label class="LabelTitle" >Employes</label>
+                                        <asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" OnClick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Save"   ImageAlign="AbsMiddle" ImageUrl="~/images/Buttons/btnSave22.JPG" /></asp:LinkButton>
+                                        <asp:LinkButton ID="lblChange" runat="server" BorderColor="ActiveBorder" >                          <asp:Image ID="btnChange" runat="server" ToolTip="Change" ImageAlign="AbsMiddle" ImageUrl="~/images/Buttons/btnChange22.JPG" /></asp:LinkButton>
+                                        <asp:LinkButton ID="lblPrint" runat="server" BorderColor="ActiveBorder" >                           <asp:Image ID="btnPrint"  runat="server" ToolTip="Print"  ImageAlign="AbsMiddle" ImageUrl="~/images/Buttons/btnPrint22.JPG" /></asp:LinkButton>                                     
+				                    </fieldset>                    
+                                </ContentTemplate>
+                            </asp:UpdatePanel>                    
+                        </td>
+                    </tr>
+                        <tr>
+                        <td class="colunaUm">
+                            <fieldset class="fieldsetEmployeeC1">
 					            <legend>
-						            Employee Details
+						            Details
 					            </legend>
-					            <ol style="height: 30px; width: 100%;">
+					            <ol style="height: 290px; width: 99%;">
                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                 <ContentTemplate>
-						            <li style="height: 30px; width: 100%;">
-							            <label for="name">
-								            Employee ID:
-							            </label>
-                                        <asp:TextBox ID="TxtEmployee_id" CssClass="text" Enabled="false" runat="server" Width="100px"/>
-						            </li>
-						            <li style="height: 30px; width: 100%;">
+                                    <asp:Table ID="tableEmployeeID" runat="server">
+                                        <asp:TableRow runat="server">
+                                            <asp:TableCell runat="server">ID:</asp:TableCell>
+                                            <asp:TableCell ID="TableCell1" runat="server">Code</asp:TableCell>
+                                        </asp:TableRow>
+                                        <asp:TableRow ID="TableRow1" runat="server">
+                                            <asp:TableCell ID="TableCell2" runat="server">
+                                                <asp:TextBox ID="TxtEmployee_id" Enabled="false" Width="55px" Height="18px" runat="server"/>
+                                            </asp:TableCell>
+                                            <asp:TableCell ID="TableCell3" runat="server">
+                                                <asp:TextBox ID="TxtCode" Height="18px" Width="150px" runat="server" ></asp:TextBox>
+                                            </asp:TableCell>
+                                        </asp:TableRow>
+                                    </asp:Table>
+                                    <li>
 							            <label for="email">
 								            First Name:
 							            </label>
-                                        <asp:TextBox ID="TxtFirstName" CssClass="text" runat="server" Width="200px"/>
+                                        <asp:TextBox ID="TxtFirstName" CssClass="text" runat="server"/>
+                                        <asp:Label ID="lblMsgFn" runat="server" ></asp:Label>
 						            </li>
-                                    <li style="height: 30px; width: 100%;">
+                                    <li>
                                         <label for="lastName">
                                             Last Name:
                                         </label>
-                                        <asp:TextBox ID="txtLast_name" runat="server" Width="200px"></asp:TextBox>
+                                        <asp:TextBox ID="txtLast_name" CssClass="text" runat="server"></asp:TextBox>
+                                        <asp:Label ID="lblMsgLn" runat="server"></asp:Label>
                                     </li>
-                                    <li style="height: 50px; width: 100%;">
-                                        <label for="code">
-                                            Code:
-                                        </label>
-                                        <asp:TextBox ID="TxtCode" TextMode="MultiLine" runat="server" Height="45px" 
-                                            Width="200px"></asp:TextBox>
-                                    </li>
-                                    <li style="height: 30px; width: 100%;">
+                                    <li>
                                         <label for="Position">
                                             Position:
                                         </label>
-                                        <asp:DropDownList ID="DropDownPosition" Height="22px" Width="229px" 
+                                        <asp:DropDownList ID="DropDownPosition" Height="22px" Width="206px" 
                                             runat="server"></asp:DropDownList>
                                     </li>
-                                    <li style="height: 30px; width: 100%;">
-                                        <label for="Salary">
-                                            Salary:
+                                    <li>
+                                        <label for="Agency">
+                                            Agency:
                                         </label>
-                                        <asp:TextBox ID="TxtSalary" runat="server" Width="100px"></asp:TextBox> 
+                                        <asp:DropDownList ID="DropDownAgency" Height="22px" Width="206px" 
+                                            runat="server"></asp:DropDownList>
+                                    </li>
+                                    <li>
+                                        <label for="Department">
+                                            Department:
+                                        </label>
+                                        <asp:DropDownList ID="DropDownDepartment" Height="22px" Width="206px" 
+                                            runat="server"></asp:DropDownList>
                                     </li>
                                 </ContentTemplate>
                             </asp:UpdatePanel>
-                                    <li class="LIEmployeeColA">
-                                        <label for="code">
+                                    <li>
+                                        <label for="Hireddate">
                                             Hired Date:
                                         </label>
-                                        <asp:Button ID="Button1" runat="server" Text="Button" />
-                                        <asp:ConfirmButtonExtender ID="Button1_ConfirmButtonExtender" runat="server" 
-                                            ConfirmText="Funcionou?" Enabled="True" TargetControlID="Button1">
-                                        </asp:ConfirmButtonExtender>
-                                        <asp:TextBox ID="txtDateHired" runat="server" Width="100px"></asp:TextBox>
+                                        <asp:TextBox ID="txtDateHired" Height="18px" Width="140px" runat="server"></asp:TextBox>
+                                        <asp:Label ID="lblmsgDate" runat="server" /> 
                                         <asp:ImageButton ID="ImgCalendar1" runat="server" ImageUrl="~/imagens/Crm/calon.gif" onclick="ImageButton1_Click" />
-                                        <asp:CalendarExtender runat="server" TargetControlID="txtDateHired" CssClass="ClassName" Format="yyyy-MM-dd" />
-                                    </li>
+                                        <asp:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtDateHired" Format="yyyy-MM-dd" PopupButtonID="ImgCalendar1" />
+                                    <//li>    
 					            </ol>
 				            </fieldset>
                         </td>
-                        <td>
-                            <fieldset class="fieldsetEmployeeB">
-					            <legend>
-						            User Photo
-					            </legend>
-					            <ol class="fieldsetEmployeeOl">
- 
-						                    <li class="fieldsetEmployeeLi">
-                                                <asp:Image ID="PicturePhoto" runat="server" ImageUrl="~/imagens/Pictures/Edinei.JPG" Width="233px" Height="181px" BorderStyle="Solid" BorderWidth="2px" style="text-align: center; margin-top: 0px" />
-						                    </li>                                        
- 
-                                            <li class="FieldSetBrowserLi">
-                                                <asp:FileUpload ID="FileUploadPhoto" runat="server" EnableViewState="false" />
-                                            </li>
+                        <td class="colunaDois">
+                        <fieldset class="fieldsetEmployeeC2">
+	                        <legend>
+		                        Salary    
+	                        </legend>
+	                        <ol style="height: 290px; width: 99%;">
+                                <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+        	                        <ContentTemplate>
+			                        <li>
+                                    <label class="labelEmployee_B">Amount</label>
+                                    <asp:TextBox id="TxtAmount" runat="server" /><br />
+                                <asp:panel ID="pnlAmount" runat="server" BackColor="Transparent" Width="180px" Height="207px" ScrollBars="Vertical" >
+                                    <asp:Label id="lbloldAmt1" CssClass="labelEmployee_B" Text="Old Amount One" runat="server"/><br />
+                                    <asp:TextBox id="txtOldAmt1" runat="server" /><br />
+                                    <asp:label id="lbloldDt1" CssClass="labelEmployee_B"  Text="Old Date" runat="server" /><br />
+                                    <asp:TextBox id="txtOldDt1" runat="server" /><br />
+                                    <asp:label id="lbloldAmt2" Cssclass="labelEmployee_B" Text="Old Amount Two" runat="server" /><br />
+                                    <asp:TextBox id="txtOldAmt2" runat="server" /><br />
+                                    <asp:label id="lbloldDt2" Cssclass="labelEmployee_B" Text="Old Date" runat="server" /><br />
+                                    <asp:TextBox id="txtOldDt2" runat="server" /><br />
+                                </asp:panel><br />
 
-                                    <li class="FieldSetBrowserLi">
-                                        <asp:Button ID="UploadPhoto" OnClick="UploadPhoto_Click" Width="90px" Height="23px"  runat="server" Text="Upload" />                                    
+                                <asp:Panel ID="PnlBonus" runat="server" BackColor="Transparent" Width="178px" Height="117px" >
+                                <asp:Button ID="btnBonus" Text="Bonus" runat="server" onclick="btnBonus_Click" />
+                                    <br />
+                                    <asp:label ID="lblbonusAmt" Cssclass="labelEmployee_B" Text="Amount" runat="server" /><br />
+                                    <asp:TextBox ID="txtBonusAmt" runat="server" /><br />
+                                    <asp:label ID="lblbonusDt" Cssclass="labelEmployee_B" Text="Date" runat="server" /><br />
+                                    <asp:TextBox ID="txtBonusDt" Width="120px" runat="server" />
+                                    <asp:ImageButton ID="imgCalendarBonus" runat="server" ImageUrl="~/imagens/Crm/calon.gif" OnClick="imgCalendarBonus_Click" />
+                                    <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtBonusDt" Format="yyyy-MM-dd" PopupButtonID="imgCalendarBonus" />
+                                </asp:Panel>
                                     </li>
-					            </ol>
-				            </fieldset>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+	                        </ol>
+                        </fieldset>                           
                         </td>
-                    </tr>
-                </table>
-                <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                        <td class="colunaTres">
+                            <fieldset class="fieldsetEmployeeC3">
+					                    <legend>
+						                    Employee Photo
+					                    </legend>
+                                        &nbsp;&nbsp;<asp:Image ID="PicturePhoto" runat="server" 
+                                            ImageUrl="~/imagens/Pictures/Edinei.JPG" Width="220px" Height="175px" 
+                                            BorderStyle="Solid" BorderWidth="2px" style="margin-top: 0px; top: 0;" 
+                                            ImageAlign="Top" /><br />
+                                            <asp:FileUpload ID="FileUploadPhoto" runat="server" EnableViewState="false" />
+                                        <fieldset style="width: 252px;">
+                                            <legend>
+                                                Curriculum Vitae
+                                            </legend>
+                                            <asp:FileUpload ID="FileUploadCV" runat="server" EnableViewState="false" />    
+                                            <div id="btnCv">
+                                                <asp:LinkButton ID="linkCV" runat="server" BorderColor="ActiveBorder" OnClick="lkbCV_Click" ><asp:Image ID="ImageCV" runat="server" ToolTip="Open Curriculum Vitae" ImageAlign="AbsMiddle" ImageUrl="~/images/Buttons/PDF_Logo.JPG" Height="18px" Width="18px" BackColor="Transparent"  /><asp:Label ID="Label1" Text=" Open Currículum" runat="server" /></asp:LinkButton>
+                                            </div>                                        
+                                        </fieldset>
+                                            <asp:Button ID="UploadPhoto" OnClick="UploadPhoto_Click" Width="90px" Height="23px"  runat="server" Text="Upload files" /><br />
+                            </fieldset>
+					    </td></tr></table><asp:UpdatePanel ID="UpdatePanel3" runat="server">
                     <ContentTemplate>
                         <fieldset class="fieldsetEmployeeList">
 					        <legend>
-						        Employee List
-					        </legend>
-					        <ol class="OlEmployeeList">
+						        Employee List </legend><ol class="OlEmployeeList">
 						        <li class="LIEmployeeList">
-                                                                                                                                                                                                                                                                                                                                                                                    <asp:GridView ID="grvEmployee" runat="server" AllowPaging="True" PageSize="5" 
+                                    <asp:GridView ID="grvEmployee" runat="server" 
+                                        AllowPaging="True" PageSize="5" 
                                     AutoGenerateColumns="False" CellPadding="4" 
-                                    GridLines="Horizontal" Width="721px" DataKeyNames="agency_id,name"  
+                                    GridLines="Horizontal" Width="839px" DataKeyNames="employee_id,first_name,last_name"  
                                     OnPageIndexChanging="grvEmployee_PageIndexChanging" 
-                                     onselectedindexchanged="grvEmployee_SelectedIndexChanged">
-                                      <Columns>
+                                     onselectedindexchanged="grvEmployee_SelectedIndexChanged"><Columns>
                                       <asp:TemplateField ItemStyle-Width="25px" ItemStyle-HorizontalAlign="Center" 
                                               HeaderStyle-CssClass="grid_tittle" >
                                         <ItemTemplate>
@@ -177,16 +213,18 @@
                                         <ItemStyle Width="2%"></ItemStyle>
                                       </asp:TemplateField>
                                       <asp:BoundField HeaderText="ID" HeaderStyle-HorizontalAlign="Center" 
-                                              DataField="agency_id" HeaderStyle-CssClass="grid_tittle_div" 
-                                              HeaderStyle-Width="20%">
-                                        <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                                              DataField="employee_id" HeaderStyle-CssClass="grid_tittle_div" 
+                                              HeaderStyle-Width="20%"><HeaderStyle HorizontalAlign="Left"></HeaderStyle>
                                       </asp:BoundField>
-                                      <asp:BoundField HeaderText="Name" HeaderStyle-HorizontalAlign="Center" 
-                                              DataField="name" HeaderStyle-CssClass="grid_tittle" 
-                                              HeaderStyle-Width="80%">
-                                        <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                                      <asp:BoundField HeaderText="First Name" HeaderStyle-HorizontalAlign="Center" 
+                                              DataField="first_name" HeaderStyle-CssClass="grid_tittle" 
+                                              HeaderStyle-Width="30%"><HeaderStyle HorizontalAlign="Left"></HeaderStyle>
                                       </asp:BoundField>
-                                      </Columns>
+                                      <asp:BoundField HeaderText="Last Name" HeaderStyle-HorizontalAlign="Center" 
+                                              DataField="last_name" HeaderStyle-CssClass="grid_tittle" 
+                                              HeaderStyle-Width="50%"><HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                                      </asp:BoundField>
+				                    </Columns>
                                     <pagerstyle backcolor="LightBlue"/>                
                                     <FooterStyle />
                                     <RowStyle CssClass="grid_line_01" />
@@ -196,13 +234,6 @@
 						        </li>
 					        </ol>
 				        </fieldset>        
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-                <asp:UpdatePanel ID="UpdatePanel4" runat="server">
-                    <ContentTemplate>
-                        <fieldset class="fieldsetSubmitEmployeeButtons">
-					        <asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
-				        </fieldset>                    
                     </ContentTemplate>
                 </asp:UpdatePanel>
 			</form>

@@ -31,7 +31,8 @@ public partial class Departments : System.Web.UI.UserControl
 
                 FAMIS_BLL.Department _departmentAdd = new FAMIS_BLL.Department(); 
                 _departmentAdd.Add(_department);
-                txtDepartmentName.Text = "";  
+                txtDepartmentName.Text = "";
+                txtDepartment_id.Text = ""; 
             }
             catch (Exception ex)
             {
@@ -48,7 +49,8 @@ public partial class Departments : System.Web.UI.UserControl
 
                 FAMIS_BLL.Department _departmentAdd = new FAMIS_BLL.Department();
                 _departmentAdd.Update(_department);
-                txtDepartmentName.Text = "";  
+                txtDepartmentName.Text = "";
+                txtDepartment_id.Text = ""; 
             }
             catch (Exception ex)
             {

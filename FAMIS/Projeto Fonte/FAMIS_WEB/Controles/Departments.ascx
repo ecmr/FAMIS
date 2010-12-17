@@ -22,36 +22,55 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
 	<div id="page">
-		<div id="header">
-			<h1>
-				Departments
-			</h1>
+		<div>
+            <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                <ContentTemplate>
+                    <fieldset class="fieldsetSubmitDepartmentButtons" >
+                        <label class="LabelTitle" >Departments</label>
+                        <asp:LinkButton ID="LinkButton1" runat="server" BorderColor="ActiveBorder" OnClick="lkbSalvar_Click" ><asp:Image ID="Image1" runat="server" ToolTip="Save"   ImageAlign="AbsMiddle" ImageUrl="~/images/Buttons/btnSave22.JPG" /></asp:LinkButton>
+                        <asp:LinkButton ID="lblChange" runat="server" BorderColor="ActiveBorder" >                          <asp:Image ID="btnChange" runat="server" ToolTip="Change" ImageAlign="AbsMiddle" ImageUrl="~/images/Buttons/btnChange22.JPG" /></asp:LinkButton>
+                        <asp:LinkButton ID="lblPrint" runat="server" BorderColor="ActiveBorder" >                           <asp:Image ID="btnPrint"  runat="server" ToolTip="Print"  ImageAlign="AbsMiddle" ImageUrl="~/images/Buttons/btnPrint22.JPG" /></asp:LinkButton>                                     
+				    </fieldset>                    
+                </ContentTemplate>
+            </asp:UpdatePanel>
 		</div> <!-- END #header -->
 		<div class="contentFilho">
 			<form class="formFilho" action="">
+
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
                         <fieldset class="fieldset">
 					<legend>
 						Department Details
 					</legend>
-					<ol class="OlDepartment">
-						<li class="LIOlDepartment">
-							<label for="name">
-								Department ID:
-							</label>
-                            <asp:TextBox ID="txtDepartment_id" CssClass="text" Enabled="false" runat="server"/>
-						</li>
-						<li class="LIOlDepartment">
-							<label for="email">
-								Department Name:
-							</label>
-                            <asp:TextBox ID="txtDepartmentName" CssClass="text" runat="server"/>
-						</li>
-					</ol>
+                    <table style="width: 75%;">
+                        <tr>
+                            <td>
+                                <ol class="OlDepartment">
+                                    <li class="LIOlDepartment">
+                                        <label for="name">
+                                            Department ID:
+                                        </label>
+                                        <asp:TextBox ID="txtDepartment_id" CssClass="text" Enabled="false" runat="server"/>
+                                    </li>
+                                </ol>
+                            </td>
+                            <td>                            
+                                <ol class="OlDepartment">
+                                    <li class="LIOlDepartment">
+                                        <label for="email">
+                                            Department Name:
+                                        </label>
+                                        <asp:TextBox ID="txtDepartmentName" CssClass="text" runat="server"/>
+                                    </li>                            
+                                </ol>
+                            </td>
+                        </tr>
+                    </table>
 				</fieldset>    
                     </ContentTemplate>
                 </asp:UpdatePanel>
+
                 <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                     <ContentTemplate>
                         <fieldset class="fieldsetDepartmentsList">
@@ -107,13 +126,6 @@
 				</fieldset>    
                     </ContentTemplate>
                 </asp:UpdatePanel>
-                <asp:UpdatePanel ID="UpdatePanel3" runat="server">
-                    <ContentTemplate>
-                        <fieldset class="fieldsetSubmit" >
-					        <asp:LinkButton ID="lkbSalvar" runat="server" BorderColor="ActiveBorder" onclick="lkbSalvar_Click" ><asp:Image ID="btnSalvar" runat="server" ToolTip="Salvar" ImageAlign="AbsMiddle" ImageUrl="~/imagens/Crm/btn_on_down.gif" />Save</asp:LinkButton>
-				        </fieldset>    
-                    </ContentTemplate>
-                </asp:UpdatePanel>				
 			</form>
 		</div><!-- END #content -->
 	</div> <!-- END #page -->
