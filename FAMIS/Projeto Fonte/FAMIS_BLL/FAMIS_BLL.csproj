@@ -53,12 +53,10 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FAMIS_DALL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="FAMIS_DALL">
       <HintPath>..\FAMIS_DALL\FAMIS_DALL\bin\Debug\FAMIS_DALL.dll</HintPath>
     </Reference>
-    <Reference Include="Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Model">
       <HintPath>..\Model\bin\Debug\Model.dll</HintPath>
     </Reference>
     <Reference Include="System" />

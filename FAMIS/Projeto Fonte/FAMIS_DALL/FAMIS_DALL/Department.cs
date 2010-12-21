@@ -20,8 +20,8 @@ namespace FAMIS_DALL
         public string Add(Model.Department Department)
         {
 
-            string str = " INSERT INTO [FAMIS].[dbo].[Department] ([name]) " + Environment.NewLine;
-            str += " VALUES ('" + Department.Name + "')";
+            string str = " INSERT INTO [FAMIS].[dbo].[Department] ([Code], [name]) " + Environment.NewLine;
+            str += " VALUES (" + Department.Code + ",'" + Department.Name + "')";
 
             try
             {
@@ -67,6 +67,11 @@ namespace FAMIS_DALL
             {
                 str += " [Name] = '" + Department.Name + "'" + Environment.NewLine;
             }
+            if (!string.IsNullOrEmpty(Department.Code.ToString()))
+            {
+                str += ", [Code] = " + Department.Code + Environment.NewLine;
+            }
+
             str += " WHERE [Department_id] = " + Department.Department_id; 
 
             try
@@ -102,7 +107,11 @@ namespace FAMIS_DALL
                     }
                     if (!dr.IsDBNull(1))
                     {
-                        Department.Name = dr.GetString(1); 
+                        Department.Code = dr.GetInt32(1);
+                    }
+                    if (!dr.IsDBNull(2))
+                    {
+                        Department.Name = dr.GetString(2);
                     }
                 }
 
@@ -136,7 +145,11 @@ namespace FAMIS_DALL
                     }
                     if (!dr.IsDBNull(1))
                     {
-                        Department.Name = dr.GetString(1);
+                        Department.Code = dr.GetInt32(1);
+                    }
+                    if (!dr.IsDBNull(2))
+                    {
+                        Department.Name = dr.GetString(2);
                     }
 
                     lstDepartment.Add(Department); 

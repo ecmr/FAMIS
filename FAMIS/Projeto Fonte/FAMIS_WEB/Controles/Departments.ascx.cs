@@ -22,17 +22,18 @@ public partial class Departments : System.Web.UI.UserControl
 
     protected void lkbSalvar_Click(object sender, EventArgs e)
     {
-        if (String.IsNullOrEmpty(txtDepartment_id.Text))
+        if (String.IsNullOrEmpty(txtDepartment_Code.Text))
         {// new
             try
             {
                 Model.Department _department = new Model.Department();
                 _department.Name = txtDepartmentName.Text;
+                _department.Code = Convert.ToInt32(txtDepartment_Code.Text); 
 
                 FAMIS_BLL.Department _departmentAdd = new FAMIS_BLL.Department(); 
                 _departmentAdd.Add(_department);
                 txtDepartmentName.Text = "";
-                txtDepartment_id.Text = ""; 
+                txtDepartment_Code.Text = ""; 
             }
             catch (Exception ex)
             {
@@ -45,12 +46,12 @@ public partial class Departments : System.Web.UI.UserControl
             {
                 Model.Department _department = new Model.Department();
                 _department.Name = txtDepartmentName.Text;
-                _department.Department_id = Convert.ToInt32(txtDepartment_id.Text);
+                _department.Department_id = Convert.ToInt32(txtDepartment_Code.Text);
 
                 FAMIS_BLL.Department _departmentAdd = new FAMIS_BLL.Department();
                 _departmentAdd.Update(_department);
                 txtDepartmentName.Text = "";
-                txtDepartment_id.Text = ""; 
+                txtDepartment_Code.Text = ""; 
             }
             catch (Exception ex)
             {
@@ -89,9 +90,9 @@ public partial class Departments : System.Web.UI.UserControl
 
         FAMIS_BLL.Department _department = new FAMIS_BLL.Department();
         List<Model.Department> ListDepartment =
-            _department.Select(" Where Department_id=" + grvDepartment.DataKeys[grid.RowIndex].Values[0].ToString());
+            _department.Select(" Where Code=" + grvDepartment.DataKeys[grid.RowIndex].Values[0].ToString());
 
-        txtDepartment_id.Text = ListDepartment.ElementAt(0).Department_id.ToString();
+        txtDepartment_Code.Text = ListDepartment.ElementAt(0).Code.ToString();
         txtDepartmentName.Text = ListDepartment.ElementAt(0).Name.ToString();
     }
 

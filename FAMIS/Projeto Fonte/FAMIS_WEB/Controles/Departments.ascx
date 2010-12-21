@@ -49,9 +49,9 @@
                                 <ol class="OlDepartment">
                                     <li class="LIOlDepartment">
                                         <label for="name">
-                                            Department ID:
+                                            Department Code:
                                         </label>
-                                        <asp:TextBox ID="txtDepartment_id" CssClass="text" Enabled="false" runat="server"/>
+                                        <asp:TextBox ID="txtDepartment_Code" CssClass="text" runat="server"/>
                                     </li>
                                 </ol>
                             </td>
@@ -81,7 +81,7 @@
 						<li>
                             <asp:GridView ID="grvDepartment" runat="server" AllowPaging="True" PageSize="5" 
                                     AutoGenerateColumns="False" CellPadding="4" 
-                                    GridLines="Horizontal" Width="699px" DataKeyNames="department_id,name"  
+                                    GridLines="Horizontal" Width="699px" DataKeyNames="Code,name"  
                     OnPageIndexChanging="grvClient_PageIndexChanging">
                                   <Columns>
                                   <asp:TemplateField ItemStyle-Width="25px" ItemStyle-HorizontalAlign="Center" 
@@ -104,8 +104,8 @@
                                     <HeaderStyle CssClass="grid_tittle_div"></HeaderStyle>
                                     <ItemStyle Width="2%"></ItemStyle>
                                   </asp:TemplateField>
-                                  <asp:BoundField HeaderText="ID" HeaderStyle-HorizontalAlign="Center" 
-                                          DataField="department_id" HeaderStyle-CssClass="grid_tittle_div" 
+                                  <asp:BoundField HeaderText="Code" HeaderStyle-HorizontalAlign="Center" 
+                                          DataField="Code" HeaderStyle-CssClass="grid_tittle_div" 
                                           HeaderStyle-Width="20%">
                                     <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
                                   </asp:BoundField>

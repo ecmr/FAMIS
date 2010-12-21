@@ -87,8 +87,8 @@ a:hover
 {
 	height: 90px;
 	background-color: #B2DD32;
-	background-image: url(../images/header1.jpg);
-	background-repeat: repeat-x;
+	/*background-image: url(../images/header1.jpg);*/
+	/*background-repeat: repeat-x;*/
 }
 
 h1
