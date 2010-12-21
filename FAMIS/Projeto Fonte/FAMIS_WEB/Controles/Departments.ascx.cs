@@ -22,7 +22,7 @@ public partial class Departments : System.Web.UI.UserControl
 
     protected void lkbSalvar_Click(object sender, EventArgs e)
     {
-        if (String.IsNullOrEmpty(txtDepartment_Code.Text))
+        if (String.IsNullOrEmpty(txtDepartment_id.Text))
         {// new
             try
             {
@@ -46,7 +46,8 @@ public partial class Departments : System.Web.UI.UserControl
             {
                 Model.Department _department = new Model.Department();
                 _department.Name = txtDepartmentName.Text;
-                _department.Department_id = Convert.ToInt32(txtDepartment_Code.Text);
+                _department.Code = Convert.ToInt32(txtDepartment_Code.Text);  
+                _department.Department_id = Convert.ToInt32(txtDepartment_id.Text);
 
                 FAMIS_BLL.Department _departmentAdd = new FAMIS_BLL.Department();
                 _departmentAdd.Update(_department);
@@ -92,6 +93,7 @@ public partial class Departments : System.Web.UI.UserControl
         List<Model.Department> ListDepartment =
             _department.Select(" Where Code=" + grvDepartment.DataKeys[grid.RowIndex].Values[0].ToString());
 
+        txtDepartment_id.Text = ListDepartment.ElementAt(0).Department_id.ToString();   
         txtDepartment_Code.Text = ListDepartment.ElementAt(0).Code.ToString();
         txtDepartmentName.Text = ListDepartment.ElementAt(0).Name.ToString();
     }

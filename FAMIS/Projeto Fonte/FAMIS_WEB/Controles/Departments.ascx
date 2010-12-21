@@ -51,6 +51,7 @@
                                         <label for="name">
                                             Department Code:
                                         </label>
+                                        <asp:TextBox ID="txtDepartment_id" Visible="false" Enabled="false" runat="server" />    
                                         <asp:TextBox ID="txtDepartment_Code" CssClass="text" runat="server"/>
                                     </li>
                                 </ol>
